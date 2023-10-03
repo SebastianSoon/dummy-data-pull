@@ -1,9 +1,7 @@
 Test 123
 Bahn Mi
-<<<<<<< HEAD
 New branch here
 Testing new branch
-=======
 
 New branch here
 
@@ -11,4 +9,3 @@ New branch here
 Testing new branch
 
 testing new branch here
->>>>>>> refs/remotes/origin/main
