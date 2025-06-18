@@ -10,7 +10,7 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 const DATA_DIR = path.join(__dirname, 'data');
 const swaggerDocument = YAML.load(path.join(__dirname, 'openapi.yaml'));
