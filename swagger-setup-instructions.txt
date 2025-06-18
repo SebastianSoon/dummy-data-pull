@@ -1,0 +1,16 @@
+# Swagger UI Setup Instructions
+
+1. Install the required package:
+   npm install swagger-ui-express yamljs
+
+2. Add the following code to your api.js (after your other requires):
+
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load(path.join(__dirname, 'openapi.yaml'));
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+3. Restart your server and visit http://localhost:3000/docs to view the interactive API documentation.
+
+This will always reflect your openapi.yaml file and is the industry standard for API documentation.

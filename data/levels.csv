@@ -1,0 +1,11 @@
+id,name,order,isDeleted
+l1,Baby,1,false
+l2,Kiddie,2,false
+l3,Red 1,3,false
+l4,Red 2,4,false
+l5,Yellow 1,5,false
+l6,Yellow 2,6,false
+l7,Blue 1,7,false
+l8,Blue 2,8,false
+l9,Mini Squad,9,false
+l10,Squad,10,false

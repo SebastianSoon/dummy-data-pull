@@ -1,0 +1,19 @@
+id,fullName,username,contact,email,password,role,branchId,isDeleted,createdAt,updatedAt
+u1,Bertha Weimann III,Hershel52,1-607-750-6634 x652,Caesar_Considine42@yahoo.com,OJKYbjXCOdOhKpK,coach,b1,false,2025-05-07T13:40:09.157Z,2025-06-17T17:07:46.753Z
+u2,Lynn Beatty,Bernhard_Orn16,675.811.2213 x695,Javon18@hotmail.com,CjBkXdtT53f8kev,coach,b1,false,2025-06-02T22:13:50.636Z,2025-06-17T12:16:12.274Z
+u3,Zachary Jaskolski,Garry_Schamberger42,801.841.8375,Columbus0@gmail.com,w9KZKwsQx_KX7Xt,coach,b1,false,2025-05-08T22:18:02.028Z,2025-06-17T18:38:41.724Z
+u4,Randal Bartell-Sauer,Esteban_Bogan,229.463.8991 x9868,Ruthe_Dicki59@yahoo.com,6KYrKxUyBBWe32H,coach,b1,false,2024-09-11T00:23:39.161Z,2025-06-17T01:09:55.605Z
+u5,Kerry Goldner,Electa.Stiedemann86,937.255.1677 x3205,Ardith.McGlynn35@hotmail.com,QzLL6fKUrx9Idnd,coach,b1,false,2025-02-26T15:10:45.293Z,2025-06-17T10:14:19.899Z
+u6,Darrel Ritchie,Chelsea_Dooley2,290-912-1695 x76701,Van_Cole@hotmail.com,D0jt1oZQos03SYV,coach,b2,false,2024-09-28T21:22:26.042Z,2025-06-17T10:36:58.138Z
+u7,Lena Boyle,Woodrow.Hauck66,1-228-744-2367 x12025,Chester.Lockman@yahoo.com,W6UOtyIXL_KWCNV,coach,b2,false,2025-01-26T00:03:36.530Z,2025-06-17T04:34:58.973Z
+u8,Richard Legros,Vella_Flatley22,815-446-3480 x4433,Torrance_Bradtke84@yahoo.com,EFUowk5souberJ5,coach,b2,false,2024-08-01T15:19:06.513Z,2025-06-17T03:17:33.220Z
+u9,Teresa Sawayn,Angeline_Hartmann,579.656.5395 x262,Zachary.Macejkovic51@gmail.com,a9gdYBHVQ3jWPMN,coach,b2,false,2024-12-07T01:31:06.268Z,2025-06-17T14:08:26.334Z
+u10,Marlon Mertz,Alexanne.OKeefe,381-243-9564 x575,Nathen32@yahoo.com,epRzN1zyAJ9d3q1,coach,b2,false,2025-03-23T04:32:08.029Z,2025-06-17T14:45:54.936Z
+u11,Mr. Earl Robel,Eriberto29,1-358-302-6956 x119,Candelario.Ebert27@gmail.com,XQmCXVgXfEPuqXe,coach,b3,false,2025-06-16T16:17:22.306Z,2025-06-17T09:04:15.160Z
+u12,Fannie Brown,Rey22,588.411.1354 x343,Major.Lindgren9@yahoo.com,oCa_FiPTi7dqNkB,coach,b3,false,2024-08-09T00:00:33.479Z,2025-06-17T05:14:40.761Z
+u13,Caleb Monahan,Luna_Nienow67,1-551-535-7541,Letitia_Smitham20@yahoo.com,dk2YQ6t29hKgk_t,coach,b3,false,2024-11-02T10:23:08.004Z,2025-06-17T21:49:17.630Z
+u14,Virginia Schmeler,Charlene_Dietrich56,910-700-1967 x19180,Trisha_Gulgowski80@gmail.com,hGvbXYVnBp5HTM9,coach,b3,false,2024-11-28T22:52:08.051Z,2025-06-17T04:26:18.980Z
+u15,Dr. Meredith Gutkowski,Eugene.Murphy54,753.697.9326 x02897,Johann.Flatley9@hotmail.com,0SQjj6k6wBQRdFS,coach,b3,false,2024-12-29T12:57:39.117Z,2025-06-17T07:18:51.177Z
+u16,Marvin Cummerata,Vern42,1-415-339-2315 x1620,Cheyanne.Breitenberg49@hotmail.com,P2XQMw_8pPliH5S,branch_admin,b1,false,2025-01-09T16:30:45.875Z,2025-06-17T08:00:28.764Z
+u17,Dr. William Wiegand,Sammie.Ondricka83,(871) 721-7404 x4988,Estevan_Adams34@hotmail.com,PQT5wWVErDvYRhI,branch_admin,b2,false,2024-09-22T11:57:41.803Z,2025-06-17T04:35:59.169Z
+u18,Juana Sipes,Berenice94,912-670-2001 x11224,Maudie64@gmail.com,Lkb4csc5KQMq6Qs,branch_admin,b3,false,2024-09-03T08:23:52.493Z,2025-06-17T01:15:17.539Z

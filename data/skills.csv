@@ -1,0 +1,41 @@
+id,name,levelId,isDeleted
+sl1_1,Baby Skill 1,l1,false
+sl1_2,Baby Skill 2,l1,false
+sl1_3,Baby Skill 3,l1,false
+sl1_4,Baby Skill 4,l1,false
+sl2_1,Kiddie Skill 1,l2,false
+sl2_2,Kiddie Skill 2,l2,false
+sl2_3,Kiddie Skill 3,l2,false
+sl2_4,Kiddie Skill 4,l2,false
+sl3_1,Red 1 Skill 1,l3,false
+sl3_2,Red 1 Skill 2,l3,false
+sl3_3,Red 1 Skill 3,l3,false
+sl3_4,Red 1 Skill 4,l3,false
+sl4_1,Red 2 Skill 1,l4,false
+sl4_2,Red 2 Skill 2,l4,false
+sl4_3,Red 2 Skill 3,l4,false
+sl4_4,Red 2 Skill 4,l4,false
+sl5_1,Yellow 1 Skill 1,l5,false
+sl5_2,Yellow 1 Skill 2,l5,false
+sl5_3,Yellow 1 Skill 3,l5,false
+sl5_4,Yellow 1 Skill 4,l5,false
+sl6_1,Yellow 2 Skill 1,l6,false
+sl6_2,Yellow 2 Skill 2,l6,false
+sl6_3,Yellow 2 Skill 3,l6,false
+sl6_4,Yellow 2 Skill 4,l6,false
+sl7_1,Blue 1 Skill 1,l7,false
+sl7_2,Blue 1 Skill 2,l7,false
+sl7_3,Blue 1 Skill 3,l7,false
+sl7_4,Blue 1 Skill 4,l7,false
+sl8_1,Blue 2 Skill 1,l8,false
+sl8_2,Blue 2 Skill 2,l8,false
+sl8_3,Blue 2 Skill 3,l8,false
+sl8_4,Blue 2 Skill 4,l8,false
+sl9_1,Mini Squad Skill 1,l9,false
+sl9_2,Mini Squad Skill 2,l9,false
+sl9_3,Mini Squad Skill 3,l9,false
+sl9_4,Mini Squad Skill 4,l9,false
+sl10_1,Squad Skill 1,l10,false
+sl10_2,Squad Skill 2,l10,false
+sl10_3,Squad Skill 3,l10,false
+sl10_4,Squad Skill 4,l10,false

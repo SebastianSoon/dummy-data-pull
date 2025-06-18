@@ -1,0 +1,342 @@
+openapi: 3.0.3
+info:
+  title: Swim School Analytics API
+  version: 1.0.0
+  description: |
+    API for retrieving and analyzing swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, and attendance.
+servers:
+  - url: http://localhost:3000
+paths:
+  /branches:
+    get:
+      summary: Get all branches
+      responses:
+        '200':
+          description: List of branches
+  /branches/{id}:
+    get:
+      summary: Get branch by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Branch details
+        '404':
+          description: Not found
+  /users:
+    get:
+      summary: Get all users (staff)
+      parameters:
+        - in: query
+          name: role
+          schema: { type: string }
+        - in: query
+          name: branchId
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of users
+  /users/{id}:
+    get:
+      summary: Get user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: User details
+        '404':
+          description: Not found
+  /students:
+    get:
+      summary: Get all students
+      parameters:
+        - in: query
+          name: levelId
+          schema: { type: string }
+        - in: query
+          name: branchId
+          schema: { type: string }
+        - in: query
+          name: status
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of students
+  /students/{id}:
+    get:
+      summary: Get student by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Student details
+        '404':
+          description: Not found
+  /students/{id}/enrollments:
+    get:
+      summary: Get all enrollments for a student
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of enrollments
+  /students/{id}/assessments:
+    get:
+      summary: Get all assessments for a student
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of assessments
+  /students/{id}/attendances:
+    get:
+      summary: Get all attendance records for a student
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of attendance records
+  /levels:
+    get:
+      summary: Get all levels
+      responses:
+        '200':
+          description: List of levels
+  /levels/{id}:
+    get:
+      summary: Get level by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Level details
+        '404':
+          description: Not found
+  /levels/{id}/skills:
+    get:
+      summary: Get all skills for a level
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of skills
+  /skills:
+    get:
+      summary: Get all skills
+      parameters:
+        - in: query
+          name: levelId
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of skills
+  /class-types:
+    get:
+      summary: Get all class types
+      responses:
+        '200':
+          description: List of class types
+  /class-types/{id}:
+    get:
+      summary: Get class type by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Class type details
+        '404':
+          description: Not found
+  /swim-classes:
+    get:
+      summary: Get all swim classes
+      parameters:
+        - in: query
+          name: branchId
+          schema: { type: string }
+        - in: query
+          name: classTypeId
+          schema: { type: string }
+        - in: query
+          name: levelId
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of swim classes
+  /swim-classes/{id}:
+    get:
+      summary: Get swim class by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Swim class details
+        '404':
+          description: Not found
+  /swim-classes/{id}/sessions:
+    get:
+      summary: Get all sessions for a swim class
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of sessions
+  /swim-class-sessions:
+    get:
+      summary: Get all swim class sessions
+      parameters:
+        - in: query
+          name: swimClassId
+          schema: { type: string }
+        - in: query
+          name: dateFrom
+          schema: { type: string, format: date }
+        - in: query
+          name: dateTo
+          schema: { type: string, format: date }
+      responses:
+        '200':
+          description: List of swim class sessions
+  /swim-class-sessions/{id}:
+    get:
+      summary: Get swim class session by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Swim class session details
+        '404':
+          description: Not found
+  /swim-class-sessions/{id}/attendances:
+    get:
+      summary: Get all attendance records for a session
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of attendance records
+  /enrollments:
+    get:
+      summary: Get all enrollments
+      parameters:
+        - in: query
+          name: studentId
+          schema: { type: string }
+        - in: query
+          name: classId
+          schema: { type: string }
+        - in: query
+          name: active
+          schema: { type: boolean }
+      responses:
+        '200':
+          description: List of enrollments
+  /enrollments/{id}:
+    get:
+      summary: Get enrollment by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Enrollment details
+        '404':
+          description: Not found
+  /assessments:
+    get:
+      summary: Get all assessments
+      parameters:
+        - in: query
+          name: studentId
+          schema: { type: string }
+        - in: query
+          name: levelId
+          schema: { type: string }
+        - in: query
+          name: status
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of assessments
+  /assessments/{id}:
+    get:
+      summary: Get assessment by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Assessment details
+        '404':
+          description: Not found
+  /attendances:
+    get:
+      summary: Get all attendance records
+      parameters:
+        - in: query
+          name: studentId
+          schema: { type: string }
+        - in: query
+          name: swimClassSessionId
+          schema: { type: string }
+        - in: query
+          name: confirmed
+          schema: { type: boolean }
+      responses:
+        '200':
+          description: List of attendance records
+  /attendances/{id}:
+    get:
+      summary: Get attendance by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Attendance details
+        '404':
+          description: Not found
