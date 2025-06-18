@@ -9,13 +9,17 @@ servers:
 paths:
   /branches:
     get:
+      operationId: listBranches
       summary: Get all branches
+      tags: [Branches]
       responses:
         '200':
           description: List of branches
   /branches/{id}:
     get:
+      operationId: getBranchById
       summary: Get branch by ID
+      tags: [Branches]
       parameters:
         - in: path
           name: id
@@ -28,7 +32,9 @@ paths:
           description: Not found
   /users:
     get:
+      operationId: listUsers
       summary: Get all users (staff)
+      tags: [Users]
       parameters:
         - in: query
           name: role
@@ -41,7 +47,9 @@ paths:
           description: List of users
   /users/{id}:
     get:
+      operationId: getUserById
       summary: Get user by ID
+      tags: [Users]
       parameters:
         - in: path
           name: id
@@ -54,7 +62,9 @@ paths:
           description: Not found
   /students:
     get:
+      operationId: listStudents
       summary: Get all students
+      tags: [Students]
       parameters:
         - in: query
           name: levelId
@@ -70,7 +80,9 @@ paths:
           description: List of students
   /students/{id}:
     get:
+      operationId: getStudentById
       summary: Get student by ID
+      tags: [Students]
       parameters:
         - in: path
           name: id
@@ -83,7 +95,9 @@ paths:
           description: Not found
   /students/{id}/enrollments:
     get:
+      operationId: listStudentEnrollments
       summary: Get all enrollments for a student
+      tags: [Students, Enrollments]
       parameters:
         - in: path
           name: id
@@ -94,7 +108,9 @@ paths:
           description: List of enrollments
   /students/{id}/assessments:
     get:
+      operationId: listStudentAssessments
       summary: Get all assessments for a student
+      tags: [Students, Assessments]
       parameters:
         - in: path
           name: id
@@ -105,7 +121,9 @@ paths:
           description: List of assessments
   /students/{id}/attendances:
     get:
+      operationId: listStudentAttendances
       summary: Get all attendance records for a student
+      tags: [Students, Attendance]
       parameters:
         - in: path
           name: id
@@ -116,13 +134,17 @@ paths:
           description: List of attendance records
   /levels:
     get:
+      operationId: listLevels
       summary: Get all levels
+      tags: [Levels]
       responses:
         '200':
           description: List of levels
   /levels/{id}:
     get:
+      operationId: getLevelById
       summary: Get level by ID
+      tags: [Levels]
       parameters:
         - in: path
           name: id
@@ -135,7 +157,9 @@ paths:
           description: Not found
   /levels/{id}/skills:
     get:
+      operationId: listLevelSkills
       summary: Get all skills for a level
+      tags: [Levels, Skills]
       parameters:
         - in: path
           name: id
@@ -146,7 +170,9 @@ paths:
           description: List of skills
   /skills:
     get:
+      operationId: listSkills
       summary: Get all skills
+      tags: [Skills]
       parameters:
         - in: query
           name: levelId
@@ -156,13 +182,17 @@ paths:
           description: List of skills
   /class-types:
     get:
+      operationId: listClassTypes
       summary: Get all class types
+      tags: [Class Types]
       responses:
         '200':
           description: List of class types
   /class-types/{id}:
     get:
+      operationId: getClassTypeById
       summary: Get class type by ID
+      tags: [Class Types]
       parameters:
         - in: path
           name: id
@@ -175,7 +205,9 @@ paths:
           description: Not found
   /swim-classes:
     get:
+      operationId: listSwimClasses
       summary: Get all swim classes
+      tags: [Swim Classes]
       parameters:
         - in: query
           name: branchId
@@ -191,7 +223,9 @@ paths:
           description: List of swim classes
   /swim-classes/{id}:
     get:
+      operationId: getSwimClassById
       summary: Get swim class by ID
+      tags: [Swim Classes]
       parameters:
         - in: path
           name: id
@@ -204,7 +238,9 @@ paths:
           description: Not found
   /swim-classes/{id}/sessions:
     get:
+      operationId: listSwimClassSessions
       summary: Get all sessions for a swim class
+      tags: [Swim Classes, Sessions]
       parameters:
         - in: path
           name: id
@@ -215,7 +251,9 @@ paths:
           description: List of sessions
   /swim-class-sessions:
     get:
+      operationId: listSwimClassSessionsAll
       summary: Get all swim class sessions
+      tags: [Sessions]
       parameters:
         - in: query
           name: swimClassId
@@ -231,7 +269,9 @@ paths:
           description: List of swim class sessions
   /swim-class-sessions/{id}:
     get:
+      operationId: getSwimClassSessionById
       summary: Get swim class session by ID
+      tags: [Sessions]
       parameters:
         - in: path
           name: id
@@ -244,7 +284,9 @@ paths:
           description: Not found
   /swim-class-sessions/{id}/attendances:
     get:
+      operationId: listSessionAttendances
       summary: Get all attendance records for a session
+      tags: [Sessions, Attendance]
       parameters:
         - in: path
           name: id
@@ -255,7 +297,9 @@ paths:
           description: List of attendance records
   /enrollments:
     get:
+      operationId: listEnrollments
       summary: Get all enrollments
+      tags: [Enrollments]
       parameters:
         - in: query
           name: studentId
@@ -271,7 +315,9 @@ paths:
           description: List of enrollments
   /enrollments/{id}:
     get:
+      operationId: getEnrollmentById
       summary: Get enrollment by ID
+      tags: [Enrollments]
       parameters:
         - in: path
           name: id
@@ -284,7 +330,9 @@ paths:
           description: Not found
   /assessments:
     get:
+      operationId: listAssessments
       summary: Get all assessments
+      tags: [Assessments]
       parameters:
         - in: query
           name: studentId
@@ -300,7 +348,9 @@ paths:
           description: List of assessments
   /assessments/{id}:
     get:
+      operationId: getAssessmentById
       summary: Get assessment by ID
+      tags: [Assessments]
       parameters:
         - in: path
           name: id
@@ -313,7 +363,9 @@ paths:
           description: Not found
   /attendances:
     get:
+      operationId: listAttendances
       summary: Get all attendance records
+      tags: [Attendance]
       parameters:
         - in: query
           name: studentId
@@ -329,7 +381,9 @@ paths:
           description: List of attendance records
   /attendances/{id}:
     get:
+      operationId: getAttendanceById
       summary: Get attendance by ID
+      tags: [Attendance]
       parameters:
         - in: path
           name: id
