@@ -11,6 +11,6 @@ const swaggerDocument = YAML.load(path.join(__dirname, 'openapi.yaml'));
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-3. Restart your server and visit http://localhost:3000/docs to view the interactive API documentation.
+3. Restart your server and visit https://dsa-demo.onrender.com/docs to view the interactive API documentation.
 
 This will always reflect your openapi.yaml file and is the industry standard for API documentation.

@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-  title: Swim School Analytics API
+  title: DSA Demo API
   version: 1.0.0
   description: |
-    API for retrieving and analyzing swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, and attendance.
+    API for retrieving swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, and attendance.
 servers:
-  - url: http://localhost:3000
+  - url: https://dsa-demo.onrender.com
 paths:
   /branches:
     get:
