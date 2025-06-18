@@ -11,6 +11,11 @@ paths:
     get:
       operationId: listBranches
       summary: Get all branches
+      description: |
+        Returns a list of all branches.
+        - No parameters required.
+        - Response: Array of branch objects.
+        - Example: `[ { id: "b1", name: "Main Branch", ... }, ... ]`
       tags: [Branches]
       responses:
         '200':
@@ -19,6 +24,11 @@ paths:
     get:
       operationId: getBranchById
       summary: Get branch by ID
+      description: |
+        Returns a single branch by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Branch object if found, 404 if not found.
+        - Example: `/branches/b1`
       tags: [Branches]
       parameters:
         - in: path
@@ -34,6 +44,13 @@ paths:
     get:
       operationId: listUsers
       summary: Get all users (staff)
+      description: |
+        Returns a list of all users (staff).
+        - Optional query parameters:
+          - `role` (string): Filter by user role.
+          - `branchId` (string): Filter by branch.
+        - Response: Array of user objects.
+        - Example: `/users?role=coach&branchId=b1`
       tags: [Users]
       parameters:
         - in: query
@@ -49,6 +66,11 @@ paths:
     get:
       operationId: getUserById
       summary: Get user by ID
+      description: |
+        Returns a single user by their ID.
+        - Path parameter: `id` (string, required)
+        - Response: User object if found, 404 if not found.
+        - Example: `/users/u1`
       tags: [Users]
       parameters:
         - in: path
@@ -64,6 +86,14 @@ paths:
     get:
       operationId: listStudents
       summary: Get all students
+      description: |
+        Returns a list of all students.
+        - Optional query parameters:
+          - `levelId` (string): Filter by level.
+          - `branchId` (string): Filter by branch.
+          - `status` (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).
+        - Response: Array of student objects.
+        - Example: `/students?levelId=l1&status=NORMAL`
       tags: [Students]
       parameters:
         - in: query
@@ -82,6 +112,11 @@ paths:
     get:
       operationId: getStudentById
       summary: Get student by ID
+      description: |
+        Returns a single student by their ID.
+        - Path parameter: `id` (string, required)
+        - Response: Student object if found, 404 if not found.
+        - Example: `/students/s1`
       tags: [Students]
       parameters:
         - in: path
@@ -97,6 +132,11 @@ paths:
     get:
       operationId: listStudentEnrollments
       summary: Get all enrollments for a student
+      description: |
+        Returns all enrollments for a given student.
+        - Path parameter: `id` (student ID, string, required)
+        - Response: Array of enrollment objects.
+        - Example: `/students/s1/enrollments`
       tags: [Students, Enrollments]
       parameters:
         - in: path
@@ -110,6 +150,11 @@ paths:
     get:
       operationId: listStudentAssessments
       summary: Get all assessments for a student
+      description: |
+        Returns all assessments for a given student.
+        - Path parameter: `id` (student ID, string, required)
+        - Response: Array of assessment objects.
+        - Example: `/students/s1/assessments`
       tags: [Students, Assessments]
       parameters:
         - in: path
@@ -123,6 +168,11 @@ paths:
     get:
       operationId: listStudentAttendances
       summary: Get all attendance records for a student
+      description: |
+        Returns all attendance records for a given student.
+        - Path parameter: `id` (student ID, string, required)
+        - Response: Array of attendance objects.
+        - Example: `/students/s1/attendances`
       tags: [Students, Attendance]
       parameters:
         - in: path
@@ -136,6 +186,11 @@ paths:
     get:
       operationId: listLevels
       summary: Get all levels
+      description: |
+        Returns a list of all levels.
+        - No parameters required.
+        - Response: Array of level objects.
+        - Example: `[ { id: "l1", name: "Beginner", ... }, ... ]`
       tags: [Levels]
       responses:
         '200':
@@ -144,6 +199,11 @@ paths:
     get:
       operationId: getLevelById
       summary: Get level by ID
+      description: |
+        Returns a single level by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Level object if found, 404 if not found.
+        - Example: `/levels/l1`
       tags: [Levels]
       parameters:
         - in: path
@@ -159,6 +219,12 @@ paths:
     get:
       operationId: listLevelSkills
       summary: Get all skills for a level
+      description: |
+        This endpoint requires the level ID as a path parameter (e.g. `/levels/l4/skills`).
+        Do not use a query parameter like `levelId`. For filtering by level using a query parameter, use `/skills?levelId=...` instead.
+        - Path parameter: `id` (level ID, string, required)
+        - Response: Array of skill objects.
+        - Example: `/levels/l1/skills`
       tags: [Levels, Skills]
       parameters:
         - in: path
@@ -172,6 +238,11 @@ paths:
     get:
       operationId: listSkills
       summary: Get all skills
+      description: |
+        Returns a list of all skills, optionally filtered by level.
+        - Optional query parameter: `levelId` (string)
+        - Response: Array of skill objects.
+        - Example: `/skills?levelId=l1`
       tags: [Skills]
       parameters:
         - in: query
@@ -184,6 +255,11 @@ paths:
     get:
       operationId: listClassTypes
       summary: Get all class types
+      description: |
+        Returns a list of all class types.
+        - No parameters required.
+        - Response: Array of class type objects.
+        - Example: `[ { id: "ct1", name: "Group", ... }, ... ]`
       tags: [Class Types]
       responses:
         '200':
@@ -192,6 +268,11 @@ paths:
     get:
       operationId: getClassTypeById
       summary: Get class type by ID
+      description: |
+        Returns a single class type by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Class type object if found, 404 if not found.
+        - Example: `/class-types/ct1`
       tags: [Class Types]
       parameters:
         - in: path
@@ -207,6 +288,14 @@ paths:
     get:
       operationId: listSwimClasses
       summary: Get all swim classes
+      description: |
+        Returns a list of all swim classes.
+        - Optional query parameters:
+          - `branchId` (string): Filter by branch.
+          - `classTypeId` (string): Filter by class type.
+          - `levelId` (string): Filter by level (matches allowedLevels in class type).
+        - Response: Array of swim class objects.
+        - Example: `/swim-classes?branchId=b1&levelId=l1`
       tags: [Swim Classes]
       parameters:
         - in: query
@@ -225,6 +314,11 @@ paths:
     get:
       operationId: getSwimClassById
       summary: Get swim class by ID
+      description: |
+        Returns a single swim class by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Swim class object if found, 404 if not found.
+        - Example: `/swim-classes/c1`
       tags: [Swim Classes]
       parameters:
         - in: path
@@ -240,6 +334,11 @@ paths:
     get:
       operationId: listSwimClassSessions
       summary: Get all sessions for a swim class
+      description: |
+        Returns all sessions for a given swim class.
+        - Path parameter: `id` (swim class ID, string, required)
+        - Response: Array of session objects.
+        - Example: `/swim-classes/c1/sessions`
       tags: [Swim Classes, Sessions]
       parameters:
         - in: path
@@ -253,6 +352,14 @@ paths:
     get:
       operationId: listSwimClassSessionsAll
       summary: Get all swim class sessions
+      description: |
+        Returns a list of all swim class sessions.
+        - Optional query parameters:
+          - `swimClassId` (string): Filter by swim class.
+          - `dateFrom` (string, date): Filter sessions on or after this date.
+          - `dateTo` (string, date): Filter sessions on or before this date.
+        - Response: Array of session objects, each with a `studentIds` array.
+        - Example: `/swim-class-sessions?swimClassId=c1&dateFrom=2024-01-01`
       tags: [Sessions]
       parameters:
         - in: query
@@ -271,6 +378,11 @@ paths:
     get:
       operationId: getSwimClassSessionById
       summary: Get swim class session by ID
+      description: |
+        Returns a single swim class session by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Session object if found, 404 if not found. Includes a `studentIds` array.
+        - Example: `/swim-class-sessions/s1`
       tags: [Sessions]
       parameters:
         - in: path
@@ -286,6 +398,11 @@ paths:
     get:
       operationId: listSessionAttendances
       summary: Get all attendance records for a session
+      description: |
+        Returns all attendance records for a given swim class session.
+        - Path parameter: `id` (session ID, string, required)
+        - Response: Array of attendance objects.
+        - Example: `/swim-class-sessions/s1/attendances`
       tags: [Sessions, Attendance]
       parameters:
         - in: path
@@ -299,6 +416,14 @@ paths:
     get:
       operationId: listEnrollments
       summary: Get all enrollments
+      description: |
+        Returns a list of all enrollments.
+        - Optional query parameters:
+          - `studentId` (string): Filter by student.
+          - `classId` (string): Filter by swim class.
+          - `active` (boolean): Filter for active enrollments (no endAt and not deleted).
+        - Response: Array of enrollment objects.
+        - Example: `/enrollments?studentId=s1&active=true`
       tags: [Enrollments]
       parameters:
         - in: query
@@ -317,6 +442,11 @@ paths:
     get:
       operationId: getEnrollmentById
       summary: Get enrollment by ID
+      description: |
+        Returns a single enrollment by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Enrollment object if found, 404 if not found.
+        - Example: `/enrollments/e1`
       tags: [Enrollments]
       parameters:
         - in: path
@@ -332,6 +462,14 @@ paths:
     get:
       operationId: listAssessments
       summary: Get all assessments
+      description: |
+        Returns a list of all assessments.
+        - Optional query parameters:
+          - `studentId` (string): Filter by student.
+          - `levelId` (string): Filter by level.
+          - `status` (string): Filter by assessment status (Scheduled, Submitted, Passed, Failed).
+        - Response: Array of assessment objects.
+        - Example: `/assessments?studentId=s1&status=Passed`
       tags: [Assessments]
       parameters:
         - in: query
@@ -350,6 +488,11 @@ paths:
     get:
       operationId: getAssessmentById
       summary: Get assessment by ID
+      description: |
+        Returns a single assessment by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Assessment object if found, 404 if not found.
+        - Example: `/assessments/a1`
       tags: [Assessments]
       parameters:
         - in: path
@@ -365,6 +508,14 @@ paths:
     get:
       operationId: listAttendances
       summary: Get all attendance records
+      description: |
+        Returns a list of all attendance records.
+        - Optional query parameters:
+          - `studentId` (string): Filter by student.
+          - `swimClassSessionId` (string): Filter by swim class session.
+          - `confirmed` (boolean): Filter by confirmation status.
+        - Response: Array of attendance objects.
+        - Example: `/attendances?studentId=s1&confirmed=true`
       tags: [Attendance]
       parameters:
         - in: query
@@ -383,6 +534,11 @@ paths:
     get:
       operationId: getAttendanceById
       summary: Get attendance by ID
+      description: |
+        Returns a single attendance record by its ID.
+        - Path parameter: `id` (string, required)
+        - Response: Attendance object if found, 404 if not found.
+        - Example: `/attendances/at1`
       tags: [Attendance]
       parameters:
         - in: path
