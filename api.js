@@ -127,8 +127,22 @@ app.get('/swim-classes', (req, res) => {
   if (req.query.branchId) classes = classes.filter(c => c.branchId === req.query.branchId);
   if (req.query.classTypeId) classes = classes.filter(c => c.classTypeId === req.query.classTypeId);
   if (req.query.levelId) {
-    // Find class types for this level
-    const cts = loaders.classTypes().filter(ct => JSON.parse(ct.allowedLevels.replace(/'/g,'"')).includes(req.query.levelId)).map(ct => ct.id);
+    // Find class types for this level, with error handling for malformed allowedLevels
+    let cts = [];
+    try {
+      cts = loaders.classTypes().filter(ct => {
+        if (!ct.allowedLevels) return false;
+        let allowed;
+        try {
+          allowed = JSON.parse(ct.allowedLevels.replace(/'/g,'"'));
+        } catch (e) {
+          return false;
+        }
+        return Array.isArray(allowed) && allowed.includes(req.query.levelId);
+      }).map(ct => ct.id);
+    } catch (err) {
+      return res.status(500).json({ error: 'Error parsing allowedLevels in classTypes' });
+    }
     classes = classes.filter(c => cts.includes(c.classTypeId));
   }
   res.json(classes);
@@ -146,14 +160,36 @@ app.get('/swim-classes/:id/sessions', (req, res) => {
 // --- Swim Class Sessions ---
 app.get('/swim-class-sessions', (req, res) => {
   let sessions = loaders.swimClassSessions();
+  // Defensive parse for studentIds
+  sessions = sessions.map(s => {
+    let studentIds = [];
+    if (s.studentIds) {
+      try {
+        studentIds = JSON.parse(s.studentIds.replace(/'/g,'"'));
+      } catch (e) {
+        studentIds = [];
+      }
+    }
+    return { ...s, studentIds };
+  });
   if (req.query.swimClassId) sessions = sessions.filter(s => s.swimClassId === req.query.swimClassId);
   if (req.query.dateFrom) sessions = sessions.filter(s => new Date(s.date) >= new Date(req.query.dateFrom));
   if (req.query.dateTo) sessions = sessions.filter(s => new Date(s.date) <= new Date(req.query.dateTo));
   res.json(sessions);
 });
 app.get('/swim-class-sessions/:id', (req, res) => {
-  const session = loaders.swimClassSessions().find(s => s.id === req.params.id);
+  let session = loaders.swimClassSessions().find(s => s.id === req.params.id);
   if (!session) return res.status(404).json({ error: 'Not found' });
+  // Defensive parse for studentIds
+  let studentIds = [];
+  if (session.studentIds) {
+    try {
+      studentIds = JSON.parse(session.studentIds.replace(/'/g,'"'));
+    } catch (e) {
+      studentIds = [];
+    }
+  }
+  session = { ...session, studentIds };
   res.json(session);
 });
 app.get('/swim-class-sessions/:id/attendances', (req, res) => {
