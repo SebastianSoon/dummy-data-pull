@@ -20,20 +20,26 @@
         }
       }
     },
-    "/branches/{id}": {
-      "get": {
+    "/branches/by-id": {
+      "post": {
         "operationId": "getBranchById",
-        "summary": "Get branch by ID",
-        "description": "Returns a single branch by its ID.\n- Path parameter: id (string, required)\n- Response: Branch object if found, 404 if not found.\n- Example: /branches/b1",
+        "summary": "Get branch by ID (POST)",
+        "description": "Returns a single branch by its ID. Pass the branchId in the request body. Example: { \"branchId\": \"b1\" }",
         "tags": ["Branches"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "branchId": { "type": "string" }
+                },
+                "required": ["branchId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Branch details" },
           "404": { "description": "Not found" }
@@ -44,7 +50,7 @@
       "get": {
         "operationId": "listUsers",
         "summary": "Get all users (staff)",
-        "description": "Returns a list of all users (staff).\n- Optional query parameters:\n  - role (string): Filter by user role.\n  - branchId (string): Filter by branch.\n- Response: Array of user objects.\n- Example: /users?role=coach&branchId=b1",
+        "description": "Returns a list of all users (staff).\n- Optional query parameters:\n  - role (string): Filter by user role.\n  - branchId (string): Filter by branch.\n- Response: Array of user objects.\n- Example: GET /users?role=coach&branchId=b1",
         "tags": ["Users"],
         "parameters": [
           {
@@ -63,20 +69,26 @@
         }
       }
     },
-    "/users/{id}": {
-      "get": {
+    "/users/by-id": {
+      "post": {
         "operationId": "getUserById",
-        "summary": "Get user by ID",
-        "description": "Returns a single user by their ID.\n- Path parameter: id (string, required)\n- Response: User object if found, 404 if not found.\n- Example: /users/u1",
+        "summary": "Get user by ID (POST)",
+        "description": "Returns a single user by their ID. Pass the userId in the request body. Example: { \"userId\": \"u1\" }",
         "tags": ["Users"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": { "type": "string" }
+                },
+                "required": ["userId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "User details" },
           "404": { "description": "Not found" }
@@ -87,7 +99,7 @@
       "get": {
         "operationId": "listStudents",
         "summary": "Get all students",
-        "description": "Returns a list of all students.\n- Optional query parameters:\n  - levelId (string): Filter by level.\n  - branchId (string): Filter by branch.\n  - status (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).\n- Response: Array of student objects.\n- Example: /students?levelId=l1&status=NORMAL",
+        "description": "Returns a list of all students.\n- Optional query parameters:\n  - levelId (string): Filter by level.\n  - branchId (string): Filter by branch.\n  - status (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).\n- Response: Array of student objects.\n- Example: GET /students?levelId=l1&status=NORMAL",
         "tags": ["Students"],
         "parameters": [
           {
@@ -111,78 +123,102 @@
         }
       }
     },
-    "/students/{id}": {
-      "get": {
+    "/students/by-id": {
+      "post": {
         "operationId": "getStudentById",
-        "summary": "Get student by ID",
-        "description": "Returns a single student by their ID.\n- Path parameter: id (string, required)\n- Response: Student object if found, 404 if not found.\n- Example: /students/s1",
+        "summary": "Get student by ID (POST)",
+        "description": "Returns a single student by their ID. Pass the studentId in the request body. Example: { \"studentId\": \"s1\" }",
         "tags": ["Students"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": { "type": "string" }
+                },
+                "required": ["studentId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Student details" },
           "404": { "description": "Not found" }
         }
       }
     },
-    "/students/{id}/enrollments": {
-      "get": {
+    "/students/enrollments-by-student": {
+      "post": {
         "operationId": "listStudentEnrollments",
-        "summary": "Get all enrollments for a student",
-        "description": "Returns all enrollments for a given student.\n- Path parameter: id (student ID, string, required)\n- Response: Array of enrollment objects.\n- Example: /students/s1/enrollments",
+        "summary": "Get all enrollments for a student (POST)",
+        "description": "Returns all enrollments for a given student. Pass the studentId in the request body. Example: { \"studentId\": \"s1\" }",
         "tags": ["Students", "Enrollments"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": { "type": "string" }
+                },
+                "required": ["studentId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "List of enrollments" }
         }
       }
     },
-    "/students/{id}/assessments": {
-      "get": {
+    "/students/assessments-by-student": {
+      "post": {
         "operationId": "listStudentAssessments",
-        "summary": "Get all assessments for a student",
-        "description": "Returns all assessments for a given student.\n- Path parameter: id (student ID, string, required)\n- Response: Array of assessment objects.\n- Example: /students/s1/assessments",
+        "summary": "Get all assessments for a student (POST)",
+        "description": "Returns all assessments for a given student. Pass the studentId in the request body. Example: { \"studentId\": \"s1\" }",
         "tags": ["Students", "Assessments"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": { "type": "string" }
+                },
+                "required": ["studentId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "List of assessments" }
         }
       }
     },
-    "/students/{id}/attendances": {
-      "get": {
+    "/students/attendances-by-student": {
+      "post": {
         "operationId": "listStudentAttendances",
-        "summary": "Get all attendance records for a student",
-        "description": "Returns all attendance records for a given student.\n- Path parameter: id (student ID, string, required)\n- Response: Array of attendance objects.\n- Example: /students/s1/attendances",
+        "summary": "Get all attendance records for a student (POST)",
+        "description": "Returns all attendance records for a given student. Pass the studentId in the request body. Example: { \"studentId\": \"s1\" }",
         "tags": ["Students", "Attendance"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": { "type": "string" }
+                },
+                "required": ["studentId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "List of attendance records" }
         }
@@ -199,40 +235,52 @@
         }
       }
     },
-    "/levels/{id}": {
-      "get": {
+    "/levels/by-id": {
+      "post": {
         "operationId": "getLevelById",
-        "summary": "Get level by ID",
-        "description": "Returns a single level by its ID.\n- Path parameter: id (string, required)\n- Response: Level object if found, 404 if not found.\n- Example: /levels/l1",
+        "summary": "Get level by ID (POST)",
+        "description": "Returns a single level by its ID. Pass the levelId in the request body. Example: { \"levelId\": \"l1\" }",
         "tags": ["Levels"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "levelId": { "type": "string" }
+                },
+                "required": ["levelId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Level details" },
           "404": { "description": "Not found" }
         }
       }
     },
-    "/levels/{id}/skills": {
-      "get": {
+    "/levels/skills-by-level": {
+      "post": {
         "operationId": "listLevelSkills",
-        "summary": "Get all skills for a level",
-        "description": "This endpoint requires the level ID as a path parameter (e.g. /levels/l4/skills). Do not use a query parameter like levelId. For filtering by level using a query parameter, use /skills?levelId=... instead.\n- Path parameter: id (level ID, string, required)\n- Response: Array of skill objects.\n- Example: /levels/l1/skills",
+        "summary": "Get all skills for a level (POST)",
+        "description": "Returns all skills for a given level. Pass the levelId in the request body. Example: { \"levelId\": \"l1\" }",
         "tags": ["Levels", "Skills"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "levelId": { "type": "string" }
+                },
+                "required": ["levelId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "List of skills" }
         }
@@ -242,7 +290,7 @@
       "get": {
         "operationId": "listSkills",
         "summary": "Get all skills",
-        "description": "Returns a list of all skills, optionally filtered by level.\n- Optional query parameter: levelId (string)\n- Response: Array of skill objects.\n- Example: /skills?levelId=l1",
+        "description": "Returns a list of all skills, optionally filtered by level.\n- Optional query parameter: levelId (string)\n- Response: Array of skill objects.\n- Example: GET /skills?levelId=l1",
         "tags": ["Skills"],
         "parameters": [
           {
@@ -267,20 +315,26 @@
         }
       }
     },
-    "/class-types/{id}": {
-      "get": {
+    "/class-types/by-id": {
+      "post": {
         "operationId": "getClassTypeById",
-        "summary": "Get class type by ID",
-        "description": "Returns a single class type by its ID.\n- Path parameter: id (string, required)\n- Response: Class type object if found, 404 if not found.\n- Example: /class-types/ct1",
+        "summary": "Get class type by ID (POST)",
+        "description": "Returns a single class type by its ID. Pass the classTypeId in the request body. Example: { \"classTypeId\": \"ct1\" }",
         "tags": ["Class Types"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "classTypeId": { "type": "string" }
+                },
+                "required": ["classTypeId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Class type details" },
           "404": { "description": "Not found" }
@@ -291,7 +345,7 @@
       "get": {
         "operationId": "listSwimClasses",
         "summary": "Get all swim classes",
-        "description": "Returns a list of all swim classes.\n- Optional query parameters:\n  - branchId (string): Filter by branch.\n  - classTypeId (string): Filter by class type.\n  - levelId (string): Filter by level (matches allowedLevels in class type).\n- Response: Array of swim class objects.\n- Example: /swim-classes?branchId=b1&levelId=l1",
+        "description": "Returns a list of all swim classes.\n- Optional query parameters:\n  - branchId (string): Filter by branch.\n  - classTypeId (string): Filter by class type.\n  - levelId (string): Filter by level (matches allowedLevels in class type).\n- Response: Array of swim class objects.\n- Example: GET /swim-classes?branchId=b1&levelId=l1",
         "tags": ["Swim Classes"],
         "parameters": [
           {
@@ -315,40 +369,52 @@
         }
       }
     },
-    "/swim-classes/{id}": {
-      "get": {
+    "/swim-classes/by-id": {
+      "post": {
         "operationId": "getSwimClassById",
-        "summary": "Get swim class by ID",
-        "description": "Returns a single swim class by its ID.\n- Path parameter: id (string, required)\n- Response: Swim class object if found, 404 if not found.\n- Example: /swim-classes/c1",
+        "summary": "Get swim class by ID (POST)",
+        "description": "Returns a single swim class by its ID. Pass the swimClassId in the request body. Example: { \"swimClassId\": \"c1\" }",
         "tags": ["Swim Classes"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "swimClassId": { "type": "string" }
+                },
+                "required": ["swimClassId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Swim class details" },
           "404": { "description": "Not found" }
         }
       }
     },
-    "/swim-classes/{id}/sessions": {
-      "get": {
+    "/swim-classes/sessions-by-class": {
+      "post": {
         "operationId": "listSwimClassSessions",
-        "summary": "Get all sessions for a swim class",
-        "description": "Returns all sessions for a given swim class.\n- Path parameter: id (swim class ID, string, required)\n- Response: Array of session objects.\n- Example: /swim-classes/c1/sessions",
+        "summary": "Get all sessions for a swim class (POST)",
+        "description": "Returns all sessions for a given swim class. Pass the swimClassId in the request body. Example: { \"swimClassId\": \"c1\" }",
         "tags": ["Swim Classes", "Sessions"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "swimClassId": { "type": "string" }
+                },
+                "required": ["swimClassId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "List of sessions" }
         }
@@ -358,7 +424,7 @@
       "get": {
         "operationId": "listSwimClassSessionsAll",
         "summary": "Get all swim class sessions",
-        "description": "Returns a list of all swim class sessions.\n- Optional query parameters:\n  - swimClassId (string): Filter by swim class.\n  - dateFrom (string, date): Filter sessions on or after this date.\n  - dateTo (string, date): Filter sessions on or before this date.\n- Response: Array of session objects, each with a studentIds array.\n- Example: /swim-class-sessions?swimClassId=c1&dateFrom=2024-01-01",
+        "description": "Returns a list of all swim class sessions.\n- Optional query parameters:\n  - swimClassId (string): Filter by swim class.\n  - dateFrom (string, date): Filter sessions on or after this date.\n  - dateTo (string, date): Filter sessions on or before this date.\n- Response: Array of session objects, each with a studentIds array.\n- Example: GET /swim-class-sessions?swimClassId=c1&dateFrom=2024-01-01",
         "tags": ["Sessions"],
         "parameters": [
           {
@@ -382,40 +448,52 @@
         }
       }
     },
-    "/swim-class-sessions/{id}": {
-      "get": {
+    "/swim-class-sessions/by-id": {
+      "post": {
         "operationId": "getSwimClassSessionById",
-        "summary": "Get swim class session by ID",
-        "description": "Returns a single swim class session by its ID.\n- Path parameter: id (string, required)\n- Response: Session object if found, 404 if not found. Includes a studentIds array.\n- Example: /swim-class-sessions/s1",
+        "summary": "Get swim class session by ID (POST)",
+        "description": "Returns a single swim class session by its ID. Pass the swimClassSessionId in the request body. Example: { \"swimClassSessionId\": \"s1\" }",
         "tags": ["Sessions"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "swimClassSessionId": { "type": "string" }
+                },
+                "required": ["swimClassSessionId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Swim class session details" },
           "404": { "description": "Not found" }
         }
       }
     },
-    "/swim-class-sessions/{id}/attendances": {
-      "get": {
+    "/swim-class-sessions/attendances-by-session": {
+      "post": {
         "operationId": "listSessionAttendances",
-        "summary": "Get all attendance records for a session",
-        "description": "Returns all attendance records for a given swim class session.\n- Path parameter: id (session ID, string, required)\n- Response: Array of attendance objects.\n- Example: /swim-class-sessions/s1/attendances",
+        "summary": "Get all attendance records for a session (POST)",
+        "description": "Returns all attendance records for a given swim class session. Pass the swimClassSessionId in the request body. Example: { \"swimClassSessionId\": \"s1\" }",
         "tags": ["Sessions", "Attendance"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "swimClassSessionId": { "type": "string" }
+                },
+                "required": ["swimClassSessionId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "List of attendance records" }
         }
@@ -425,7 +503,7 @@
       "get": {
         "operationId": "listEnrollments",
         "summary": "Get all enrollments",
-        "description": "Returns a list of all enrollments.\n- Optional query parameters:\n  - studentId (string): Filter by student.\n  - classId (string): Filter by swim class.\n  - active (boolean): Filter for active enrollments (no endAt and not deleted).\n- Response: Array of enrollment objects.\n- Example: /enrollments?studentId=s1&active=true",
+        "description": "Returns a list of all enrollments.\n- Optional query parameters:\n  - studentId (string): Filter by student.\n  - classId (string): Filter by swim class.\n  - active (boolean): Filter for active enrollments (no endAt and not deleted).\n- Response: Array of enrollment objects.\n- Example: GET /enrollments?studentId=s1&active=true",
         "tags": ["Enrollments"],
         "parameters": [
           {
@@ -449,20 +527,26 @@
         }
       }
     },
-    "/enrollments/{id}": {
-      "get": {
+    "/enrollments/by-id": {
+      "post": {
         "operationId": "getEnrollmentById",
-        "summary": "Get enrollment by ID",
-        "description": "Returns a single enrollment by its ID.\n- Path parameter: id (string, required)\n- Response: Enrollment object if found, 404 if not found.\n- Example: /enrollments/e1",
+        "summary": "Get enrollment by ID (POST)",
+        "description": "Returns a single enrollment by its ID. Pass the enrollmentId in the request body. Example: { \"enrollmentId\": \"e1\" }",
         "tags": ["Enrollments"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enrollmentId": { "type": "string" }
+                },
+                "required": ["enrollmentId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Enrollment details" },
           "404": { "description": "Not found" }
@@ -473,7 +557,7 @@
       "get": {
         "operationId": "listAssessments",
         "summary": "Get all assessments",
-        "description": "Returns a list of all assessments.\n- Optional query parameters:\n  - studentId (string): Filter by student.\n  - levelId (string): Filter by level.\n  - status (string): Filter by assessment status (Scheduled, Submitted, Passed, Failed).\n- Response: Array of assessment objects.\n- Example: /assessments?studentId=s1&status=Passed",
+        "description": "Returns a list of all assessments.\n- Optional query parameters:\n  - studentId (string): Filter by student.\n  - levelId (string): Filter by level.\n  - status (string): Filter by assessment status (Scheduled, Submitted, Passed, Failed).\n- Response: Array of assessment objects.\n- Example: GET /assessments?studentId=s1&status=Passed",
         "tags": ["Assessments"],
         "parameters": [
           {
@@ -497,20 +581,26 @@
         }
       }
     },
-    "/assessments/{id}": {
-      "get": {
+    "/assessments/by-id": {
+      "post": {
         "operationId": "getAssessmentById",
-        "summary": "Get assessment by ID",
-        "description": "Returns a single assessment by its ID.\n- Path parameter: id (string, required)\n- Response: Assessment object if found, 404 if not found.\n- Example: /assessments/a1",
+        "summary": "Get assessment by ID (POST)",
+        "description": "Returns a single assessment by its ID. Pass the assessmentId in the request body. Example: { \"assessmentId\": \"a1\" }",
         "tags": ["Assessments"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "assessmentId": { "type": "string" }
+                },
+                "required": ["assessmentId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Assessment details" },
           "404": { "description": "Not found" }
@@ -521,7 +611,7 @@
       "get": {
         "operationId": "listAttendances",
         "summary": "Get all attendance records",
-        "description": "Returns a list of all attendance records.\n- Optional query parameters:\n  - studentId (string): Filter by student.\n  - swimClassSessionId (string): Filter by swim class session.\n  - confirmed (boolean): Filter by confirmation status.\n- Response: Array of attendance objects.\n- Example: /attendances?studentId=s1&confirmed=true",
+        "description": "Returns a list of all attendance records.\n- Optional query parameters:\n  - studentId (string): Filter by student.\n  - swimClassSessionId (string): Filter by swim class session.\n  - confirmed (boolean): Filter by confirmation status.\n- Response: Array of attendance objects.\n- Example: GET /attendances?studentId=s1&confirmed=true",
         "tags": ["Attendance"],
         "parameters": [
           {
@@ -545,20 +635,26 @@
         }
       }
     },
-    "/attendances/{id}": {
-      "get": {
+    "/attendances/by-id": {
+      "post": {
         "operationId": "getAttendanceById",
-        "summary": "Get attendance by ID",
-        "description": "Returns a single attendance record by its ID.\n- Path parameter: id (string, required)\n- Response: Attendance object if found, 404 if not found.\n- Example: /attendances/at1",
+        "summary": "Get attendance by ID (POST)",
+        "description": "Returns a single attendance record by its ID. Pass the attendanceId in the request body. Example: { \"attendanceId\": \"at1\" }",
         "tags": ["Attendance"],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": { "type": "string" }
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "attendanceId": { "type": "string" }
+                },
+                "required": ["attendanceId"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": { "description": "Attendance details" },
           "404": { "description": "Not found" }

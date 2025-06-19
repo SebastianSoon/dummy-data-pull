@@ -11,6 +11,7 @@ const YAML = require('yamljs');
 
 const app = express();
 app.use(cors({ origin: '*' }));
+app.use(express.json());
 
 const DATA_DIR = path.join(__dirname, 'data');
 const swaggerDocument = YAML.load(path.join(__dirname, 'openapi.yaml'));
@@ -47,8 +48,11 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/branches', (req, res) => {
   res.json(loaders.branches());
 });
-app.get('/branches/:id', (req, res) => {
-  const branch = loaders.branches().find(b => b.id === req.params.id);
+
+// --- POST endpoints for ID-based queries ---
+app.post('/branches/by-id', (req, res) => {
+  const { branchId } = req.body;
+  const branch = loaders.branches().find(b => b.id === branchId);
   if (!branch) return res.status(404).json({ error: 'Not found' });
   res.json(branch);
 });
@@ -60,8 +64,10 @@ app.get('/users', (req, res) => {
   if (req.query.branchId) users = users.filter(u => u.branchId === req.query.branchId);
   res.json(users);
 });
-app.get('/users/:id', (req, res) => {
-  const user = loaders.users().find(u => u.id === req.params.id);
+
+app.post('/users/by-id', (req, res) => {
+  const { userId } = req.body;
+  const user = loaders.users().find(u => u.id === userId);
   if (!user) return res.status(404).json({ error: 'Not found' });
   res.json(user);
 });
@@ -74,21 +80,26 @@ app.get('/students', (req, res) => {
   if (req.query.status) students = students.filter(s => s.status === req.query.status);
   res.json(students);
 });
-app.get('/students/:id', (req, res) => {
-  const student = loaders.students().find(s => s.id === req.params.id);
+
+app.post('/students/by-id', (req, res) => {
+  const { studentId } = req.body;
+  const student = loaders.students().find(s => s.id === studentId);
   if (!student) return res.status(404).json({ error: 'Not found' });
   res.json(student);
 });
-app.get('/students/:id/enrollments', (req, res) => {
-  const enrollments = loaders.enrollments().filter(e => e.studentId === req.params.id);
+app.post('/students/enrollments-by-student', (req, res) => {
+  const { studentId } = req.body;
+  const enrollments = loaders.enrollments().filter(e => e.studentId === studentId);
   res.json(enrollments);
 });
-app.get('/students/:id/assessments', (req, res) => {
-  const assessments = loaders.assessments().filter(a => a.studentId === req.params.id);
+app.post('/students/assessments-by-student', (req, res) => {
+  const { studentId } = req.body;
+  const assessments = loaders.assessments().filter(a => a.studentId === studentId);
   res.json(assessments);
 });
-app.get('/students/:id/attendances', (req, res) => {
-  const attendances = loaders.attendances().filter(a => a.studentId === req.params.id);
+app.post('/students/attendances-by-student', (req, res) => {
+  const { studentId } = req.body;
+  const attendances = loaders.attendances().filter(a => a.studentId === studentId);
   res.json(attendances);
 });
 
@@ -96,13 +107,16 @@ app.get('/students/:id/attendances', (req, res) => {
 app.get('/levels', (req, res) => {
   res.json(loaders.levels());
 });
-app.get('/levels/:id', (req, res) => {
-  const level = loaders.levels().find(l => l.id === req.params.id);
+
+app.post('/levels/by-id', (req, res) => {
+  const { levelId } = req.body;
+  const level = loaders.levels().find(l => l.id === levelId);
   if (!level) return res.status(404).json({ error: 'Not found' });
   res.json(level);
 });
-app.get('/levels/:id/skills', (req, res) => {
-  const skills = loaders.skills().filter(s => s.levelId === req.params.id);
+app.post('/levels/skills-by-level', (req, res) => {
+  const { levelId } = req.body;
+  const skills = loaders.skills().filter(s => s.levelId === levelId);
   res.json(skills);
 });
 app.get('/skills', (req, res) => {
@@ -115,8 +129,10 @@ app.get('/skills', (req, res) => {
 app.get('/class-types', (req, res) => {
   res.json(loaders.classTypes());
 });
-app.get('/class-types/:id', (req, res) => {
-  const ct = loaders.classTypes().find(c => c.id === req.params.id);
+
+app.post('/class-types/by-id', (req, res) => {
+  const { classTypeId } = req.body;
+  const ct = loaders.classTypes().find(c => c.id === classTypeId);
   if (!ct) return res.status(404).json({ error: 'Not found' });
   res.json(ct);
 });
@@ -147,13 +163,16 @@ app.get('/swim-classes', (req, res) => {
   }
   res.json(classes);
 });
-app.get('/swim-classes/:id', (req, res) => {
-  const swimClass = loaders.swimClasses().find(c => c.id === req.params.id);
+
+app.post('/swim-classes/by-id', (req, res) => {
+  const { swimClassId } = req.body;
+  const swimClass = loaders.swimClasses().find(c => c.id === swimClassId);
   if (!swimClass) return res.status(404).json({ error: 'Not found' });
   res.json(swimClass);
 });
-app.get('/swim-classes/:id/sessions', (req, res) => {
-  const sessions = loaders.swimClassSessions().filter(s => s.swimClassId === req.params.id);
+app.post('/swim-classes/sessions-by-class', (req, res) => {
+  const { swimClassId } = req.body;
+  const sessions = loaders.swimClassSessions().filter(s => s.swimClassId === swimClassId);
   res.json(sessions);
 });
 
@@ -177,10 +196,11 @@ app.get('/swim-class-sessions', (req, res) => {
   if (req.query.dateTo) sessions = sessions.filter(s => new Date(s.date) <= new Date(req.query.dateTo));
   res.json(sessions);
 });
-app.get('/swim-class-sessions/:id', (req, res) => {
-  let session = loaders.swimClassSessions().find(s => s.id === req.params.id);
+
+app.post('/swim-class-sessions/by-id', (req, res) => {
+  const { swimClassSessionId } = req.body;
+  let session = loaders.swimClassSessions().find(s => s.id === swimClassSessionId);
   if (!session) return res.status(404).json({ error: 'Not found' });
-  // Defensive parse for studentIds
   let studentIds = [];
   if (session.studentIds) {
     try {
@@ -192,8 +212,9 @@ app.get('/swim-class-sessions/:id', (req, res) => {
   session = { ...session, studentIds };
   res.json(session);
 });
-app.get('/swim-class-sessions/:id/attendances', (req, res) => {
-  const attendances = loaders.attendances().filter(a => a.swimClassSessionId === req.params.id);
+app.post('/swim-class-sessions/attendances-by-session', (req, res) => {
+  const { swimClassSessionId } = req.body;
+  const attendances = loaders.attendances().filter(a => a.swimClassSessionId === swimClassSessionId);
   res.json(attendances);
 });
 
@@ -205,8 +226,9 @@ app.get('/enrollments', (req, res) => {
   if (req.query.active) enrollments = enrollments.filter(e => !e.endAt && !parseBool(e.isDeleted));
   res.json(enrollments);
 });
-app.get('/enrollments/:id', (req, res) => {
-  const enrollment = loaders.enrollments().find(e => e.id === req.params.id);
+app.post('/enrollments/by-id', (req, res) => {
+  const { enrollmentId } = req.body;
+  const enrollment = loaders.enrollments().find(e => e.id === enrollmentId);
   if (!enrollment) return res.status(404).json({ error: 'Not found' });
   res.json(enrollment);
 });
@@ -219,8 +241,9 @@ app.get('/assessments', (req, res) => {
   if (req.query.status) assessments = assessments.filter(a => a.status === req.query.status);
   res.json(assessments);
 });
-app.get('/assessments/:id', (req, res) => {
-  const assessment = loaders.assessments().find(a => a.id === req.params.id);
+app.post('/assessments/by-id', (req, res) => {
+  const { assessmentId } = req.body;
+  const assessment = loaders.assessments().find(a => a.id === assessmentId);
   if (!assessment) return res.status(404).json({ error: 'Not found' });
   res.json(assessment);
 });
@@ -233,8 +256,9 @@ app.get('/attendances', (req, res) => {
   if (req.query.confirmed) attendances = attendances.filter(a => parseBool(a.confirmed) === parseBool(req.query.confirmed));
   res.json(attendances);
 });
-app.get('/attendances/:id', (req, res) => {
-  const attendance = loaders.attendances().find(a => a.id === req.params.id);
+app.post('/attendances/by-id', (req, res) => {
+  const { attendanceId } = req.body;
+  const attendance = loaders.attendances().find(a => a.id === attendanceId);
   if (!attendance) return res.status(404).json({ error: 'Not found' });
   res.json(attendance);
 });
