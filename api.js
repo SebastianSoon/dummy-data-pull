@@ -143,21 +143,17 @@ app.get('/swim-classes', (req, res) => {
   if (req.query.branchId) classes = classes.filter(c => c.branchId === req.query.branchId);
   if (req.query.classTypeId) classes = classes.filter(c => c.classTypeId === req.query.classTypeId);
   if (req.query.levelId) {
-    // Find class types for this level, with error handling for malformed allowedLevels
+    // Find class types for this level, handling allowedLevels as CSV string
     let cts = [];
     try {
       cts = loaders.classTypes().filter(ct => {
         if (!ct.allowedLevels) return false;
-        let allowed;
-        try {
-          allowed = JSON.parse(ct.allowedLevels.replace(/'/g,'"'));
-        } catch (e) {
-          return false;
-        }
-        return Array.isArray(allowed) && allowed.includes(req.query.levelId);
+        // allowedLevels can be a single value or comma-separated
+        let allowed = ct.allowedLevels.split(',').map(s => s.trim());
+        return allowed.includes(req.query.levelId);
       }).map(ct => ct.id);
     } catch (err) {
-      return res.status(500).json({ error: 'Error parsing allowedLevels in classTypes' });
+      return res.status(500).json({ error: 'Error processing allowedLevels in classTypes' });
     }
     classes = classes.filter(c => cts.includes(c.classTypeId));
   }
