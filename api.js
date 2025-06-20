@@ -54,7 +54,9 @@ app.post('/branches/by-id', (req, res) => {
   const { branchId } = req.body;
   const branch = loaders.branches().find(b => b.id === branchId);
   if (!branch) return res.status(404).json({ error: 'Not found' });
-  res.json(branch);
+  res.json({
+    ...branch
+  });
 });
 
 // --- Users ---
@@ -62,14 +64,21 @@ app.get('/users', (req, res) => {
   let users = loaders.users();
   if (req.query.role) users = users.filter(u => u.role === req.query.role);
   if (req.query.branchId) users = users.filter(u => u.branchId === req.query.branchId);
-  res.json(users);
+  res.json(users.map(u => {
+    const branch = loaders.branches().find(b => b.id === u.branchId);
+    return { ...u, branchName: branch ? branch.name : null };
+  }));
 });
 
 app.post('/users/by-id', (req, res) => {
   const { userId } = req.body;
   const user = loaders.users().find(u => u.id === userId);
   if (!user) return res.status(404).json({ error: 'Not found' });
-  res.json(user);
+  const branch = loaders.branches().find(b => b.id === user.branchId);
+  res.json({
+    ...user,
+    branchName: branch ? branch.name : null
+  });
 });
 
 // --- Students ---
@@ -78,14 +87,24 @@ app.get('/students', (req, res) => {
   if (req.query.levelId) students = students.filter(s => s.levelId === req.query.levelId);
   if (req.query.branchId) students = students.filter(s => s.branchId === req.query.branchId);
   if (req.query.status) students = students.filter(s => s.status === req.query.status);
-  res.json(students);
+  res.json(students.map(s => {
+    const branch = loaders.branches().find(b => b.id === s.branchId);
+    const level = loaders.levels().find(l => l.id === s.levelId);
+    return { ...s, branchName: branch ? branch.name : null, levelName: level ? level.name : null };
+  }));
 });
 
 app.post('/students/by-id', (req, res) => {
   const { studentId } = req.body;
   const student = loaders.students().find(s => s.id === studentId);
   if (!student) return res.status(404).json({ error: 'Not found' });
-  res.json(student);
+  const branch = loaders.branches().find(b => b.id === student.branchId);
+  const level = loaders.levels().find(l => l.id === student.levelId);
+  res.json({
+    ...student,
+    branchName: branch ? branch.name : null,
+    levelName: level ? level.name : null
+  });
 });
 app.post('/students/enrollments-by-student', (req, res) => {
   const { studentId } = req.body;
@@ -112,7 +131,7 @@ app.post('/levels/by-id', (req, res) => {
   const { levelId } = req.body;
   const level = loaders.levels().find(l => l.id === levelId);
   if (!level) return res.status(404).json({ error: 'Not found' });
-  res.json(level);
+  res.json({ ...level });
 });
 app.post('/levels/skills-by-level', (req, res) => {
   const { levelId } = req.body;
@@ -122,7 +141,10 @@ app.post('/levels/skills-by-level', (req, res) => {
 app.get('/skills', (req, res) => {
   let skills = loaders.skills();
   if (req.query.levelId) skills = skills.filter(s => s.levelId === req.query.levelId);
-  res.json(skills);
+  res.json(skills.map(skill => {
+    const level = loaders.levels().find(l => l.id === skill.levelId);
+    return { ...skill, levelName: level ? level.name : null };
+  }));
 });
 
 // --- Class Types ---
@@ -134,7 +156,7 @@ app.post('/class-types/by-id', (req, res) => {
   const { classTypeId } = req.body;
   const ct = loaders.classTypes().find(c => c.id === classTypeId);
   if (!ct) return res.status(404).json({ error: 'Not found' });
-  res.json(ct);
+  res.json({ ...ct });
 });
 
 // --- Swim Classes ---
@@ -157,14 +179,35 @@ app.get('/swim-classes', (req, res) => {
     }
     classes = classes.filter(c => cts.includes(c.classTypeId));
   }
-  res.json(classes);
+  res.json(classes.map(c => {
+    const classType = loaders.classTypes().find(ct => ct.id === c.classTypeId);
+    const branch = loaders.branches().find(b => b.id === c.branchId);
+    const user = loaders.users().find(u => u.id === c.userId);
+    return {
+      ...c,
+      classTypeName: classType ? classType.name : null,
+      branchName: branch ? branch.name : null,
+      userName: user ? user.name : null
+    };
+  }));
 });
 
 app.post('/swim-classes/by-id', (req, res) => {
   const { swimClassId } = req.body;
   const swimClass = loaders.swimClasses().find(c => c.id === swimClassId);
   if (!swimClass) return res.status(404).json({ error: 'Not found' });
-  res.json(swimClass);
+
+  // Lookup names for classTypeId, branchId, userId
+  const classType = loaders.classTypes().find(ct => ct.id === swimClass.classTypeId);
+  const branch = loaders.branches().find(b => b.id === swimClass.branchId);
+  const user = loaders.users().find(u => u.id === swimClass.userId);
+
+  res.json({
+    ...swimClass,
+    classTypeName: classType ? classType.name : null,
+    branchName: branch ? branch.name : null,
+    userName: user ? user.name : null
+  });
 });
 app.post('/swim-classes/sessions-by-class', (req, res) => {
   const { swimClassId } = req.body;
@@ -190,7 +233,10 @@ app.get('/swim-class-sessions', (req, res) => {
   if (req.query.swimClassId) sessions = sessions.filter(s => s.swimClassId === req.query.swimClassId);
   if (req.query.dateFrom) sessions = sessions.filter(s => new Date(s.date) >= new Date(req.query.dateFrom));
   if (req.query.dateTo) sessions = sessions.filter(s => new Date(s.date) <= new Date(req.query.dateTo));
-  res.json(sessions);
+  res.json(sessions.map(s => {
+    const swimClass = loaders.swimClasses().find(c => c.id === s.swimClassId);
+    return { ...s, swimClassName: swimClass ? swimClass.name : null };
+  }));
 });
 
 app.post('/swim-class-sessions/by-id', (req, res) => {
@@ -205,7 +251,9 @@ app.post('/swim-class-sessions/by-id', (req, res) => {
       studentIds = [];
     }
   }
-  session = { ...session, studentIds };
+  // Add swimClassName
+  const swimClass = loaders.swimClasses().find(c => c.id === session.swimClassId);
+  session = { ...session, studentIds, swimClassName: swimClass ? swimClass.name : null };
   res.json(session);
 });
 app.post('/swim-class-sessions/attendances-by-session', (req, res) => {
@@ -220,13 +268,23 @@ app.get('/enrollments', (req, res) => {
   if (req.query.studentId) enrollments = enrollments.filter(e => e.studentId === req.query.studentId);
   if (req.query.classId) enrollments = enrollments.filter(e => e.classId === req.query.classId);
   if (req.query.active) enrollments = enrollments.filter(e => !e.endAt && !parseBool(e.isDeleted));
-  res.json(enrollments);
+  res.json(enrollments.map(e => {
+    const student = loaders.students().find(s => s.id === e.studentId);
+    const swimClass = loaders.swimClasses().find(c => c.id === e.classId);
+    return { ...e, studentName: student ? student.name : null, swimClassName: swimClass ? swimClass.name : null };
+  }));
 });
 app.post('/enrollments/by-id', (req, res) => {
   const { enrollmentId } = req.body;
   const enrollment = loaders.enrollments().find(e => e.id === enrollmentId);
   if (!enrollment) return res.status(404).json({ error: 'Not found' });
-  res.json(enrollment);
+  const student = loaders.students().find(s => s.id === enrollment.studentId);
+  const swimClass = loaders.swimClasses().find(c => c.id === enrollment.classId);
+  res.json({
+    ...enrollment,
+    studentName: student ? student.name : null,
+    swimClassName: swimClass ? swimClass.name : null
+  });
 });
 
 // --- Assessments ---
@@ -235,13 +293,23 @@ app.get('/assessments', (req, res) => {
   if (req.query.studentId) assessments = assessments.filter(a => a.studentId === req.query.studentId);
   if (req.query.levelId) assessments = assessments.filter(a => a.levelId === req.query.levelId);
   if (req.query.status) assessments = assessments.filter(a => a.status === req.query.status);
-  res.json(assessments);
+  res.json(assessments.map(a => {
+    const student = loaders.students().find(s => s.id === a.studentId);
+    const level = loaders.levels().find(l => l.id === a.levelId);
+    return { ...a, studentName: student ? student.name : null, levelName: level ? level.name : null };
+  }));
 });
 app.post('/assessments/by-id', (req, res) => {
   const { assessmentId } = req.body;
   const assessment = loaders.assessments().find(a => a.id === assessmentId);
   if (!assessment) return res.status(404).json({ error: 'Not found' });
-  res.json(assessment);
+  const student = loaders.students().find(s => s.id === assessment.studentId);
+  const level = loaders.levels().find(l => l.id === assessment.levelId);
+  res.json({
+    ...assessment,
+    studentName: student ? student.name : null,
+    levelName: level ? level.name : null
+  });
 });
 
 // --- Attendance ---
@@ -250,13 +318,23 @@ app.get('/attendances', (req, res) => {
   if (req.query.studentId) attendances = attendances.filter(a => a.studentId === req.query.studentId);
   if (req.query.swimClassSessionId) attendances = attendances.filter(a => a.swimClassSessionId === req.query.swimClassSessionId);
   if (req.query.confirmed) attendances = attendances.filter(a => parseBool(a.confirmed) === parseBool(req.query.confirmed));
-  res.json(attendances);
+  res.json(attendances.map(a => {
+    const student = loaders.students().find(s => s.id === a.studentId);
+    const swimClassSession = loaders.swimClassSessions().find(s => s.id === a.swimClassSessionId);
+    return { ...a, studentName: student ? student.name : null, swimClassSessionName: swimClassSession ? swimClassSession.name : null };
+  }));
 });
 app.post('/attendances/by-id', (req, res) => {
   const { attendanceId } = req.body;
   const attendance = loaders.attendances().find(a => a.id === attendanceId);
   if (!attendance) return res.status(404).json({ error: 'Not found' });
-  res.json(attendance);
+  const student = loaders.students().find(s => s.id === attendance.studentId);
+  const swimClassSession = loaders.swimClassSessions().find(s => s.id === attendance.swimClassSessionId);
+  res.json({
+    ...attendance,
+    studentName: student ? student.name : null,
+    swimClassSessionName: swimClassSession ? swimClassSession.name : null
+  });
 });
 
 // --- Start server ---
