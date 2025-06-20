@@ -3,7 +3,7 @@ info:
   title: DSA Demo API
   version: 1.0.0
   description: |
-    API for retrieving swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, and attendance.
+    API for retrieving swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, attendance, and student skill progress.
 servers:
   - url: https://dsa-demo.onrender.com
 paths:
@@ -15,26 +15,28 @@ paths:
         Returns a list of all branches.
         - No parameters required.
         - Response: Array of branch objects.
-        - Example: `[ { id: "b1", name: "Main Branch", ... }, ... ]`
+        - Example: [ { id: 'b1', name: 'Main Branch', ... }, ... ]
       tags: [Branches]
       responses:
         '200':
           description: List of branches
-  /branches/{id}:
-    get:
+  /branches/by-id:
+    post:
       operationId: getBranchById
-      summary: Get branch by ID
+      summary: Get branch by ID (POST)
       description: |
-        Returns a single branch by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Branch object if found, 404 if not found.
-        - Example: `/branches/b1`
+        Returns a single branch by its ID. Pass the branchId in the request body. Example: { "branchId": "b1" }
       tags: [Branches]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                branchId:
+                  type: string
+              required: [branchId]
       responses:
         '200':
           description: Branch details
@@ -47,36 +49,40 @@ paths:
       description: |
         Returns a list of all users (staff).
         - Optional query parameters:
-          - `role` (string): Filter by user role.
-          - `branchId` (string): Filter by branch.
+          - role (string): Filter by user role.
+          - branchId (string): Filter by branch.
         - Response: Array of user objects.
-        - Example: `/users?role=coach&branchId=b1`
+        - Example: GET /users?role=coach&branchId=b1
       tags: [Users]
       parameters:
         - in: query
           name: role
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: branchId
-          schema: { type: string }
+          schema:
+            type: string
       responses:
         '200':
           description: List of users
-  /users/{id}:
-    get:
+  /users/by-id:
+    post:
       operationId: getUserById
-      summary: Get user by ID
+      summary: Get user by ID (POST)
       description: |
-        Returns a single user by their ID.
-        - Path parameter: `id` (string, required)
-        - Response: User object if found, 404 if not found.
-        - Example: `/users/u1`
+        Returns a single user by their ID. Pass the userId in the request body. Example: { "userId": "u1" }
       tags: [Users]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+              required: [userId]
       responses:
         '200':
           description: User details
@@ -89,96 +95,107 @@ paths:
       description: |
         Returns a list of all students.
         - Optional query parameters:
-          - `levelId` (string): Filter by level.
-          - `branchId` (string): Filter by branch.
-          - `status` (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).
+          - levelId (string): Filter by level.
+          - branchId (string): Filter by branch.
+          - status (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).
         - Response: Array of student objects.
-        - Example: `/students?levelId=l1&status=NORMAL`
+        - Example: GET /students?levelId=l1&status=NORMAL
       tags: [Students]
       parameters:
         - in: query
           name: levelId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: branchId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: status
-          schema: { type: string }
+          schema:
+            type: string
       responses:
         '200':
           description: List of students
-  /students/{id}:
-    get:
+  /students/by-id:
+    post:
       operationId: getStudentById
-      summary: Get student by ID
+      summary: Get student by ID (POST)
       description: |
-        Returns a single student by their ID.
-        - Path parameter: `id` (string, required)
-        - Response: Student object if found, 404 if not found.
-        - Example: `/students/s1`
+        Returns a single student by their ID. Pass the studentId in the request body. Example: { "studentId": "s1" }
       tags: [Students]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: string
+              required: [studentId]
       responses:
         '200':
           description: Student details
         '404':
           description: Not found
-  /students/{id}/enrollments:
-    get:
+  /students/enrollments-by-student:
+    post:
       operationId: listStudentEnrollments
-      summary: Get all enrollments for a student
+      summary: Get all enrollments for a student (POST)
       description: |
-        Returns all enrollments for a given student.
-        - Path parameter: `id` (student ID, string, required)
-        - Response: Array of enrollment objects.
-        - Example: `/students/s1/enrollments`
+        Returns all enrollments for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }
       tags: [Students, Enrollments]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: string
+              required: [studentId]
       responses:
         '200':
           description: List of enrollments
-  /students/{id}/assessments:
-    get:
+  /students/assessments-by-student:
+    post:
       operationId: listStudentAssessments
-      summary: Get all assessments for a student
+      summary: Get all assessments for a student (POST)
       description: |
-        Returns all assessments for a given student.
-        - Path parameter: `id` (student ID, string, required)
-        - Response: Array of assessment objects.
-        - Example: `/students/s1/assessments`
+        Returns all assessments for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }
       tags: [Students, Assessments]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: string
+              required: [studentId]
       responses:
         '200':
           description: List of assessments
-  /students/{id}/attendances:
-    get:
+  /students/attendances-by-student:
+    post:
       operationId: listStudentAttendances
-      summary: Get all attendance records for a student
+      summary: Get all attendance records for a student (POST)
       description: |
-        Returns all attendance records for a given student.
-        - Path parameter: `id` (student ID, string, required)
-        - Response: Array of attendance objects.
-        - Example: `/students/s1/attendances`
+        Returns all attendance records for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }
       tags: [Students, Attendance]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: string
+              required: [studentId]
       responses:
         '200':
           description: List of attendance records
@@ -190,47 +207,50 @@ paths:
         Returns a list of all levels.
         - No parameters required.
         - Response: Array of level objects.
-        - Example: `[ { id: "l1", name: "Beginner", ... }, ... ]`
+        - Example: [ { id: 'l1', name: 'Beginner', ... }, ... ]
       tags: [Levels]
       responses:
         '200':
           description: List of levels
-  /levels/{id}:
-    get:
+  /levels/by-id:
+    post:
       operationId: getLevelById
-      summary: Get level by ID
+      summary: Get level by ID (POST)
       description: |
-        Returns a single level by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Level object if found, 404 if not found.
-        - Example: `/levels/l1`
+        Returns a single level by its ID. Pass the levelId in the request body. Example: { "levelId": "l1" }
       tags: [Levels]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                levelId:
+                  type: string
+              required: [levelId]
       responses:
         '200':
           description: Level details
         '404':
           description: Not found
-  /levels/{id}/skills:
-    get:
+  /levels/skills-by-level:
+    post:
       operationId: listLevelSkills
-      summary: Get all skills for a level
+      summary: Get all skills for a level (POST)
       description: |
-        This endpoint requires the level ID as a path parameter (e.g. `/levels/l4/skills`).
-        Do not use a query parameter like `levelId`. For filtering by level using a query parameter, use `/skills?levelId=...` instead.
-        - Path parameter: `id` (level ID, string, required)
-        - Response: Array of skill objects.
-        - Example: `/levels/l1/skills`
+        Returns all skills for a given level. Pass the levelId in the request body. Example: { "levelId": "l1" }
       tags: [Levels, Skills]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                levelId:
+                  type: string
+              required: [levelId]
       responses:
         '200':
           description: List of skills
@@ -240,14 +260,15 @@ paths:
       summary: Get all skills
       description: |
         Returns a list of all skills, optionally filtered by level.
-        - Optional query parameter: `levelId` (string)
+        - Optional query parameter: levelId (string)
         - Response: Array of skill objects.
-        - Example: `/skills?levelId=l1`
+        - Example: GET /skills?levelId=l1
       tags: [Skills]
       parameters:
         - in: query
           name: levelId
-          schema: { type: string }
+          schema:
+            type: string
       responses:
         '200':
           description: List of skills
@@ -259,26 +280,28 @@ paths:
         Returns a list of all class types.
         - No parameters required.
         - Response: Array of class type objects.
-        - Example: `[ { id: "ct1", name: "Group", ... }, ... ]`
+        - Example: [ { id: 'ct1', name: 'Group', ... }, ... ]
       tags: [Class Types]
       responses:
         '200':
           description: List of class types
-  /class-types/{id}:
-    get:
+  /class-types/by-id:
+    post:
       operationId: getClassTypeById
-      summary: Get class type by ID
+      summary: Get class type by ID (POST)
       description: |
-        Returns a single class type by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Class type object if found, 404 if not found.
-        - Example: `/class-types/ct1`
+        Returns a single class type by its ID. Pass the classTypeId in the request body. Example: { "classTypeId": "ct1" }
       tags: [Class Types]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classTypeId:
+                  type: string
+              required: [classTypeId]
       responses:
         '200':
           description: Class type details
@@ -291,60 +314,67 @@ paths:
       description: |
         Returns a list of all swim classes.
         - Optional query parameters:
-          - `branchId` (string): Filter by branch.
-          - `classTypeId` (string): Filter by class type.
-          - `levelId` (string): Filter by level (matches allowedLevels in class type).
+          - branchId (string): Filter by branch.
+          - classTypeId (string): Filter by class type.
+          - levelId (string): Filter by level (matches allowedLevels in class type).
         - Response: Array of swim class objects.
-        - Example: `/swim-classes?branchId=b1&levelId=l1`
+        - Example: GET /swim-classes?branchId=b1&levelId=l1
       tags: [Swim Classes]
       parameters:
         - in: query
           name: branchId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: classTypeId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: levelId
-          schema: { type: string }
+          schema:
+            type: string
       responses:
         '200':
           description: List of swim classes
-  /swim-classes/{id}:
-    get:
+  /swim-classes/by-id:
+    post:
       operationId: getSwimClassById
-      summary: Get swim class by ID
+      summary: Get swim class by ID (POST)
       description: |
-        Returns a single swim class by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Swim class object if found, 404 if not found.
-        - Example: `/swim-classes/c1`
+        Returns a single swim class by its ID. Pass the swimClassId in the request body. Example: { "swimClassId": "c1" }
       tags: [Swim Classes]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                swimClassId:
+                  type: string
+              required: [swimClassId]
       responses:
         '200':
           description: Swim class details
         '404':
           description: Not found
-  /swim-classes/{id}/sessions:
-    get:
+  /swim-classes/sessions-by-class:
+    post:
       operationId: listSwimClassSessions
-      summary: Get all sessions for a swim class
+      summary: Get all sessions for a swim class (POST)
       description: |
-        Returns all sessions for a given swim class.
-        - Path parameter: `id` (swim class ID, string, required)
-        - Response: Array of session objects.
-        - Example: `/swim-classes/c1/sessions`
+        Returns all sessions for a given swim class. Pass the swimClassId in the request body. Example: { "swimClassId": "c1" }
       tags: [Swim Classes, Sessions]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                swimClassId:
+                  type: string
+              required: [swimClassId]
       responses:
         '200':
           description: List of sessions
@@ -355,60 +385,69 @@ paths:
       description: |
         Returns a list of all swim class sessions.
         - Optional query parameters:
-          - `swimClassId` (string): Filter by swim class.
-          - `dateFrom` (string, date): Filter sessions on or after this date.
-          - `dateTo` (string, date): Filter sessions on or before this date.
-        - Response: Array of session objects, each with a `studentIds` array.
-        - Example: `/swim-class-sessions?swimClassId=c1&dateFrom=2024-01-01`
+          - swimClassId (string): Filter by swim class.
+          - dateFrom (string, date): Filter sessions on or after this date.
+          - dateTo (string, date): Filter sessions on or before this date.
+        - Response: Array of session objects, each with a studentIds array.
+        - Example: GET /swim-class-sessions?swimClassId=c1&dateFrom=2024-01-01
       tags: [Sessions]
       parameters:
         - in: query
           name: swimClassId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: dateFrom
-          schema: { type: string, format: date }
+          schema:
+            type: string
+            format: date
         - in: query
           name: dateTo
-          schema: { type: string, format: date }
+          schema:
+            type: string
+            format: date
       responses:
         '200':
           description: List of swim class sessions
-  /swim-class-sessions/{id}:
-    get:
+  /swim-class-sessions/by-id:
+    post:
       operationId: getSwimClassSessionById
-      summary: Get swim class session by ID
+      summary: Get swim class session by ID (POST)
       description: |
-        Returns a single swim class session by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Session object if found, 404 if not found. Includes a `studentIds` array.
-        - Example: `/swim-class-sessions/s1`
+        Returns a single swim class session by its ID. Pass the swimClassSessionId in the request body. Example: { "swimClassSessionId": "s1" }
       tags: [Sessions]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                swimClassSessionId:
+                  type: string
+              required: [swimClassSessionId]
       responses:
         '200':
           description: Swim class session details
         '404':
           description: Not found
-  /swim-class-sessions/{id}/attendances:
-    get:
+  /swim-class-sessions/attendances-by-session:
+    post:
       operationId: listSessionAttendances
-      summary: Get all attendance records for a session
+      summary: Get all attendance records for a session (POST)
       description: |
-        Returns all attendance records for a given swim class session.
-        - Path parameter: `id` (session ID, string, required)
-        - Response: Array of attendance objects.
-        - Example: `/swim-class-sessions/s1/attendances`
+        Returns all attendance records for a given swim class session. Pass the swimClassSessionId in the request body. Example: { "swimClassSessionId": "s1" }
       tags: [Sessions, Attendance]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                swimClassSessionId:
+                  type: string
+              required: [swimClassSessionId]
       responses:
         '200':
           description: List of attendance records
@@ -419,40 +458,45 @@ paths:
       description: |
         Returns a list of all enrollments.
         - Optional query parameters:
-          - `studentId` (string): Filter by student.
-          - `classId` (string): Filter by swim class.
-          - `active` (boolean): Filter for active enrollments (no endAt and not deleted).
+          - studentId (string): Filter by student.
+          - classId (string): Filter by swim class.
+          - active (boolean): Filter for active enrollments (no endAt and not deleted).
         - Response: Array of enrollment objects.
-        - Example: `/enrollments?studentId=s1&active=true`
+        - Example: GET /enrollments?studentId=s1&active=true
       tags: [Enrollments]
       parameters:
         - in: query
           name: studentId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: classId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: active
-          schema: { type: boolean }
+          schema:
+            type: boolean
       responses:
         '200':
           description: List of enrollments
-  /enrollments/{id}:
-    get:
+  /enrollments/by-id:
+    post:
       operationId: getEnrollmentById
-      summary: Get enrollment by ID
+      summary: Get enrollment by ID (POST)
       description: |
-        Returns a single enrollment by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Enrollment object if found, 404 if not found.
-        - Example: `/enrollments/e1`
+        Returns a single enrollment by its ID. Pass the enrollmentId in the request body. Example: { "enrollmentId": "e1" }
       tags: [Enrollments]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                enrollmentId:
+                  type: string
+              required: [enrollmentId]
       responses:
         '200':
           description: Enrollment details
@@ -465,40 +509,45 @@ paths:
       description: |
         Returns a list of all assessments.
         - Optional query parameters:
-          - `studentId` (string): Filter by student.
-          - `levelId` (string): Filter by level.
-          - `status` (string): Filter by assessment status (Scheduled, Submitted, Passed, Failed).
+          - studentId (string): Filter by student.
+          - levelId (string): Filter by level.
+          - status (string): Filter by assessment status (Scheduled, Submitted, Passed, Failed).
         - Response: Array of assessment objects.
-        - Example: `/assessments?studentId=s1&status=Passed`
+        - Example: GET /assessments?studentId=s1&status=Passed
       tags: [Assessments]
       parameters:
         - in: query
           name: studentId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: levelId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: status
-          schema: { type: string }
+          schema:
+            type: string
       responses:
         '200':
           description: List of assessments
-  /assessments/{id}:
-    get:
+  /assessments/by-id:
+    post:
       operationId: getAssessmentById
-      summary: Get assessment by ID
+      summary: Get assessment by ID (POST)
       description: |
-        Returns a single assessment by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Assessment object if found, 404 if not found.
-        - Example: `/assessments/a1`
+        Returns a single assessment by its ID. Pass the assessmentId in the request body. Example: { "assessmentId": "a1" }
       tags: [Assessments]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assessmentId:
+                  type: string
+              required: [assessmentId]
       responses:
         '200':
           description: Assessment details
@@ -511,42 +560,128 @@ paths:
       description: |
         Returns a list of all attendance records.
         - Optional query parameters:
-          - `studentId` (string): Filter by student.
-          - `swimClassSessionId` (string): Filter by swim class session.
-          - `confirmed` (boolean): Filter by confirmation status.
+          - studentId (string): Filter by student.
+          - swimClassSessionId (string): Filter by swim class session.
+          - confirmed (boolean): Filter by confirmation status.
         - Response: Array of attendance objects.
-        - Example: `/attendances?studentId=s1&confirmed=true`
+        - Example: GET /attendances?studentId=s1&confirmed=true
       tags: [Attendance]
       parameters:
         - in: query
           name: studentId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: swimClassSessionId
-          schema: { type: string }
+          schema:
+            type: string
         - in: query
           name: confirmed
-          schema: { type: boolean }
+          schema:
+            type: boolean
       responses:
         '200':
           description: List of attendance records
-  /attendances/{id}:
-    get:
+  /attendances/by-id:
+    post:
       operationId: getAttendanceById
-      summary: Get attendance by ID
+      summary: Get attendance by ID (POST)
       description: |
-        Returns a single attendance record by its ID.
-        - Path parameter: `id` (string, required)
-        - Response: Attendance object if found, 404 if not found.
-        - Example: `/attendances/at1`
+        Returns a single attendance record by its ID. Pass the attendanceId in the request body. Example: { "attendanceId": "at1" }
       tags: [Attendance]
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attendanceId:
+                  type: string
+              required: [attendanceId]
       responses:
         '200':
           description: Attendance details
         '404':
           description: Not found
+  /student-skill-progress:
+    get:
+      operationId: listStudentSkillProgress
+      summary: Get all student skill progress records
+      description: |
+        Returns a list of all student skill progress records. Optional query parameters: studentId, skillId.
+      tags: [Student Skill Progress]
+      parameters:
+        - in: query
+          name: studentId
+          schema:
+            type: string
+        - in: query
+          name: skillId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of student skill progress records
+  /student-skill-progress/by-id:
+    post:
+      operationId: getStudentSkillProgressById
+      summary: Get student skill progress by ID (POST)
+      description: |
+        Returns a single student skill progress record by its ID. Pass the id in the request body. Example: { "id": "sp1" }
+      tags: [Student Skill Progress]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+              required: [id]
+      responses:
+        '200':
+          description: Student skill progress details
+        '404':
+          description: Not found
+  /students/skill-progress-by-student:
+    post:
+      operationId: listSkillProgressByStudent
+      summary: Get all skill progress for a student (POST)
+      description: |
+        Returns all skill progress records for a given student. Pass the studentId in the request body. Example: { "studentId": "st1" }
+      tags: [Students, Student Skill Progress]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: string
+              required: [studentId]
+      responses:
+        '200':
+          description: List of skill progress records
+  /skills/student-progress:
+    post:
+      operationId: listStudentsBySkillProgress
+      summary: Get all students who achieved a skill (POST)
+      description: |
+        Returns all student skill progress records for a given skill. Pass the skillId in the request body. Example: { "skillId": "s1" }
+      tags: [Skills, Student Skill Progress]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                skillId:
+                  type: string
+              required: [skillId]
+      responses:
+        '200':
+          description: List of student skill progress records
