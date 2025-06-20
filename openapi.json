@@ -660,6 +660,97 @@
           "404": { "description": "Not found" }
         }
       }
+    },
+    "/student-skill-progress": {
+      "get": {
+        "operationId": "listStudentSkillProgress",
+        "summary": "Get all student skill progress records",
+        "description": "Returns a list of all student skill progress records. Optional query parameters: studentId, skillId.",
+        "tags": ["Student Skill Progress"],
+        "parameters": [
+          { "in": "query", "name": "studentId", "schema": { "type": "string" } },
+          { "in": "query", "name": "skillId", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "List of student skill progress records" }
+        }
+      }
+    },
+    "/student-skill-progress/by-id": {
+      "post": {
+        "operationId": "getStudentSkillProgressById",
+        "summary": "Get student skill progress by ID (POST)",
+        "description": "Returns a single student skill progress record by its ID. Pass the id in the request body. Example: { \"id\": \"sp1\" }",
+        "tags": ["Student Skill Progress"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string" }
+                },
+                "required": ["id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Student skill progress details" },
+          "404": { "description": "Not found" }
+        }
+      }
+    },
+    "/students/skill-progress-by-student": {
+      "post": {
+        "operationId": "listSkillProgressByStudent",
+        "summary": "Get all skill progress for a student (POST)",
+        "description": "Returns all skill progress records for a given student. Pass the studentId in the request body. Example: { \"studentId\": \"st1\" }",
+        "tags": ["Students", "Student Skill Progress"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": { "type": "string" }
+                },
+                "required": ["studentId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "List of skill progress records" }
+        }
+      }
+    },
+    "/skills/student-progress": {
+      "post": {
+        "operationId": "listStudentsBySkillProgress",
+        "summary": "Get all students who achieved a skill (POST)",
+        "description": "Returns all student skill progress records for a given skill. Pass the skillId in the request body. Example: { \"skillId\": \"s1\" }",
+        "tags": ["Skills", "Student Skill Progress"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "skillId": { "type": "string" }
+                },
+                "required": ["skillId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "List of student skill progress records" }
+        }
+      }
     }
   }
 }

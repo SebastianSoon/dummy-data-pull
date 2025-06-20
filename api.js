@@ -34,6 +34,7 @@ const loaders = {
   swimClassSessions: () => readCsv('swim_class_sessions.csv'),
   attendances: () => readCsv('attendances.csv'),
   assessments: () => readCsv('assessments.csv'),
+  studentSkillProgress: () => readCsv('student_skill_progress.csv'),
 };
 
 // --- Helper: parse booleans ---
@@ -335,6 +336,45 @@ app.post('/attendances/by-id', (req, res) => {
     studentName: student ? student.name : null,
     swimClassSessionName: swimClassSession ? swimClassSession.name : null
   });
+});
+
+// --- Student Skill Progress ---
+app.get('/student-skill-progress', (req, res) => {
+  let progress = loaders.studentSkillProgress();
+  if (req.query.studentId) progress = progress.filter(p => p.studentId === req.query.studentId);
+  if (req.query.skillId) progress = progress.filter(p => p.skillId === req.query.skillId);
+  res.json(progress.map(p => {
+    const student = loaders.students().find(s => s.id === p.studentId);
+    const skill = loaders.skills().find(s => s.id === p.skillId);
+    return { ...p, studentName: student ? student.fullName : null, skillName: skill ? skill.name : null };
+  }));
+});
+
+app.post('/student-skill-progress/by-id', (req, res) => {
+  const { id } = req.body;
+  const p = loaders.studentSkillProgress().find(p => p.id === id);
+  if (!p) return res.status(404).json({ error: 'Not found' });
+  const student = loaders.students().find(s => s.id === p.studentId);
+  const skill = loaders.skills().find(s => s.id === p.skillId);
+  res.json({ ...p, studentName: student ? student.fullName : null, skillName: skill ? skill.name : null });
+});
+
+app.post('/students/skill-progress-by-student', (req, res) => {
+  const { studentId } = req.body;
+  const progress = loaders.studentSkillProgress().filter(p => p.studentId === studentId);
+  res.json(progress.map(p => {
+    const skill = loaders.skills().find(s => s.id === p.skillId);
+    return { ...p, skillName: skill ? skill.name : null };
+  }));
+});
+
+app.post('/skills/student-progress', (req, res) => {
+  const { skillId } = req.body;
+  const progress = loaders.studentSkillProgress().filter(p => p.skillId === skillId);
+  res.json(progress.map(p => {
+    const student = loaders.students().find(s => s.id === p.studentId);
+    return { ...p, studentName: student ? student.fullName : null };
+  }));
 });
 
 // --- Start server ---

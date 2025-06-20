@@ -230,22 +230,86 @@ swimClasses.forEach(swimClass => {
 // --- ASSESSMENTS ---
 let assessmentId = 1;
 const assessments = [];
+const levelOrder = levels.map(l => l.id);
+const today = new Date();
+
 students.forEach(student => {
-  // Each student has a 50% chance of having an assessment for their level
-  if (Math.random() < 0.5) {
+  // Add passed assessments for all previous levels
+  const studentLevelIdx = levelOrder.indexOf(student.levelId);
+  let lastDate = new Date(student.dateJoined || student.createdAt || today);
+  for (let i = 0; i < studentLevelIdx; i++) {
+    // Space out each passed assessment by ~30 days
+    lastDate = new Date(lastDate.getTime() + 1000 * 60 * 60 * 24 * 30);
+    // Clamp to today if in the future
+    if (lastDate > today) lastDate = new Date(today);
+    assessments.push({
+      id: `as${assessmentId++}`,
+      studentId: student.id,
+      levelId: levelOrder[i],
+      date: lastDate.toISOString(),
+      videoUrl: '',
+      status: 'Passed',
+      remarks: '',
+      createdAt: lastDate.toISOString(),
+      updatedAt: lastDate.toISOString(),
+      isDeleted: false
+    });
+  }
+  // Optionally add a random assessment for their current level
+  if (Math.random() < 0.7) {
+    const assessDate = new Date(lastDate.getTime() + 1000 * 60 * 60 * 24 * 30);
     assessments.push({
       id: `as${assessmentId++}`,
       studentId: student.id,
       levelId: student.levelId,
-      date: faker.date.recent({days:60}).toISOString(),
+      date: assessDate.toISOString(),
       videoUrl: '',
       status: randomFrom(['Scheduled','Submitted','Passed','Failed']),
       remarks: '',
-      createdAt: faker.date.past().toISOString(),
-      updatedAt: faker.date.recent().toISOString(),
+      createdAt: assessDate.toISOString(),
+      updatedAt: assessDate.toISOString(),
       isDeleted: Math.random() < 0.05
     });
   }
+});
+
+// --- STUDENT SKILL PROGRESS ---
+let skillProgressId = 1;
+const studentSkillProgress = [];
+students.forEach(student => {
+  // Find all levels up to and including current
+  const studentLevelIdx = levelOrder.indexOf(student.levelId);
+  const eligibleLevels = levelOrder.slice(0, studentLevelIdx + 1);
+  // For each eligible level, randomly select some skills to mark as achieved
+  eligibleLevels.forEach((levelId, idx) => {
+    const levelSkills = skills.filter(s => s.levelId === levelId);
+    // Each student achieves 1-4 skills per level (random)
+    const nSkills = faker.number.int({min:1, max:levelSkills.length});
+    const achievedSkills = faker.helpers.arrayElements(levelSkills, nSkills);
+    // Find the assessment date for this level (if any)
+    let assessDate = null;
+    for (const a of assessments) {
+      if (a.studentId === student.id && a.levelId === levelId && a.status === 'Passed') {
+        assessDate = new Date(a.date);
+        break;
+      }
+    }
+    achievedSkills.forEach(skill => {
+      // Achieved date: after assessment if exists, else after dateJoined
+      let achievedAt = assessDate ? new Date(assessDate.getTime() + 1000 * 60 * 60 * 24 * 7) : new Date(new Date(student.dateJoined).getTime() + 1000 * 60 * 60 * 24 * 30 * idx);
+      if (achievedAt > today) achievedAt = new Date(today);
+      studentSkillProgress.push({
+        id: `sp${skillProgressId++}`,
+        studentId: student.id,
+        skillId: skill.id,
+        achievedAt: achievedAt.toISOString(),
+        remarks: '',
+        createdAt: achievedAt.toISOString(),
+        updatedAt: achievedAt.toISOString(),
+        isDeleted: false
+      });
+    });
+  });
 });
 
 // --- CSV WRITERS ---
@@ -261,6 +325,7 @@ const writers = [
   { file: 'swim_class_sessions.csv', header: Object.keys(swimClassSessions[0]), data: swimClassSessions },
   { file: 'attendances.csv', header: Object.keys(attendances[0]), data: attendances },
   { file: 'assessments.csv', header: Object.keys(assessments[0]), data: assessments },
+  { file: 'student_skill_progress.csv', header: Object.keys(studentSkillProgress[0]), data: studentSkillProgress },
 ];
 
 (async () => {
