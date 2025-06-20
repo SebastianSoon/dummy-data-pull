@@ -24,8 +24,8 @@ const USER_ROLES = [
 ];
 const STUDENTS_PER_LEVEL = 20;
 const COACHES_PER_BRANCH = 5;
-const SESSIONS_PER_CLASS = 30; // Increased from 10 to 30
-const CLASSES_PER_LEVEL = 3;
+const SESSIONS_PER_CLASS = 52; // Increased from 10 to 30
+const CLASSES_PER_LEVEL = 7;
 
 const DATA_DIR = path.join(__dirname, 'data');
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
@@ -61,13 +61,13 @@ levels.forEach(level => {
 
 // --- CLASS TYPES ---
 const classTypes = [
-  { id: 'ct1', name: 'Baby Swim', maxStudents: 8, allowedLevels: ['l1'] },
-  { id: 'ct2', name: 'Kiddie Swim', maxStudents: 10, allowedLevels: ['l2'] },
-  { id: 'ct3', name: 'Red Swim', maxStudents: 12, allowedLevels: ['l3','l4'] },
-  { id: 'ct4', name: 'Yellow Swim', maxStudents: 12, allowedLevels: ['l5','l6'] },
-  { id: 'ct5', name: 'Blue Swim', maxStudents: 12, allowedLevels: ['l7','l8'] },
+  { id: 'ct1', name: 'Baby Swim', maxStudents: 2, allowedLevels: ['l1'] },
+  { id: 'ct2', name: 'Kiddie Swim', maxStudents: 3, allowedLevels: ['l2'] },
+  { id: 'ct3', name: 'Red Swim', maxStudents: 4, allowedLevels: ['l3','l4'] },
+  { id: 'ct4', name: 'Yellow Swim', maxStudents: 5, allowedLevels: ['l5','l6'] },
+  { id: 'ct5', name: 'Blue Swim', maxStudents: 6, allowedLevels: ['l7','l8'] },
   { id: 'ct6', name: 'Mini Squad', maxStudents: 10, allowedLevels: ['l9'] },
-  { id: 'ct7', name: 'Squad', maxStudents: 8, allowedLevels: ['l10'] }
+  { id: 'ct7', name: 'Squad', maxStudents: 20, allowedLevels: ['l10'] }
 ].map((ct,i) => ({
   ...ct,
   isDeleted: false,
