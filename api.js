@@ -35,6 +35,12 @@ const loaders = {
   attendances: () => readCsv('attendances.csv'),
   assessments: () => readCsv('assessments.csv'),
   studentSkillProgress: () => readCsv('student_skill_progress.csv'),
+  packageTypes: () => readCsv('package_types.csv'),
+  packages: () => readCsv('packages.csv'),
+  coachLevels: () => readCsv('coach_levels.csv'),
+  certs: () => readCsv('certs.csv'),
+  userCerts: () => readCsv('user_certs.csv'),
+  evaluations: () => readCsv('evaluations.csv'),
 };
 
 // --- Helper: parse booleans ---
@@ -381,4 +387,86 @@ app.post('/skills/student-progress', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`API server running on port ${PORT}`);
+});
+
+// --- Package Types ---
+app.get('/package-types', (req, res) => {
+  res.json(loaders.packageTypes());
+});
+app.post('/package-types/by-id', (req, res) => {
+  const { packageTypeId } = req.body;
+  const pt = loaders.packageTypes().find(p => p.id === packageTypeId);
+  if (!pt) return res.status(404).json({ error: 'Not found' });
+  res.json({ ...pt });
+});
+
+// --- Packages ---
+app.get('/packages', (req, res) => {
+  let packages = loaders.packages();
+  if (req.query.studentId) packages = packages.filter(p => p.studentId === req.query.studentId);
+  if (req.query.packageTypeId) packages = packages.filter(p => p.packageTypeId === req.query.packageTypeId);
+  if (req.query.isActive) packages = packages.filter(p => String(p.isActive).toLowerCase() === String(req.query.isActive).toLowerCase());
+  res.json(packages);
+});
+app.post('/packages/by-id', (req, res) => {
+  const { packageId } = req.body;
+  const pkg = loaders.packages().find(p => p.id === packageId);
+  if (!pkg) return res.status(404).json({ error: 'Not found' });
+  res.json({ ...pkg });
+});
+app.post('/students/packages-by-student', (req, res) => {
+  const { studentId } = req.body;
+  const pkgs = loaders.packages().filter(p => p.studentId === studentId);
+  res.json(pkgs);
+});
+
+// --- Coach Levels ---
+app.get('/coach-levels', (req, res) => {
+  res.json(loaders.coachLevels());
+});
+app.post('/coach-levels/by-id', (req, res) => {
+  const { coachLevelId } = req.body;
+  const cl = loaders.coachLevels().find(c => c.id === coachLevelId);
+  if (!cl) return res.status(404).json({ error: 'Not found' });
+  res.json({ ...cl });
+});
+
+// --- Certs ---
+app.get('/certs', (req, res) => {
+  res.json(loaders.certs());
+});
+app.post('/certs/by-id', (req, res) => {
+  const { certId } = req.body;
+  const cert = loaders.certs().find(c => c.id === certId);
+  if (!cert) return res.status(404).json({ error: 'Not found' });
+  res.json({ ...cert });
+});
+
+// --- User Certs ---
+app.get('/user-certs', (req, res) => {
+  let userCerts = loaders.userCerts();
+  if (req.query.userId) userCerts = userCerts.filter(u => u.userId === req.query.userId);
+  if (req.query.certId) userCerts = userCerts.filter(u => u.certId === req.query.certId);
+  res.json(userCerts);
+});
+app.post('/user-certs/by-id', (req, res) => {
+  const { userCertId } = req.body;
+  const uc = loaders.userCerts().find(u => u.id === userCertId);
+  if (!uc) return res.status(404).json({ error: 'Not found' });
+  res.json({ ...uc });
+});
+
+// --- Evaluations ---
+app.get('/evaluations', (req, res) => {
+  let evals = loaders.evaluations();
+  if (req.query.coachId) evals = evals.filter(e => e.coachId === req.query.coachId);
+  if (req.query.assessorId) evals = evals.filter(e => e.assessorId === req.query.assessorId);
+  if (req.query.swimClassSessionId) evals = evals.filter(e => e.swimClassSessionId === req.query.swimClassSessionId);
+  res.json(evals);
+});
+app.post('/evaluations/by-id', (req, res) => {
+  const { evaluationId } = req.body;
+  const ev = loaders.evaluations().find(e => e.id === evaluationId);
+  if (!ev) return res.status(404).json({ error: 'Not found' });
+  res.json({ ...ev });
 });

@@ -1,15 +1,15 @@
-
 model Branch {
   id        String      @id @default(uuid())
   name      String      @unique
   users     User[]
   isDeleted Boolean     @default(false)
   classes   SwimClass[]
-  students   Student[]
+  students  Student[]
 }
 
 enum UserRole {
   su
+  head
   operations_manager
   technical_manager
   branch_admin
@@ -20,20 +20,25 @@ enum UserRole {
 }
 
 model User {
-  id             String             @id @default(uuid())
-  fullName       String?
-  username       String             @unique
-  contact        String?
-  email          String?            @unique
-  password       String
-  role           UserRole
-  branchId       String?
-  branch         Branch?            @relation(fields: [branchId], references: [id])
-  isDeleted      Boolean            @default(false)
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
-  taughtClasses  SwimClass[]        @relation("UserTeachesClasses")
-  taughtSessions SwimClassSession[]
+  id                  String             @id @default(uuid())
+  fullName            String?
+  username            String             @unique
+  contact             String?
+  email               String?            @unique
+  password            String
+  role                UserRole
+  branchId            String?
+  branch              Branch?            @relation(fields: [branchId], references: [id])
+  isDeleted           Boolean            @default(false)
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  taughtClasses       SwimClass[]        @relation("UserTeachesClasses")
+  taughtSessions      SwimClassSession[]
+  coachLevelId        String?
+  coachLevel          CoachLevel?        @relation("CoachLevelUsers", fields: [coachLevelId], references: [id])
+  userCerts           UserCert[]
+  coachedAssessments  Assessment[]       @relation("AssessmentCoach")
+  approvedAssessments Assessment[]       @relation("AssessmentApprover")
 }
 
 model Level {
@@ -78,6 +83,7 @@ model Student {
   onHoldAt      DateTime?
   branchId      String?
   branch        Branch?                @relation(fields: [branchId], references: [id])
+  package       Package[]
 }
 
 enum StudentStatus {
@@ -106,7 +112,7 @@ model SwimClassSession {
   userId      String
   user        User         @relation(fields: [userId], references: [id]) // actual coach
   attendances Attendance[]
-  studentIds  String[]     // List of Student IDs supposed to attend
+  studentIds  String[] // List of Student IDs supposed to attend
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   isDeleted   Boolean      @default(false)
@@ -142,20 +148,53 @@ model Enrollment {
   swimClass  SwimClass @relation(fields: [classId], references: [id])
 }
 
+model PackageType {
+  id           String    @id @default(uuid())
+  name         String    @unique
+  totalClasses Int
+  price        Float
+  validityDays Int // Number of days the package is valid before expiring
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  packages     Package[]
+}
+
+model Package {
+  id             String       @id @default(uuid())
+  studentId      String
+  packageTypeId  String
+  firstClassDate    DateTime     @default(now())
+  expiredAt      DateTime?
+  classRemaining Int          @default(0)
+  isDeleted      Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  student        Student      @relation(fields: [studentId], references: [id])
+  packageType    PackageType  @relation(fields: [packageTypeId], references: [id])
+  attendances    Attendance[]
+}
+
 model Attendance {
   id                 String           @id @default(uuid())
   studentId          String
   swimClassSessionId String
-  // packageId    String
-  // enrollmentId String
+  status             AttendanceStatus @default(ABSENT) // 0: absent, 1: unsure, 2: present, 3: confirmed
+  packageId          String?
   confirmed          Boolean          @default(false)
   createdAt          DateTime         @default(now())
   updatedAt          DateTime         @updatedAt
   isDeleted          Boolean          @default(false)
   student            Student          @relation(fields: [studentId], references: [id])
   swimClassSession   SwimClassSession @relation(fields: [swimClassSessionId], references: [id])
-  // package      Package    @relation(fields: [packageId], references: [id])
-  // enrollment   Enrollment @relation(fields: [enrollmentId], references: [id])
+  package            Package?         @relation(fields: [packageId], references: [id])
+}
+
+enum AttendanceStatus {
+  ABSENT // 0
+  UNSURE // 1
+  PRESENT // 2
+  CONFIRMED // 3
 }
 
 model StudentSkillProgress {
@@ -172,18 +211,22 @@ model StudentSkillProgress {
 }
 
 model Assessment {
-  id        String   @id @default(uuid())
-  studentId String
-  levelId   String
-  date      DateTime
-  videoUrl  String?
-  status    AssessmentStatus @default(Scheduled)
-  remarks   String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  isDeleted Boolean  @default(false)
-  student   Student  @relation(fields: [studentId], references: [id])
-  level     Level    @relation(fields: [levelId], references: [id])
+  id         String           @id @default(uuid())
+  studentId  String
+  levelId    String
+  date       DateTime
+  videoUrl   String?
+  status     AssessmentStatus @default(Scheduled)
+  remarks    String?
+  userId     String? // Coach of the student
+  approvedBy String? // Head who approved
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  isDeleted  Boolean          @default(false)
+  student    Student          @relation(fields: [studentId], references: [id])
+  level      Level            @relation(fields: [levelId], references: [id])
+  coach      User?            @relation(fields: [userId], references: [id], name: "AssessmentCoach")
+  approver   User?            @relation(fields: [approvedBy], references: [id], name: "AssessmentApprover")
 }
 
 enum AssessmentStatus {
@@ -191,4 +234,45 @@ enum AssessmentStatus {
   Submitted
   Passed
   Failed
+  Certified
+}
+
+model Evaluation {
+  id                 String              @id @default(uuid())
+  coachId            String
+  assessorId         String
+  day                String
+  time               String
+  levelId            String
+  numberOfStudents   Int
+  comments           String?
+  lessonPlanClear    Boolean
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  swimClassSessionId String? // Optional relation to SwimClassSession
+  coachLevelId       String // Current level of the coach at time of evaluation
+  result             Boolean // Whether the coach passed the evaluation
+}
+
+model CoachLevel {
+  id        String  @id @default(uuid())
+  name      String
+  order     Int
+  isDeleted Boolean @default(false)
+  users     User[]  @relation("CoachLevelUsers")
+}
+
+model Cert {
+  id        String     @id @default(uuid())
+  name      String
+  isDeleted Boolean    @default(false)
+  users     UserCert[]
+}
+
+model UserCert {
+  id     String @id @default(uuid())
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+  cert   Cert   @relation(fields: [certId], references: [id])
+  certId String
 }

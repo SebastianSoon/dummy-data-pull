@@ -1,0 +1,4 @@
+id,name,totalClasses,price,validityDays,isActive,createdAt,updatedAt
+pt1,Standard,8,400,60,true,2025-06-07T06:44:33.595Z,2025-07-15T04:35:56.787Z
+pt2,Premium,12,600,90,true,2025-02-05T04:37:36.242Z,2025-07-15T00:25:51.437Z
+pt3,Trial,2,80,14,true,2025-03-08T12:44:57.208Z,2025-07-14T14:06:34.562Z

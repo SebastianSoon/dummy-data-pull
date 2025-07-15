@@ -1,0 +1,4 @@
+id,name,order,isDeleted
+cl1,Junior Coach,1,false
+cl2,Senior Coach,2,false
+cl3,Head Coach,3,false

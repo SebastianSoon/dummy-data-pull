@@ -751,6 +751,221 @@
           "200": { "description": "List of student skill progress records" }
         }
       }
+    },
+    "/package-types": {
+      "get": {
+        "operationId": "listPackageTypes",
+        "summary": "Get all package types",
+        "description": "Returns a list of all package types.",
+        "tags": ["Package Types"],
+        "responses": { "200": { "description": "List of package types" } }
+      }
+    },
+    "/package-types/by-id": {
+      "post": {
+        "operationId": "getPackageTypeById",
+        "summary": "Get package type by ID (POST)",
+        "description": "Returns a single package type by its ID. Pass the packageTypeId in the request body.",
+        "tags": ["Package Types"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "packageTypeId": { "type": "string" } },
+                "required": ["packageTypeId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Package type details" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/packages": {
+      "get": {
+        "operationId": "listPackages",
+        "summary": "Get all packages",
+        "description": "Returns a list of all packages. Optional query parameters: studentId, packageTypeId, isActive.",
+        "tags": ["Packages"],
+        "parameters": [
+          { "in": "query", "name": "studentId", "schema": { "type": "string" } },
+          { "in": "query", "name": "packageTypeId", "schema": { "type": "string" } },
+          { "in": "query", "name": "isActive", "schema": { "type": "boolean" } }
+        ],
+        "responses": { "200": { "description": "List of packages" } }
+      }
+    },
+    "/packages/by-id": {
+      "post": {
+        "operationId": "getPackageById",
+        "summary": "Get package by ID (POST)",
+        "description": "Returns a single package by its ID. Pass the packageId in the request body.",
+        "tags": ["Packages"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "packageId": { "type": "string" } },
+                "required": ["packageId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Package details" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/students/packages-by-student": {
+      "post": {
+        "operationId": "listPackagesByStudent",
+        "summary": "Get all packages for a student (POST)",
+        "description": "Returns all packages for a given student. Pass the studentId in the request body.",
+        "tags": ["Students", "Packages"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "studentId": { "type": "string" } },
+                "required": ["studentId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "List of packages" } }
+      }
+    },
+    "/coach-levels": {
+      "get": {
+        "operationId": "listCoachLevels",
+        "summary": "Get all coach levels",
+        "description": "Returns a list of all coach levels.",
+        "tags": ["Coach Levels"],
+        "responses": { "200": { "description": "List of coach levels" } }
+      }
+    },
+    "/coach-levels/by-id": {
+      "post": {
+        "operationId": "getCoachLevelById",
+        "summary": "Get coach level by ID (POST)",
+        "description": "Returns a single coach level by its ID. Pass the coachLevelId in the request body.",
+        "tags": ["Coach Levels"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "coachLevelId": { "type": "string" } },
+                "required": ["coachLevelId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Coach level details" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/certs": {
+      "get": {
+        "operationId": "listCerts",
+        "summary": "Get all certs",
+        "description": "Returns a list of all certs.",
+        "tags": ["Certs"],
+        "responses": { "200": { "description": "List of certs" } }
+      }
+    },
+    "/certs/by-id": {
+      "post": {
+        "operationId": "getCertById",
+        "summary": "Get cert by ID (POST)",
+        "description": "Returns a single cert by its ID. Pass the certId in the request body.",
+        "tags": ["Certs"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "certId": { "type": "string" } },
+                "required": ["certId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Cert details" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/user-certs": {
+      "get": {
+        "operationId": "listUserCerts",
+        "summary": "Get all user certs",
+        "description": "Returns a list of all user certs. Optional query parameters: userId, certId.",
+        "tags": ["User Certs"],
+        "parameters": [
+          { "in": "query", "name": "userId", "schema": { "type": "string" } },
+          { "in": "query", "name": "certId", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "List of user certs" } }
+      }
+    },
+    "/user-certs/by-id": {
+      "post": {
+        "operationId": "getUserCertById",
+        "summary": "Get user cert by ID (POST)",
+        "description": "Returns a single user cert by its ID. Pass the userCertId in the request body.",
+        "tags": ["User Certs"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "userCertId": { "type": "string" } },
+                "required": ["userCertId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "User cert details" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/evaluations": {
+      "get": {
+        "operationId": "listEvaluations",
+        "summary": "Get all evaluations",
+        "description": "Returns a list of all evaluations. Optional query parameters: coachId, assessorId, swimClassSessionId.",
+        "tags": ["Evaluations"],
+        "parameters": [
+          { "in": "query", "name": "coachId", "schema": { "type": "string" } },
+          { "in": "query", "name": "assessorId", "schema": { "type": "string" } },
+          { "in": "query", "name": "swimClassSessionId", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "List of evaluations" } }
+      }
+    },
+    "/evaluations/by-id": {
+      "post": {
+        "operationId": "getEvaluationById",
+        "summary": "Get evaluation by ID (POST)",
+        "description": "Returns a single evaluation by its ID. Pass the evaluationId in the request body.",
+        "tags": ["Evaluations"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "evaluationId": { "type": "string" } },
+                "required": ["evaluationId"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Evaluation details" }, "404": { "description": "Not found" } }
+      }
     }
   }
 }

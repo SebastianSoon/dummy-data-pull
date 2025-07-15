@@ -20,11 +20,11 @@ const CLASS_TYPE_NAMES = [
   'Baby Swim', 'Kiddie Swim', 'Red Swim', 'Yellow Swim', 'Blue Swim', 'Mini Squad', 'Squad'
 ];
 const USER_ROLES = [
-  'su', 'operations_manager', 'technical_manager', 'branch_admin', 'class_coordinator', 'progress_coordinator', 'coach', 'part_time'
+  'su', 'head_coach', 'branch_admin', 'coach', 'part_time'
 ];
 const STUDENTS_PER_LEVEL = 20;
 const COACHES_PER_BRANCH = 5;
-const SESSIONS_PER_CLASS = 52; // Increased from 10 to 30
+const SESSIONS_PER_CLASS = 60;
 const CLASSES_PER_LEVEL = 7;
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -32,8 +32,6 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 
 // --- HELPERS ---
 function randomFrom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-function randomDate(start, end) { return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())); }
-function uuid() { return faker.string.uuid(); }
 
 // --- BRANCHES ---
 const branches = BRANCHES.map(b => ({ ...b, isDeleted: false }));
@@ -84,7 +82,7 @@ BRANCHES.forEach(branch => {
     users.push({
       id: `u${userId++}`,
       fullName: faker.person.fullName(),
-      username: faker.internet.userName(),
+      username: faker.internet.username(),
       contact: faker.phone.number('01#########'),
       email: faker.internet.email(),
       password: faker.internet.password(),
@@ -113,14 +111,33 @@ BRANCHES.forEach(branch => {
   });
 });
 
+// Add 1 admin per branch
+BRANCHES.forEach(branch => {
+  users.push({
+    id: `u${userId++}`,
+    fullName: faker.person.fullName(),
+    username: faker.internet.userName(),
+    contact: faker.phone.number('01#########'),
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+    role: 'head_coach',
+    branchId: branch.id,
+    isDeleted: false,
+    createdAt: faker.date.past().toISOString(),
+    updatedAt: faker.date.recent().toISOString()
+  });
+});
+
+
 // --- STUDENTS ---
 let studentId = 1;
 const students = [];
 levels.forEach(level => {
   for (let i = 0; i < STUDENTS_PER_LEVEL; i++) {
     const branch = randomFrom(BRANCHES);
+    const sid = `st${studentId}`;
     students.push({
-      id: `st${studentId++}`,
+      id: sid,
       fullName: faker.person.fullName(),
       parentName: faker.person.fullName(),
       dob: faker.date.birthdate({ min: 2012, max: 2021, mode: 'year' }).toISOString().slice(0,10),
@@ -137,6 +154,7 @@ levels.forEach(level => {
       onHoldAt: '',
       branchId: branch.id
     });
+    studentId++;
   }
 });
 
@@ -189,6 +207,23 @@ students.forEach(student => {
   }
 });
 
+// --- Update students ONHOLD status for Monday classes ---
+const mondayClassIds = swimClasses.filter(c => c.day === 'Monday').map(c => c.id);
+const mondayStudentIds = enrollments.filter(e => mondayClassIds.includes(e.classId)).map(e => e.studentId);
+students.forEach(stu => {
+  if (mondayStudentIds.includes(stu.id)) {
+if (Math.random() < 0.7) {
+  if (Math.random() < 0.5) {
+    stu.status = 'ONHOLD';
+    stu.onHoldAt = faker.date.recent().toISOString();
+  } else {
+    stu.status = 'TERMINATED';
+    stu.terminatedAt = faker.date.recent().toISOString();
+  }
+}
+  }
+});
+
 // --- SESSIONS & ATTENDANCE ---
 let sessionId = 1;
 let attendanceId = 1;
@@ -233,7 +268,58 @@ const assessments = [];
 const levelOrder = levels.map(l => l.id);
 const today = new Date();
 
+// --- Simulate slowing Red 2 -> Yellow 1 graduation trend ---
+const red2Id = levels.find(l => l.name === 'Red 2').id;
+const yellow1Id = levels.find(l => l.name === 'Yellow 1').id;
+const gradMonths = [2, 1, 0]; // 2 months ago, 1 month ago, this month
+const gradsPerMonth = [8, 5, 2]; // Decreasing number of graduates
+let red2ToYellow1Grads = [];
+let gradStudentPool = students.filter(s => s.levelId === yellow1Id);
+gradMonths.forEach((mIdx, i) => {
+  // Pick unique students for each month
+  const monthAgo = new Date(today.getFullYear(), today.getMonth() - mIdx, 10);
+  const n = Math.min(gradsPerMonth[i], gradStudentPool.length);
+  const chosen = faker.helpers.arrayElements(gradStudentPool, n);
+  chosen.forEach(stu => {
+    // Passed Red 2 assessment at this month
+    assessments.push({
+      id: `as${assessmentId++}`,
+      studentId: stu.id,
+      levelId: red2Id,
+      date: monthAgo.toISOString(),
+      videoUrl: '',
+      status: 'Passed',
+      remarks: '',
+      createdAt: monthAgo.toISOString(),
+      updatedAt: monthAgo.toISOString(),
+      isDeleted: false
+    });
+    // Optionally, add a Yellow 1 assessment (Scheduled/Submitted)
+    if (Math.random() < 0.5) {
+      const yellow1Date = new Date(monthAgo.getTime() + 1000 * 60 * 60 * 24 * 30);
+      assessments.push({
+        id: `as${assessmentId++}`,
+        studentId: stu.id,
+        levelId: yellow1Id,
+        date: yellow1Date.toISOString(),
+        videoUrl: '',
+        status: randomFrom(['Scheduled','Submitted']),
+        remarks: '',
+        createdAt: yellow1Date.toISOString(),
+        updatedAt: yellow1Date.toISOString(),
+        isDeleted: false
+      });
+    }
+  });
+  // Remove chosen from pool to avoid duplicate assignment
+  gradStudentPool = gradStudentPool.filter(s => !chosen.includes(s));
+  red2ToYellow1Grads = red2ToYellow1Grads.concat(chosen.map(s => s.id));
+});
+
+// For all other students, generate normal assessments
 students.forEach(student => {
+  // Skip if already handled in Red2->Yellow1 trend
+  if (red2ToYellow1Grads.includes(student.id)) return;
   // Add passed assessments for all previous levels
   const studentLevelIdx = levelOrder.indexOf(student.levelId);
   let lastDate = new Date(student.dateJoined || student.createdAt || today);
@@ -242,6 +328,8 @@ students.forEach(student => {
     lastDate = new Date(lastDate.getTime() + 1000 * 60 * 60 * 24 * 30);
     // Clamp to today if in the future
     if (lastDate > today) lastDate = new Date(today);
+    // If this is Red 2 -> Yellow 1, skip (already handled)
+    if (levelOrder[i] === red2Id && student.levelId === yellow1Id) continue;
     assessments.push({
       id: `as${assessmentId++}`,
       studentId: student.id,
@@ -274,17 +362,26 @@ students.forEach(student => {
 });
 
 // --- STUDENT SKILL PROGRESS ---
+// ...existing code...
 let skillProgressId = 1;
 const studentSkillProgress = [];
+// Identify the underperforming coach and their students
+const underperformingCoach = users.find(u => u.role === 'coach');
+const underperformingClassIds = swimClasses.filter(c => c.userId === underperformingCoach.id).map(c => c.id);
+const underperformingStudentIds = enrollments.filter(e => underperformingClassIds.includes(e.classId)).map(e => e.studentId);
+
 students.forEach(student => {
   // Find all levels up to and including current
   const studentLevelIdx = levelOrder.indexOf(student.levelId);
   const eligibleLevels = levelOrder.slice(0, studentLevelIdx + 1);
-  // For each eligible level, randomly select some skills to mark as achieved
+  // If student is taught by underperforming coach, reduce skill progress
+  let minSkills = 1, maxSkills = 4;
+  if (underperformingStudentIds.includes(student.id)) {
+    minSkills = 1; maxSkills = 2; // fewer skills achieved
+  }
   eligibleLevels.forEach((levelId, idx) => {
     const levelSkills = skills.filter(s => s.levelId === levelId);
-    // Each student achieves 1-4 skills per level (random)
-    const nSkills = faker.number.int({min:1, max:levelSkills.length});
+    const nSkills = faker.number.int({min: minSkills, max: Math.min(maxSkills, levelSkills.length)});
     const achievedSkills = faker.helpers.arrayElements(levelSkills, nSkills);
     // Find the assessment date for this level (if any)
     let assessDate = null;
@@ -295,7 +392,6 @@ students.forEach(student => {
       }
     }
     achievedSkills.forEach(skill => {
-      // Achieved date: after assessment if exists, else after dateJoined
       let achievedAt = assessDate ? new Date(assessDate.getTime() + 1000 * 60 * 60 * 24 * 7) : new Date(new Date(student.dateJoined).getTime() + 1000 * 60 * 60 * 24 * 30 * idx);
       if (achievedAt > today) achievedAt = new Date(today);
       studentSkillProgress.push({
@@ -312,6 +408,128 @@ students.forEach(student => {
   });
 });
 
+// --- PACKAGE TYPES ---
+let packageTypeId = 1;
+const packageTypes = [
+  { name: 'Standard', totalClasses: 8, price: 400, validityDays: 60 },
+  { name: 'Premium', totalClasses: 12, price: 600, validityDays: 90 },
+  { name: 'Trial', totalClasses: 2, price: 80, validityDays: 14 }
+].map(pt => ({
+  id: `pt${packageTypeId++}`,
+  ...pt,
+  isActive: true,
+  createdAt: faker.date.past().toISOString(),
+  updatedAt: faker.date.recent().toISOString()
+}));
+
+// --- PACKAGES ---
+let packageId = 1;
+const packages = [];
+students.forEach(student => {
+  // Each student can have 2-5 packages, but only one active (classRemaining > 0)
+  const n = faker.number.int({ min: 2, max: 5 });
+  let activeAssigned = false;
+  // If this student is in a Monday class, all packages inactive
+  const mondayInactive = mondayStudentIds.includes(student.id);
+  for (let i = 0; i < n; i++) {
+    const pt = randomFrom(packageTypes);
+    const total = pt.totalClasses;
+    let classRemaining = 0;
+    if (!mondayInactive) {
+      // Only one package can be active (classRemaining > 0)
+      if (!activeAssigned && (i === n - 1 || Math.random() < 0.5)) {
+        classRemaining = faker.number.int({ min: 1, max: total });
+        activeAssigned = true;
+      }
+    }
+    const firstClassDate = faker.date.past().toISOString();
+    const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
+    packages.push({
+      id: `pkg${packageId++}`,
+      studentId: student.id,
+      packageTypeId: pt.id,
+      firstClassDate,
+      expiredAt,
+      classRemaining,
+      isDeleted: false,
+      createdAt: faker.date.past().toISOString(),
+      updatedAt: faker.date.recent().toISOString()
+    });
+  }
+});
+
+// --- COACH LEVELS ---
+let coachLevelId = 1;
+const coachLevels = [
+  { name: 'Junior Coach', order: 1 },
+  { name: 'Senior Coach', order: 2 },
+  { name: 'Head Coach', order: 3 }
+].map(cl => ({
+  id: `cl${coachLevelId++}`,
+  ...cl,
+  isDeleted: false
+}));
+
+// --- CERTS ---
+let certId = 1;
+const certs = [
+  { name: 'CPR' },
+  { name: 'Swim Teacher' },
+  { name: 'First Aid' }
+].map(cert => ({
+  id: `cert${certId++}`,
+  ...cert,
+  isDeleted: false
+}));
+
+// --- USER CERTS ---
+let userCertId = 1;
+const userCerts = [];
+users.forEach(user => {
+  // Each user gets 1-2 certs
+  const n = faker.number.int({ min: 1, max: 2 });
+  const certChoices = faker.helpers.arrayElements(certs, n);
+  certChoices.forEach(cert => {
+    userCerts.push({
+      id: `uc${userCertId++}`,
+      userId: user.id,
+      certId: cert.id
+    });
+  });
+});
+
+// --- EVALUATIONS ---
+let evaluationId = 1;
+const evaluations = [];
+swimClassSessions.forEach(session => {
+  // 10% of sessions have an evaluation
+  if (Math.random() < 0.1) {
+    const coach = users.find(u => u.id === session.userId);
+    const headCoaches = users.filter(u => u.role === 'head_coach' && u.id !== coach.id);
+    if (headCoaches.length === 0) return; // skip if no head coach
+    
+    const assessor = randomFrom(headCoaches);
+    const level = randomFrom(levels);
+    const coachLevel = randomFrom(coachLevels);
+    evaluations.push({
+      id: `ev${evaluationId++}`,
+      coachId: coach.id,
+      assessorId: assessor.id,
+      day: randomFrom(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']),
+      time: `${faker.number.int({min:8,max:20})}:00`,
+      levelId: level.id,
+      numberOfStudents: faker.number.int({min:2,max:10}),
+      comments: faker.lorem.sentence(),
+      lessonPlanClear: Math.random() < 0.8,
+      createdAt: faker.date.past().toISOString(),
+      updatedAt: faker.date.recent().toISOString(),
+      swimClassSessionId: session.id,
+      coachLevelId: coachLevel.id,
+      result: Math.random() < 0.85
+    });
+  }
+});
+
 // --- CSV WRITERS ---
 const writers = [
   { file: 'branches.csv', header: Object.keys(branches[0]), data: branches },
@@ -326,6 +544,12 @@ const writers = [
   { file: 'attendances.csv', header: Object.keys(attendances[0]), data: attendances },
   { file: 'assessments.csv', header: Object.keys(assessments[0]), data: assessments },
   { file: 'student_skill_progress.csv', header: Object.keys(studentSkillProgress[0]), data: studentSkillProgress },
+  { file: 'package_types.csv', header: Object.keys(packageTypes[0]), data: packageTypes },
+  { file: 'packages.csv', header: Object.keys(packages[0]), data: packages },
+  { file: 'coach_levels.csv', header: Object.keys(coachLevels[0]), data: coachLevels },
+  { file: 'certs.csv', header: Object.keys(certs[0]), data: certs },
+  { file: 'user_certs.csv', header: Object.keys(userCerts[0]), data: userCerts },
+  { file: 'evaluations.csv', header: Object.keys(evaluations[0]), data: evaluations },
 ];
 
 (async () => {
