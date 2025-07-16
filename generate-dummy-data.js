@@ -462,8 +462,9 @@ students.forEach(student => {
   let activeAssigned = false;
   // If this student is in a Monday class, all packages inactive
   const mondayInactive = mondayStudentIds.includes(student.id);
-  // Simulate package purchase decline in June 2025 for underperforming coach's students
-  // Most of their students will not buy new packages in June 2025
+  // Penang (underperforming) students: simulate package purchase decline in June 2025
+  // KL and Johor: keep May/June 2025 sales steady
+  const studentBranch = students.find(s => s.id === student.id)?.branchId;
   let skipJune = false;
   let mayBoost = false;
   if (underperformingStudentIds.includes(student.id)) {
@@ -486,8 +487,8 @@ students.forEach(student => {
         activeAssigned = true;
       }
     }
-    // Assign createdAt: if skipping June, avoid creating any package in June 2025
     if (underperformingStudentIds.includes(student.id)) {
+      // Penang: simulate dip in June 2025
       if (mayBoost && i === 0) {
         // First package for May 2025
         createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
@@ -502,6 +503,14 @@ students.forEach(student => {
         }
       } else {
         // Allow a rare June package
+        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
+      }
+    } else if (studentBranch === 'b1' || studentBranch === 'b3') {
+      // KL (b1) and Johor (b3): ensure steady May/June 2025 sales
+      // 50% chance for a package in May, 50% in June
+      if (Math.random() < 0.5) {
+        createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
+      } else {
         createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
       }
     } else {
