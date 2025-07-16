@@ -473,7 +473,7 @@ students.forEach(student => {
     let monthOrder = [];
     // Distribute across months with moderate decline: 40% other months, 40% may, 20% june
     let mayCount = Math.floor(penangPkgCount * 0.40);
-    let juneCount = Math.floor(penangPkgCount * 0.25);
+    let juneCount = Math.floor(penangPkgCount * 0.30);
     let otherCount = penangPkgCount - (mayCount + juneCount);
     
     for (let i = 0; i < mayCount; i++) monthOrder.push('may');
@@ -529,7 +529,7 @@ students.forEach(student => {
     // KL/Johor/others: distribute packages with June decline
     // Ensure June has fewer sales than May: 40% May, 25% June, 35% other months
     let mayCount = Math.floor(n * 0.40);
-    let juneCount = Math.floor(n * 0.25);
+    let juneCount = Math.floor(n * 0.30);
     let rest = n - (mayCount + juneCount);
     
     let mayJune = [];
