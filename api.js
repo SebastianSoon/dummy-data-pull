@@ -403,6 +403,25 @@ app.post('/package-types/by-id', (req, res) => {
 // --- Packages ---
 app.get('/packages', (req, res) => {
   let packages = loaders.packages();
+  let month = null, year = null;
+  if (req.query.month) {
+    month = parseInt(req.query.month, 10); // 1=Jan, 12=Dec
+    if (isNaN(month) || month < 1 || month > 12) month = null;
+  }
+  if (req.query.year) {
+    year = parseInt(req.query.year, 10);
+    if (isNaN(year)) year = null;
+  }
+  if (month || year) {
+    packages = packages.filter(pkg => {
+      if (!pkg.createdAt) return false;
+      const d = new Date(pkg.createdAt);
+      let match = true;
+      if (month) match = match && (d.getMonth() + 1 === month);
+      if (year) match = match && (d.getFullYear() === year);
+      return match;
+    });
+  }
   res.json(packages);
 });
 app.post('/packages/by-id', (req, res) => {
