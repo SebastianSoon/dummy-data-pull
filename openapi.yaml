@@ -2,10 +2,11 @@ openapi: 3.0.3
 info:
   title: DSA Demo API
   version: 1.0.0
-  description: |
-    API for retrieving swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, attendance, and student skill progress.
+  description: API for retrieving swim school data, including branches, users, students, levels, skills, classes, sessions, enrollments, assessments, and attendance.
+
 servers:
   - url: https://dsa-demo.onrender.com
+
 paths:
   /branches:
     get:
@@ -14,19 +15,32 @@ paths:
       description: |
         Returns a list of all branches.
         - No parameters required.
-        - Response: Array of branch objects.
-        - Example: [ { id: 'b1', name: 'Main Branch', ... }, ... ]
-      tags: [Branches]
+        - Response: Object with total and data array.
+        - Example: { total: 3, data: [ { id: 'b1', name: 'Main Branch', ... }, ... ] }
+      tags:
+        - Branches
       responses:
         '200':
           description: List of branches
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Branch'
+
   /branches/by-id:
     post:
       operationId: getBranchById
       summary: Get branch by ID (POST)
-      description: |
-        Returns a single branch by its ID. Pass the branchId in the request body. Example: { "branchId": "b1" }
-      tags: [Branches]
+      description: 'Returns a single branch by its ID. Pass the branchId in the request body. Example: { "branchId": "b1" }'
+      tags:
+        - Branches
       requestBody:
         required: true
         content:
@@ -36,12 +50,14 @@ paths:
               properties:
                 branchId:
                   type: string
-              required: [branchId]
+              required:
+                - branchId
       responses:
         '200':
           description: Branch details
         '404':
           description: Not found
+
   /users:
     get:
       operationId: listUsers
@@ -51,9 +67,10 @@ paths:
         - Optional query parameters:
           - role (string): Filter by user role.
           - branchId (string): Filter by branch.
-        - Response: Array of user objects.
-        - Example: GET /users?role=coach&branchId=b1
-      tags: [Users]
+        - Response: Object with total and data array.
+        - Example: { total: 10, data: [ ... ] }
+      tags:
+        - Users
       parameters:
         - in: query
           name: role
@@ -66,13 +83,25 @@ paths:
       responses:
         '200':
           description: List of users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+
   /users/by-id:
     post:
       operationId: getUserById
       summary: Get user by ID (POST)
-      description: |
-        Returns a single user by their ID. Pass the userId in the request body. Example: { "userId": "u1" }
-      tags: [Users]
+      description: 'Returns a single user by their ID. Pass the userId in the request body. Example: { "userId": "u1" }'
+      tags:
+        - Users
       requestBody:
         required: true
         content:
@@ -82,12 +111,14 @@ paths:
               properties:
                 userId:
                   type: string
-              required: [userId]
+              required:
+                - userId
       responses:
         '200':
           description: User details
         '404':
           description: Not found
+
   /students:
     get:
       operationId: listStudents
@@ -98,9 +129,10 @@ paths:
           - levelId (string): Filter by level.
           - branchId (string): Filter by branch.
           - status (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).
-        - Response: Array of student objects.
-        - Example: GET /students?levelId=l1&status=NORMAL
-      tags: [Students]
+        - Response: Object with total and data array.
+        - Example: { total: 100, data: [ ... ] }
+      tags:
+        - Students
       parameters:
         - in: query
           name: levelId
@@ -117,13 +149,25 @@ paths:
       responses:
         '200':
           description: List of students
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Student'
+
   /students/by-id:
     post:
       operationId: getStudentById
       summary: Get student by ID (POST)
-      description: |
-        Returns a single student by their ID. Pass the studentId in the request body. Example: { "studentId": "s1" }
-      tags: [Students]
+      description: 'Returns a single student by their ID. Pass the studentId in the request body. Example: { "studentId": "s1" }'
+      tags:
+        - Students
       requestBody:
         required: true
         content:
@@ -133,19 +177,22 @@ paths:
               properties:
                 studentId:
                   type: string
-              required: [studentId]
+              required:
+                - studentId
       responses:
         '200':
           description: Student details
         '404':
           description: Not found
+
   /students/enrollments-by-student:
     post:
       operationId: listStudentEnrollments
       summary: Get all enrollments for a student (POST)
-      description: |
-        Returns all enrollments for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }
-      tags: [Students, Enrollments]
+      description: 'Returns all enrollments for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }'
+      tags:
+        - Students
+        - Enrollments
       requestBody:
         required: true
         content:
@@ -155,17 +202,20 @@ paths:
               properties:
                 studentId:
                   type: string
-              required: [studentId]
+              required:
+                - studentId
       responses:
         '200':
           description: List of enrollments
+
   /students/assessments-by-student:
     post:
       operationId: listStudentAssessments
       summary: Get all assessments for a student (POST)
-      description: |
-        Returns all assessments for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }
-      tags: [Students, Assessments]
+      description: 'Returns all assessments for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }'
+      tags:
+        - Students
+        - Assessments
       requestBody:
         required: true
         content:
@@ -175,17 +225,20 @@ paths:
               properties:
                 studentId:
                   type: string
-              required: [studentId]
+              required:
+                - studentId
       responses:
         '200':
           description: List of assessments
+
   /students/attendances-by-student:
     post:
       operationId: listStudentAttendances
       summary: Get all attendance records for a student (POST)
-      description: |
-        Returns all attendance records for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }
-      tags: [Students, Attendance]
+      description: 'Returns all attendance records for a given student. Pass the studentId in the request body. Example: { "studentId": "s1" }'
+      tags:
+        - Students
+        - Attendance
       requestBody:
         required: true
         content:
@@ -195,10 +248,12 @@ paths:
               properties:
                 studentId:
                   type: string
-              required: [studentId]
+              required:
+                - studentId
       responses:
         '200':
           description: List of attendance records
+
   /levels:
     get:
       operationId: listLevels
@@ -206,19 +261,32 @@ paths:
       description: |
         Returns a list of all levels.
         - No parameters required.
-        - Response: Array of level objects.
-        - Example: [ { id: 'l1', name: 'Beginner', ... }, ... ]
-      tags: [Levels]
+        - Response: Object with total and data array.
+        - Example: { total: 10, data: [ ... ] }
+      tags:
+        - Levels
       responses:
         '200':
           description: List of levels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Level'
+
   /levels/by-id:
     post:
       operationId: getLevelById
       summary: Get level by ID (POST)
-      description: |
-        Returns a single level by its ID. Pass the levelId in the request body. Example: { "levelId": "l1" }
-      tags: [Levels]
+      description: 'Returns a single level by its ID. Pass the levelId in the request body. Example: { "levelId": "l1" }'
+      tags:
+        - Levels
       requestBody:
         required: true
         content:
@@ -228,19 +296,22 @@ paths:
               properties:
                 levelId:
                   type: string
-              required: [levelId]
+              required:
+                - levelId
       responses:
         '200':
           description: Level details
         '404':
           description: Not found
+
   /levels/skills-by-level:
     post:
       operationId: listLevelSkills
       summary: Get all skills for a level (POST)
-      description: |
-        Returns all skills for a given level. Pass the levelId in the request body. Example: { "levelId": "l1" }
-      tags: [Levels, Skills]
+      description: 'Returns all skills for a given level. Pass the levelId in the request body. Example: { "levelId": "l1" }'
+      tags:
+        - Levels
+        - Skills
       requestBody:
         required: true
         content:
@@ -250,10 +321,12 @@ paths:
               properties:
                 levelId:
                   type: string
-              required: [levelId]
+              required:
+                - levelId
       responses:
         '200':
           description: List of skills
+
   /skills:
     get:
       operationId: listSkills
@@ -263,7 +336,8 @@ paths:
         - Optional query parameter: levelId (string)
         - Response: Array of skill objects.
         - Example: GET /skills?levelId=l1
-      tags: [Skills]
+      tags:
+        - Skills
       parameters:
         - in: query
           name: levelId
@@ -272,6 +346,7 @@ paths:
       responses:
         '200':
           description: List of skills
+
   /class-types:
     get:
       operationId: listClassTypes
@@ -281,17 +356,19 @@ paths:
         - No parameters required.
         - Response: Array of class type objects.
         - Example: [ { id: 'ct1', name: 'Group', ... }, ... ]
-      tags: [Class Types]
+      tags:
+        - Class Types
       responses:
         '200':
           description: List of class types
+
   /class-types/by-id:
     post:
       operationId: getClassTypeById
       summary: Get class type by ID (POST)
-      description: |
-        Returns a single class type by its ID. Pass the classTypeId in the request body. Example: { "classTypeId": "ct1" }
-      tags: [Class Types]
+      description: 'Returns a single class type by its ID. Pass the classTypeId in the request body. Example: { "classTypeId": "ct1" }'
+      tags:
+        - Class Types
       requestBody:
         required: true
         content:
@@ -301,12 +378,14 @@ paths:
               properties:
                 classTypeId:
                   type: string
-              required: [classTypeId]
+              required:
+                - classTypeId
       responses:
         '200':
           description: Class type details
         '404':
           description: Not found
+
   /swim-classes:
     get:
       operationId: listSwimClasses
@@ -319,7 +398,8 @@ paths:
           - levelId (string): Filter by level (matches allowedLevels in class type).
         - Response: Array of swim class objects.
         - Example: GET /swim-classes?branchId=b1&levelId=l1
-      tags: [Swim Classes]
+      tags:
+        - Swim Classes
       parameters:
         - in: query
           name: branchId
@@ -336,13 +416,14 @@ paths:
       responses:
         '200':
           description: List of swim classes
+
   /swim-classes/by-id:
     post:
       operationId: getSwimClassById
       summary: Get swim class by ID (POST)
-      description: |
-        Returns a single swim class by its ID. Pass the swimClassId in the request body. Example: { "swimClassId": "c1" }
-      tags: [Swim Classes]
+      description: 'Returns a single swim class by its ID. Pass the swimClassId in the request body. Example: { "swimClassId": "c1" }'
+      tags:
+        - Swim Classes
       requestBody:
         required: true
         content:
@@ -352,19 +433,22 @@ paths:
               properties:
                 swimClassId:
                   type: string
-              required: [swimClassId]
+              required:
+                - swimClassId
       responses:
         '200':
           description: Swim class details
         '404':
           description: Not found
+
   /swim-classes/sessions-by-class:
     post:
       operationId: listSwimClassSessions
       summary: Get all sessions for a swim class (POST)
-      description: |
-        Returns all sessions for a given swim class. Pass the swimClassId in the request body. Example: { "swimClassId": "c1" }
-      tags: [Swim Classes, Sessions]
+      description: 'Returns all sessions for a given swim class. Pass the swimClassId in the request body. Example: { "swimClassId": "c1" }'
+      tags:
+        - Swim Classes
+        - Sessions
       requestBody:
         required: true
         content:
@@ -374,10 +458,12 @@ paths:
               properties:
                 swimClassId:
                   type: string
-              required: [swimClassId]
+              required:
+                - swimClassId
       responses:
         '200':
           description: List of sessions
+
   /swim-class-sessions:
     get:
       operationId: listSwimClassSessionsAll
@@ -390,7 +476,8 @@ paths:
           - dateTo (string, date): Filter sessions on or before this date.
         - Response: Array of session objects, each with a studentIds array.
         - Example: GET /swim-class-sessions?swimClassId=c1&dateFrom=2024-01-01
-      tags: [Sessions]
+      tags:
+        - Sessions
       parameters:
         - in: query
           name: swimClassId
@@ -409,13 +496,14 @@ paths:
       responses:
         '200':
           description: List of swim class sessions
+
   /swim-class-sessions/by-id:
     post:
       operationId: getSwimClassSessionById
       summary: Get swim class session by ID (POST)
-      description: |
-        Returns a single swim class session by its ID. Pass the swimClassSessionId in the request body. Example: { "swimClassSessionId": "s1" }
-      tags: [Sessions]
+      description: 'Returns a single swim class session by its ID. Pass the swimClassSessionId in the request body. Example: { "swimClassSessionId": "s1" }'
+      tags:
+        - Sessions
       requestBody:
         required: true
         content:
@@ -425,19 +513,22 @@ paths:
               properties:
                 swimClassSessionId:
                   type: string
-              required: [swimClassSessionId]
+              required:
+                - swimClassSessionId
       responses:
         '200':
           description: Swim class session details
         '404':
           description: Not found
+
   /swim-class-sessions/attendances-by-session:
     post:
       operationId: listSessionAttendances
       summary: Get all attendance records for a session (POST)
-      description: |
-        Returns all attendance records for a given swim class session. Pass the swimClassSessionId in the request body. Example: { "swimClassSessionId": "s1" }
-      tags: [Sessions, Attendance]
+      description: 'Returns all attendance records for a given swim class session. Pass the swimClassSessionId in the request body. Example: { "swimClassSessionId": "s1" }'
+      tags:
+        - Sessions
+        - Attendance
       requestBody:
         required: true
         content:
@@ -447,10 +538,12 @@ paths:
               properties:
                 swimClassSessionId:
                   type: string
-              required: [swimClassSessionId]
+              required:
+                - swimClassSessionId
       responses:
         '200':
           description: List of attendance records
+
   /enrollments:
     get:
       operationId: listEnrollments
@@ -463,7 +556,8 @@ paths:
           - active (boolean): Filter for active enrollments (no endAt and not deleted).
         - Response: Array of enrollment objects.
         - Example: GET /enrollments?studentId=s1&active=true
-      tags: [Enrollments]
+      tags:
+        - Enrollments
       parameters:
         - in: query
           name: studentId
@@ -480,13 +574,14 @@ paths:
       responses:
         '200':
           description: List of enrollments
+
   /enrollments/by-id:
     post:
       operationId: getEnrollmentById
       summary: Get enrollment by ID (POST)
-      description: |
-        Returns a single enrollment by its ID. Pass the enrollmentId in the request body. Example: { "enrollmentId": "e1" }
-      tags: [Enrollments]
+      description: 'Returns a single enrollment by its ID. Pass the enrollmentId in the request body. Example: { "enrollmentId": "e1" }'
+      tags:
+        - Enrollments
       requestBody:
         required: true
         content:
@@ -496,12 +591,14 @@ paths:
               properties:
                 enrollmentId:
                   type: string
-              required: [enrollmentId]
+              required:
+                - enrollmentId
       responses:
         '200':
           description: Enrollment details
         '404':
           description: Not found
+
   /assessments:
     get:
       operationId: listAssessments
@@ -514,7 +611,8 @@ paths:
           - status (string): Filter by assessment status (Scheduled, Submitted, Passed, Failed).
         - Response: Array of assessment objects.
         - Example: GET /assessments?studentId=s1&status=Passed
-      tags: [Assessments]
+      tags:
+        - Assessments
       parameters:
         - in: query
           name: studentId
@@ -531,13 +629,14 @@ paths:
       responses:
         '200':
           description: List of assessments
+
   /assessments/by-id:
     post:
       operationId: getAssessmentById
       summary: Get assessment by ID (POST)
-      description: |
-        Returns a single assessment by its ID. Pass the assessmentId in the request body. Example: { "assessmentId": "a1" }
-      tags: [Assessments]
+      description: 'Returns a single assessment by its ID. Pass the assessmentId in the request body. Example: { "assessmentId": "a1" }'
+      tags:
+        - Assessments
       requestBody:
         required: true
         content:
@@ -547,12 +646,14 @@ paths:
               properties:
                 assessmentId:
                   type: string
-              required: [assessmentId]
+              required:
+                - assessmentId
       responses:
         '200':
           description: Assessment details
         '404':
           description: Not found
+
   /attendances:
     get:
       operationId: listAttendances
@@ -565,7 +666,8 @@ paths:
           - confirmed (boolean): Filter by confirmation status.
         - Response: Array of attendance objects.
         - Example: GET /attendances?studentId=s1&confirmed=true
-      tags: [Attendance]
+      tags:
+        - Attendance
       parameters:
         - in: query
           name: studentId
@@ -582,13 +684,14 @@ paths:
       responses:
         '200':
           description: List of attendance records
+
   /attendances/by-id:
     post:
       operationId: getAttendanceById
       summary: Get attendance by ID (POST)
-      description: |
-        Returns a single attendance record by its ID. Pass the attendanceId in the request body. Example: { "attendanceId": "at1" }
-      tags: [Attendance]
+      description: 'Returns a single attendance record by its ID. Pass the attendanceId in the request body. Example: { "attendanceId": "at1" }'
+      tags:
+        - Attendance
       requestBody:
         required: true
         content:
@@ -598,19 +701,21 @@ paths:
               properties:
                 attendanceId:
                   type: string
-              required: [attendanceId]
+              required:
+                - attendanceId
       responses:
         '200':
           description: Attendance details
         '404':
           description: Not found
+
   /student-skill-progress:
     get:
       operationId: listStudentSkillProgress
       summary: Get all student skill progress records
-      description: |
-        Returns a list of all student skill progress records. Optional query parameters: studentId, skillId.
-      tags: [Student Skill Progress]
+      description: Returns a list of all student skill progress records. Optional query parameters: studentId, skillId.
+      tags:
+        - Student Skill Progress
       parameters:
         - in: query
           name: studentId
@@ -623,13 +728,14 @@ paths:
       responses:
         '200':
           description: List of student skill progress records
+
   /student-skill-progress/by-id:
     post:
       operationId: getStudentSkillProgressById
       summary: Get student skill progress by ID (POST)
-      description: |
-        Returns a single student skill progress record by its ID. Pass the id in the request body. Example: { "id": "sp1" }
-      tags: [Student Skill Progress]
+      description: 'Returns a single student skill progress record by its ID. Pass the id in the request body. Example: { "id": "sp1" }'
+      tags:
+        - Student Skill Progress
       requestBody:
         required: true
         content:
@@ -639,19 +745,22 @@ paths:
               properties:
                 id:
                   type: string
-              required: [id]
+              required:
+                - id
       responses:
         '200':
           description: Student skill progress details
         '404':
           description: Not found
+
   /students/skill-progress-by-student:
     post:
       operationId: listSkillProgressByStudent
       summary: Get all skill progress for a student (POST)
-      description: |
-        Returns all skill progress records for a given student. Pass the studentId in the request body. Example: { "studentId": "st1" }
-      tags: [Students, Student Skill Progress]
+      description: 'Returns all skill progress records for a given student. Pass the studentId in the request body. Example: { "studentId": "st1" }'
+      tags:
+        - Students
+        - Student Skill Progress
       requestBody:
         required: true
         content:
@@ -661,17 +770,20 @@ paths:
               properties:
                 studentId:
                   type: string
-              required: [studentId]
+              required:
+                - studentId
       responses:
         '200':
           description: List of skill progress records
+
   /skills/student-progress:
     post:
       operationId: listStudentsBySkillProgress
       summary: Get all students who achieved a skill (POST)
-      description: |
-        Returns all student skill progress records for a given skill. Pass the skillId in the request body. Example: { "skillId": "s1" }
-      tags: [Skills, Student Skill Progress]
+      description: 'Returns all student skill progress records for a given skill. Pass the skillId in the request body. Example: { "skillId": "s1" }'
+      tags:
+        - Skills
+        - Student Skill Progress
       requestBody:
         required: true
         content:
@@ -681,7 +793,292 @@ paths:
               properties:
                 skillId:
                   type: string
-              required: [skillId]
+              required:
+                - skillId
       responses:
         '200':
           description: List of student skill progress records
+
+  /package-types:
+    get:
+      operationId: listPackageTypes
+      summary: Get all package types
+      description: Returns a list of all package types.
+      tags:
+        - Package Types
+      responses:
+        '200':
+          description: List of package types
+
+  /package-types/by-id:
+    post:
+      operationId: getPackageTypeById
+      summary: Get package type by ID (POST)
+      description: Returns a single package type by its ID. Pass the packageTypeId in the request body.
+      tags:
+        - Package Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                packageTypeId:
+                  type: string
+              required:
+                - packageTypeId
+      responses:
+        '200':
+          description: Package type details
+        '404':
+          description: Not found
+
+  /packages:
+    get:
+      operationId: listPackages
+      summary: Get all packages
+      description: 'Returns a list of all packages. Optional query parameters: month (1-12), year (e.g. 2025). Example: /packages?month=3&year=2025'
+      tags:
+        - Packages
+      parameters:
+        - in: query
+          name: month
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+          description: Filter by month of createdAt (1=Jan, 12=Dec)
+        - in: query
+          name: year
+          schema:
+            type: integer
+          description: Filter by year of createdAt (e.g. 2025)
+      responses:
+        '200':
+          description: List of packages
+
+  /packages/by-id:
+    post:
+      operationId: getPackageById
+      summary: Get package by ID (POST)
+      description: Returns a single package by its ID. Pass the packageId in the request body.
+      tags:
+        - Packages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                packageId:
+                  type: string
+              required:
+                - packageId
+      responses:
+        '200':
+          description: Package details
+        '404':
+          description: Not found
+
+  /students/packages-by-student:
+    post:
+      operationId: listPackagesByStudent
+      summary: Get all packages for a student (POST)
+      description: Returns all packages for a given student. Pass the studentId in the request body.
+      tags:
+        - Students
+        - Packages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: string
+              required:
+                - studentId
+      responses:
+        '200':
+          description: List of packages
+
+  /coach-levels:
+    get:
+      operationId: listCoachLevels
+      summary: Get all coach levels
+      description: Returns a list of all coach levels.
+      tags:
+        - Coach Levels
+      responses:
+        '200':
+          description: List of coach levels
+
+  /coach-levels/by-id:
+    post:
+      operationId: getCoachLevelById
+      summary: Get coach level by ID (POST)
+      description: Returns a single coach level by its ID. Pass the coachLevelId in the request body.
+      tags:
+        - Coach Levels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                coachLevelId:
+                  type: string
+              required:
+                - coachLevelId
+      responses:
+        '200':
+          description: Coach level details
+        '404':
+          description: Not found
+
+  /certs:
+    get:
+      operationId: listCerts
+      summary: Get all certs
+      description: Returns a list of all certs.
+      tags:
+        - Certs
+      responses:
+        '200':
+          description: List of certs
+
+  /certs/by-id:
+    post:
+      operationId: getCertById
+      summary: Get cert by ID (POST)
+      description: Returns a single cert by its ID. Pass the certId in the request body.
+      tags:
+        - Certs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                certId:
+                  type: string
+              required:
+                - certId
+      responses:
+        '200':
+          description: Cert details
+        '404':
+          description: Not found
+
+  /user-certs:
+    get:
+      operationId: listUserCerts
+      summary: Get all user certs
+      description: Returns a list of all user certs
+      tags:
+        - User Certs
+      responses:
+        '200':
+          description: List of user certs
+
+  /user-certs/by-id:
+    post:
+      operationId: getUserCertById
+      summary: Get user cert by ID (POST)
+      description: Returns a single user cert by its ID. Pass the userCertId in the request body.
+      tags:
+        - User Certs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userCertId:
+                  type: string
+              required:
+                - userCertId
+      responses:
+        '200':
+          description: User cert details
+        '404':
+          description: Not found
+
+  /evaluations:
+    get:
+      operationId: listEvaluations
+      summary: Get all evaluations
+      description: 'Returns a list of all evaluations. Optional query parameters: coachId, assessorId, swimClassSessionId.'
+      tags:
+        - Evaluations
+      parameters:
+        - in: query
+          name: coachId
+          schema:
+            type: string
+        - in: query
+          name: assessorId
+          schema:
+            type: string
+        - in: query
+          name: swimClassSessionId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of evaluations
+
+  /evaluations/by-id:
+    post:
+      operationId: getEvaluationById
+      summary: Get evaluation by ID (POST)
+      description: Returns a single evaluation by its ID. Pass the evaluationId in the request body.
+      tags:
+        - Evaluations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                evaluationId:
+                  type: string
+              required:
+                - evaluationId
+      responses:
+        '200':
+          description: Evaluation details
+        '404':
+          description: Not found
+
+# Note: The components section is missing from the original JSON file.
+# You'll need to add the schema definitions for the referenced components:
+# - Branch, User, Student, Level, etc.
+# 
+# Example components section structure:
+# components:
+#   schemas:
+#     Branch:
+#       type: object
+#       properties:
+#         id:
+#           type: string
+#         name:
+#           type: string
+#         # Add other branch properties
+#     User:
+#       type: object
+#       properties:
+#         id:
+#           type: string
+#         name:
+#           type: string
+#         # Add other user properties
+#     # Add other schema definitions...

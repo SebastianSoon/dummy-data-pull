@@ -49,6 +49,7 @@ function parseBool(val) {
   if (typeof val === 'string') return val.toLowerCase() === 'true';
   return false;
 }
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // --- Branches ---
