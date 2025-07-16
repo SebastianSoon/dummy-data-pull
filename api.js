@@ -49,7 +49,9 @@ function parseBool(val) {
   if (typeof val === 'string') return val.toLowerCase() === 'true';
   return false;
 }
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.get('/', (req, res) => {
+  res.send('DSA Demo API! Use /docs for API documentation.')
+});
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // --- Branches ---
