@@ -252,8 +252,8 @@ const swimClassSessions = [];
 const attendances = [];
 swimClasses.forEach(swimClass => {
   for (let i = 0; i < SESSIONS_PER_CLASS; i++) {
-    // Spread sessions over the past 1 year
-    const sessionDate = faker.date.between({from: new Date(Date.now() - 365*24*60*60*1000), to: new Date()});
+    // Limit sessions to 2025
+    const sessionDate = faker.date.between({from: new Date('2025-01-01'), to: new Date('2025-12-31')});
     const coach = users.find(u => u.id === swimClass.userId);
     const enrolledStudents = enrollments.filter(e => e.classId === swimClass.id && !e.isDeleted).map(e => e.studentId);
     const sessionStudents = faker.helpers.arrayElements(enrolledStudents, Math.min(enrolledStudents.length, classTypes.find(ct => ct.id === swimClass.classTypeId).maxStudents));
@@ -495,7 +495,8 @@ students.forEach(student => {
         createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
       }
       const firstClassDate = createdAt;
-      const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
+      // Expired at: only in 2025
+      const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString() : '';
       packages.push({
         id: `pkg${packageId++}`,
         studentId: student.id,
@@ -506,7 +507,7 @@ students.forEach(student => {
         classRemaining,
         isDeleted: false,
         createdAt: createdAt,
-        updatedAt: faker.date.recent().toISOString()
+        updatedAt: faker.date.between({from: '2025-01-01', to: '2025-12-31'}).toISOString()
       });
     }
   } else {
@@ -538,7 +539,7 @@ students.forEach(student => {
       } else if (monthOrder[i] === 'june') {
         createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
       } else {
-        // Pick a random month except May/June
+        // Pick a random month except May/June, but still in 2025
         let year = 2025;
         let monthChoices = [1,2,3,4,7,8,9,10,11,12];
         let month = randomFrom(monthChoices);
@@ -546,7 +547,8 @@ students.forEach(student => {
         createdAt = new Date(year, month-1, day).toISOString();
       }
       const firstClassDate = createdAt;
-      const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
+      // Expired at: only in 2025
+      const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString() : '';
       packages.push({
         id: `pkg${packageId++}`,
         studentId: student.id,
@@ -557,7 +559,7 @@ students.forEach(student => {
         classRemaining,
         isDeleted: false,
         createdAt: createdAt,
-        updatedAt: faker.date.recent().toISOString()
+        updatedAt: faker.date.between({from: '2025-01-01', to: '2025-12-31'}).toISOString()
       });
     }
   }
