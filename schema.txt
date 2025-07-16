@@ -164,6 +164,7 @@ model Package {
   id             String       @id @default(uuid())
   studentId      String
   packageTypeId  String
+  branchId  String
   firstClassDate    DateTime     @default(now())
   expiredAt      DateTime?
   classRemaining Int          @default(0)

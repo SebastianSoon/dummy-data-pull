@@ -1,411 +1,416 @@
 id,coachId,assessorId,day,time,levelId,numberOfStudents,comments,lessonPlanClear,createdAt,updatedAt,swimClassSessionId,coachLevelId,result
-ev1,u11,u21,Thursday,15:00,l2,2,Lesson plan was well structured and clear.,true,2024-09-19T00:09:39.761Z,2025-07-15T05:26:08.969Z,scs20,cl1,true
-ev2,u11,u20,Thursday,11:00,l7,3,Coach maintained positive energy in class.,true,2025-03-21T08:22:48.604Z,2025-07-15T19:34:56.884Z,scs24,cl3,true
-ev3,u11,u21,Thursday,20:00,l6,8,Coach provided helpful feedback to students.,false,2024-08-05T07:18:02.299Z,2025-07-15T18:10:30.935Z,scs32,cl3,true
-ev4,u11,u21,Sunday,13:00,l9,3,Coach showed strong leadership skills.,true,2025-07-16T02:15:05.555Z,2025-07-15T09:16:01.667Z,scs41,cl3,true
-ev5,u11,u19,Thursday,12:00,l4,10,Coach showed strong leadership skills.,true,2025-02-06T03:05:32.920Z,2025-07-15T09:39:38.997Z,scs47,cl1,true
-ev6,u11,u21,Sunday,20:00,l8,5,Coach struggled to maintain class discipline.,true,2025-06-09T08:43:19.503Z,2025-07-15T11:48:01.271Z,scs49,cl3,false
-ev7,u11,u21,Thursday,18:00,l5,10,Coach showed strong leadership skills.,true,2024-09-20T08:41:48.423Z,2025-07-15T14:29:02.843Z,scs58,cl3,true
-ev8,u11,u20,Sunday,13:00,l6,4,Coach provided helpful feedback to students.,true,2024-10-11T16:18:42.667Z,2025-07-15T16:17:13.310Z,scs61,cl2,true
-ev9,u11,u21,Thursday,12:00,l8,6,Coach showed strong leadership skills.,true,2024-09-18T10:31:32.286Z,2025-07-15T20:07:26.740Z,scs65,cl1,true
-ev10,u11,u21,Saturday,20:00,l6,5,Lesson plan was well structured and clear.,true,2024-07-17T23:18:02.937Z,2025-07-15T12:44:34.891Z,scs78,cl3,true
-ev11,u11,u21,Sunday,11:00,l1,9,Students showed good progress under coach guidance.,false,2025-03-29T10:41:27.542Z,2025-07-15T16:20:22.153Z,scs91,cl3,true
-ev12,u11,u21,Wednesday,10:00,l8,8,Lesson objectives were not fully met.,true,2025-05-31T14:06:56.274Z,2025-07-15T16:46:29.343Z,scs103,cl3,false
-ev13,u11,u19,Friday,17:00,l9,3,Coach maintained positive energy in class.,true,2025-07-12T16:12:55.687Z,2025-07-15T12:18:39.344Z,scs105,cl3,true
-ev14,u11,u21,Friday,14:00,l6,5,Coach demonstrated excellent communication with students.,true,2025-04-18T05:33:43.167Z,2025-07-15T23:11:59.205Z,scs116,cl2,true
-ev15,u11,u21,Friday,11:00,l3,8,Coach showed strong leadership skills.,false,2025-02-09T23:48:28.636Z,2025-07-15T20:20:02.306Z,scs118,cl1,true
-ev16,u5,u21,Saturday,18:00,l7,2,Coach showed strong leadership skills.,true,2024-12-11T19:15:18.048Z,2025-07-15T14:50:07.196Z,scs156,cl2,true
-ev17,u5,u20,Friday,14:00,l4,10,Coach maintained positive energy in class.,true,2024-10-17T07:50:40.229Z,2025-07-15T08:12:36.269Z,scs161,cl3,true
-ev18,u5,u21,Sunday,15:00,l3,4,Coach adapted well to student needs.,true,2025-01-29T22:43:40.659Z,2025-07-15T08:40:27.427Z,scs170,cl2,true
-ev19,u8,u21,Thursday,11:00,l7,5,Coach provided helpful feedback to students.,true,2024-12-13T04:15:15.419Z,2025-07-15T11:49:04.679Z,scs188,cl1,true
-ev20,u8,u21,Sunday,9:00,l7,8,Safety protocols were followed throughout the session.,true,2024-12-21T06:28:23.014Z,2025-07-15T16:54:14.574Z,scs195,cl3,true
-ev21,u8,u19,Thursday,8:00,l8,6,Safety protocols were followed throughout the session.,false,2025-01-01T23:03:09.443Z,2025-07-15T08:12:47.953Z,scs200,cl2,true
-ev22,u8,u21,Saturday,15:00,l5,10,Coach provided helpful feedback to students.,true,2024-09-03T20:02:18.605Z,2025-07-15T19:11:16.917Z,scs206,cl2,true
-ev23,u8,u20,Monday,15:00,l4,9,Students showed good progress under coach guidance.,false,2024-08-03T09:46:29.774Z,2025-07-15T10:40:33.629Z,scs208,cl2,true
-ev24,u8,u19,Monday,16:00,l5,2,Coach needs to improve technical explanations.,true,2024-08-10T21:42:50.100Z,2025-07-15T07:27:24.953Z,scs213,cl2,false
-ev25,u8,u21,Thursday,18:00,l1,4,Coach maintained positive energy in class.,true,2025-02-20T08:19:20.804Z,2025-07-15T08:24:57.477Z,scs217,cl1,true
-ev26,u7,u20,Monday,15:00,l4,4,Coach provided helpful feedback to students.,true,2024-10-20T20:42:28.830Z,2025-07-15T09:23:38.205Z,scs247,cl2,true
-ev27,u7,u21,Saturday,18:00,l1,8,Coach showed strong leadership skills.,true,2025-05-30T17:43:49.896Z,2025-07-16T00:45:19.259Z,scs282,cl1,true
-ev28,u3,u21,Tuesday,16:00,l6,7,Coach demonstrated excellent communication with students.,false,2024-12-01T17:40:00.595Z,2025-07-15T11:02:55.127Z,scs307,cl3,true
-ev29,u3,u20,Sunday,12:00,l5,2,Coach showed strong leadership skills.,true,2025-05-26T00:04:40.313Z,2025-07-15T18:43:13.581Z,scs318,cl2,true
-ev30,u3,u20,Friday,15:00,l10,8,Safety protocols were followed throughout the session.,true,2024-09-07T11:56:38.773Z,2025-07-15T14:10:08.814Z,scs322,cl1,true
-ev31,u3,u20,Tuesday,12:00,l4,3,Coach maintained positive energy in class.,true,2025-07-07T14:46:01.136Z,2025-07-15T07:24:10.265Z,scs325,cl2,true
-ev32,u3,u20,Sunday,19:00,l4,3,Lesson plan was well structured and clear.,true,2025-07-10T05:14:28.430Z,2025-07-15T23:36:34.199Z,scs342,cl2,true
-ev33,u3,u19,Thursday,12:00,l8,4,Coach needs to improve time management during sessions.,false,2025-05-29T12:02:02.330Z,2025-07-15T22:19:19.162Z,scs346,cl3,false
-ev34,u3,u20,Saturday,10:00,l5,7,Coach demonstrated excellent communication with students.,true,2024-11-11T20:40:21.376Z,2025-07-15T09:05:34.006Z,scs347,cl3,true
-ev35,u8,u20,Saturday,18:00,l2,8,Coach demonstrated excellent communication with students.,true,2024-11-13T22:26:00.536Z,2025-07-15T13:52:02.502Z,scs362,cl1,true
-ev36,u8,u20,Monday,10:00,l7,4,Coach did not complete the planned activities.,false,2024-10-17T17:03:50.989Z,2025-07-15T08:16:17.426Z,scs389,cl3,false
-ev37,u8,u21,Wednesday,17:00,l1,2,Students showed good progress under coach guidance.,true,2024-09-13T15:46:38.758Z,2025-07-16T00:41:48.245Z,scs396,cl2,true
-ev38,u8,u20,Saturday,9:00,l1,10,Coach adapted well to student needs.,true,2024-12-19T10:12:27.734Z,2025-07-15T15:43:39.216Z,scs417,cl2,true
-ev39,u8,u20,Tuesday,18:00,l5,4,Coach provided helpful feedback to students.,true,2024-08-05T15:15:34.632Z,2025-07-15T22:03:56.753Z,scs418,cl3,true
-ev40,u8,u19,Wednesday,10:00,l3,7,Coach maintained positive energy in class.,true,2024-12-10T02:40:27.298Z,2025-07-15T16:01:29.938Z,scs420,cl1,true
-ev41,u4,u21,Saturday,18:00,l5,6,Students showed good progress under coach guidance.,true,2025-03-30T14:29:56.811Z,2025-07-15T09:07:08.877Z,scs442,cl3,true
-ev42,u4,u20,Friday,8:00,l1,10,Students showed good progress under coach guidance.,true,2025-06-01T00:14:22.825Z,2025-07-16T01:07:30.172Z,scs451,cl3,true
-ev43,u4,u20,Saturday,15:00,l10,3,Coach should work on engaging quieter students.,true,2025-06-01T17:50:30.693Z,2025-07-15T22:11:35.322Z,scs453,cl3,false
-ev44,u4,u19,Saturday,19:00,l5,8,Coach maintained positive energy in class.,true,2024-11-24T13:31:21.883Z,2025-07-16T02:47:53.449Z,scs467,cl1,true
-ev45,u9,u19,Wednesday,15:00,l8,7,Coach was late to the session.,true,2024-12-20T20:23:40.082Z,2025-07-15T11:21:40.537Z,scs482,cl1,false
-ev46,u9,u21,Sunday,9:00,l2,9,Coach demonstrated excellent communication with students.,true,2024-12-06T11:30:47.977Z,2025-07-15T06:35:04.288Z,scs500,cl3,true
-ev47,u9,u19,Saturday,19:00,l7,9,Safety protocols were followed throughout the session.,true,2024-12-24T23:54:55.244Z,2025-07-15T09:48:01.486Z,scs512,cl1,true
-ev48,u9,u21,Sunday,18:00,l8,3,Students showed good progress under coach guidance.,true,2024-09-02T14:50:30.630Z,2025-07-15T15:56:39.506Z,scs515,cl1,true
-ev49,u2,u21,Thursday,12:00,l4,3,Coach needs to improve time management during sessions.,true,2024-07-24T06:18:56.363Z,2025-07-15T19:18:51.698Z,scs550,cl3,false
-ev50,u2,u20,Thursday,14:00,l3,10,Coach did not complete the planned activities.,false,2024-10-12T06:01:41.108Z,2025-07-15T05:52:34.341Z,scs563,cl3,false
-ev51,u2,u21,Friday,17:00,l7,3,Coach showed strong leadership skills.,true,2025-05-12T12:08:19.362Z,2025-07-15T14:30:01.597Z,scs565,cl1,true
-ev52,u2,u19,Wednesday,14:00,l6,6,Lesson objectives were not fully met.,false,2024-12-24T03:10:34.496Z,2025-07-15T22:55:56.627Z,scs568,cl2,false
-ev53,u2,u19,Thursday,13:00,l2,4,Coach needs to improve time management during sessions.,false,2024-11-11T03:02:45.348Z,2025-07-15T08:03:01.849Z,scs578,cl3,false
-ev54,u8,u20,Friday,11:00,l7,8,Lesson plan was well structured and clear.,false,2024-08-18T09:11:02.704Z,2025-07-15T14:45:53.250Z,scs609,cl2,true
-ev55,u8,u19,Friday,10:00,l8,9,Students showed good progress under coach guidance.,true,2024-10-29T03:27:40.661Z,2025-07-15T10:25:16.314Z,scs626,cl3,true
-ev56,u8,u21,Saturday,14:00,l5,10,Students showed good progress under coach guidance.,true,2025-01-06T20:56:46.124Z,2025-07-16T02:58:37.713Z,scs646,cl1,true
-ev57,u8,u20,Monday,17:00,l4,3,Safety protocols were followed throughout the session.,true,2025-05-27T12:39:56.403Z,2025-07-15T05:57:06.092Z,scs653,cl3,true
-ev58,u8,u19,Monday,20:00,l10,8,Lesson plan was well structured and clear.,true,2024-12-09T13:17:01.061Z,2025-07-15T16:22:45.045Z,scs659,cl3,true
-ev59,u1,u19,Saturday,9:00,l3,3,Coach needs to improve technical explanations.,true,2025-03-02T07:36:01.725Z,2025-07-15T13:02:52.123Z,scs675,cl3,false
-ev60,u1,u20,Sunday,14:00,l1,5,Coach was late to the session.,true,2025-01-26T21:19:50.703Z,2025-07-16T00:09:18.738Z,scs684,cl1,false
-ev61,u1,u21,Thursday,16:00,l10,7,Safety protocols were followed throughout the session.,true,2024-09-14T10:32:39.003Z,2025-07-15T08:52:39.156Z,scs691,cl3,true
-ev62,u1,u20,Thursday,17:00,l2,10,Students showed good progress under coach guidance.,true,2025-06-25T09:32:04.658Z,2025-07-15T07:13:48.519Z,scs702,cl1,true
-ev63,u1,u19,Saturday,11:00,l2,9,Coach should work on engaging quieter students.,true,2024-08-17T21:42:42.683Z,2025-07-15T15:22:07.479Z,scs712,cl3,false
-ev64,u10,u19,Saturday,18:00,l1,3,Coach showed strong leadership skills.,true,2025-04-02T01:58:23.379Z,2025-07-15T14:19:21.302Z,scs731,cl1,true
-ev65,u10,u20,Thursday,15:00,l3,7,Lesson plan was well structured and clear.,false,2024-11-09T12:10:10.380Z,2025-07-15T20:29:13.052Z,scs738,cl2,true
-ev66,u10,u20,Tuesday,15:00,l6,4,Lesson plan was well structured and clear.,true,2025-03-22T19:57:32.425Z,2025-07-16T00:52:09.017Z,scs755,cl3,true
-ev67,u10,u19,Thursday,20:00,l4,5,Coach adapted well to student needs.,true,2025-01-31T18:06:28.208Z,2025-07-15T21:22:01.058Z,scs760,cl1,true
-ev68,u11,u19,Monday,12:00,l8,5,Coach adapted well to student needs.,true,2024-12-02T18:51:19.364Z,2025-07-15T19:24:48.618Z,scs801,cl2,true
-ev69,u11,u21,Tuesday,9:00,l7,9,Coach maintained positive energy in class.,true,2025-06-19T02:59:00.258Z,2025-07-15T06:49:04.968Z,scs812,cl1,true
-ev70,u11,u20,Friday,10:00,l8,6,Coach adapted well to student needs.,false,2024-07-31T14:23:41.813Z,2025-07-15T09:38:30.491Z,scs821,cl2,true
-ev71,u11,u21,Thursday,19:00,l1,9,Lesson plan was well structured and clear.,true,2025-04-20T21:13:14.952Z,2025-07-15T12:33:40.005Z,scs834,cl1,true
-ev72,u8,u21,Friday,8:00,l8,8,Coach adapted well to student needs.,true,2024-09-24T18:43:14.267Z,2025-07-15T11:52:26.981Z,scs859,cl3,true
-ev73,u8,u20,Wednesday,11:00,l8,5,Coach showed strong leadership skills.,true,2024-07-25T02:11:58.362Z,2025-07-16T04:06:30.325Z,scs863,cl2,true
-ev74,u8,u21,Friday,17:00,l4,3,Coach showed strong leadership skills.,false,2024-12-27T15:59:45.935Z,2025-07-16T00:37:22.137Z,scs865,cl1,true
-ev75,u8,u20,Tuesday,19:00,l8,8,Coach provided helpful feedback to students.,true,2025-02-27T12:59:37.698Z,2025-07-15T05:33:22.996Z,scs868,cl2,true
-ev76,u8,u19,Sunday,18:00,l8,10,Safety protocols were followed throughout the session.,false,2025-06-02T20:12:04.400Z,2025-07-15T04:58:12.874Z,scs883,cl2,true
-ev77,u8,u20,Sunday,14:00,l7,9,Coach maintained positive energy in class.,true,2025-04-22T12:10:02.295Z,2025-07-15T16:49:23.270Z,scs889,cl3,true
-ev78,u2,u21,Thursday,9:00,l5,3,Coach needs to improve technical explanations.,true,2024-12-20T07:47:30.673Z,2025-07-16T02:04:16.510Z,scs901,cl2,false
-ev79,u2,u19,Sunday,12:00,l10,6,Coach was late to the session.,false,2025-03-09T11:38:38.454Z,2025-07-15T08:52:50.666Z,scs912,cl1,false
-ev80,u2,u19,Sunday,17:00,l7,8,Coach did not complete the planned activities.,false,2025-03-13T17:01:02.387Z,2025-07-15T14:22:39.086Z,scs917,cl2,false
-ev81,u2,u20,Friday,9:00,l6,6,Coach was late to the session.,true,2024-10-08T10:55:54.647Z,2025-07-15T19:37:35.766Z,scs918,cl1,false
-ev82,u2,u21,Friday,15:00,l6,2,Coach showed strong leadership skills.,false,2024-11-04T07:04:01.405Z,2025-07-15T08:53:32.756Z,scs926,cl2,true
-ev83,u2,u19,Tuesday,19:00,l5,7,Coach was late to the session.,true,2025-04-14T03:55:08.842Z,2025-07-15T19:19:28.372Z,scs947,cl1,false
-ev84,u2,u20,Wednesday,19:00,l6,5,Coach was late to the session.,false,2025-04-23T18:01:15.931Z,2025-07-15T21:58:39.225Z,scs951,cl2,false
-ev85,u12,u21,Thursday,11:00,l8,3,Students showed good progress under coach guidance.,false,2024-10-12T17:38:59.753Z,2025-07-15T18:03:24.083Z,scs984,cl3,true
-ev86,u12,u19,Sunday,8:00,l3,5,Coach showed strong leadership skills.,true,2025-01-01T10:15:06.910Z,2025-07-15T23:21:59.392Z,scs996,cl3,true
-ev87,u12,u21,Monday,9:00,l6,8,Coach did not complete the planned activities.,true,2025-06-12T20:35:46.337Z,2025-07-15T18:42:30.784Z,scs997,cl3,false
-ev88,u12,u21,Tuesday,13:00,l10,3,Coach was late to the session.,true,2025-01-07T02:56:58.848Z,2025-07-15T18:44:13.424Z,scs1004,cl1,false
-ev89,u12,u19,Saturday,16:00,l7,9,Coach provided helpful feedback to students.,true,2024-09-09T01:47:52.642Z,2025-07-15T22:34:06.139Z,scs1013,cl2,true
-ev90,u12,u21,Friday,17:00,l2,4,Lesson plan was well structured and clear.,true,2025-04-26T15:27:46.357Z,2025-07-15T06:45:34.468Z,scs1016,cl2,true
-ev91,u2,u20,Sunday,16:00,l10,10,Coach showed strong leadership skills.,true,2025-02-08T12:48:25.360Z,2025-07-15T18:59:14.942Z,scs1039,cl1,true
-ev92,u2,u21,Thursday,11:00,l4,3,Coach needs to improve technical explanations.,false,2025-03-28T21:35:32.937Z,2025-07-15T23:36:00.388Z,scs1045,cl2,false
-ev93,u2,u21,Saturday,8:00,l7,5,Coach was late to the session.,false,2024-07-21T05:20:18.085Z,2025-07-15T10:57:53.049Z,scs1046,cl1,false
-ev94,u2,u19,Friday,16:00,l10,9,Coach needs to improve time management during sessions.,false,2024-10-03T01:08:57.056Z,2025-07-15T21:06:56.262Z,scs1052,cl2,false
-ev95,u2,u19,Thursday,20:00,l9,7,Coach was late to the session.,false,2025-01-23T19:37:49.347Z,2025-07-15T09:32:14.014Z,scs1057,cl1,false
-ev96,u2,u21,Wednesday,18:00,l10,10,Coach needs to improve technical explanations.,true,2025-05-29T15:22:17.721Z,2025-07-16T00:49:34.743Z,scs1066,cl1,false
-ev97,u2,u19,Saturday,17:00,l10,2,Coach did not complete the planned activities.,true,2025-03-01T04:10:10.287Z,2025-07-15T07:43:02.113Z,scs1068,cl2,false
-ev98,u2,u19,Sunday,19:00,l5,7,Coach was late to the session.,false,2024-07-19T23:10:06.041Z,2025-07-15T20:17:55.661Z,scs1072,cl3,false
-ev99,u2,u21,Thursday,10:00,l6,8,Lesson objectives were not fully met.,false,2024-12-28T04:07:19.660Z,2025-07-15T14:51:08.174Z,scs1087,cl2,false
-ev100,u2,u21,Friday,18:00,l10,8,Coach should work on engaging quieter students.,true,2025-02-11T22:32:45.661Z,2025-07-15T11:58:23.135Z,scs1106,cl3,false
-ev101,u2,u21,Friday,12:00,l2,9,Coach needs to improve time management during sessions.,true,2024-12-29T13:29:59.629Z,2025-07-16T02:06:30.128Z,scs1123,cl1,false
-ev102,u2,u20,Saturday,9:00,l3,2,Coach struggled to maintain class discipline.,false,2025-02-16T00:58:59.985Z,2025-07-15T13:32:11.020Z,scs1138,cl1,false
-ev103,u11,u21,Sunday,17:00,l3,6,Coach showed strong leadership skills.,true,2025-07-07T07:38:32.632Z,2025-07-15T22:08:34.920Z,scs1145,cl1,true
-ev104,u11,u20,Monday,16:00,l7,8,Coach did not complete the planned activities.,true,2024-09-13T20:57:14.941Z,2025-07-15T08:01:48.763Z,scs1146,cl2,false
-ev105,u11,u19,Monday,10:00,l2,8,Safety protocols were followed throughout the session.,true,2025-06-07T12:48:08.478Z,2025-07-15T05:16:34.263Z,scs1166,cl2,true
-ev106,u11,u21,Tuesday,17:00,l8,2,Coach showed strong leadership skills.,true,2025-03-04T07:41:35.779Z,2025-07-15T14:34:25.388Z,scs1187,cl3,true
-ev107,u11,u19,Saturday,18:00,l6,6,Lesson plan was well structured and clear.,true,2025-07-04T17:37:35.591Z,2025-07-15T07:05:27.734Z,scs1191,cl2,true
-ev108,u11,u19,Wednesday,18:00,l10,2,Coach struggled to maintain class discipline.,true,2024-12-04T04:03:38.112Z,2025-07-15T22:10:31.015Z,scs1196,cl3,false
-ev109,u11,u21,Wednesday,9:00,l8,8,Coach did not complete the planned activities.,false,2024-08-11T05:55:56.097Z,2025-07-15T23:51:27.825Z,scs1207,cl2,false
-ev110,u11,u21,Friday,17:00,l1,7,Safety protocols were followed throughout the session.,true,2025-01-16T19:43:55.560Z,2025-07-16T02:44:19.499Z,scs1222,cl1,true
-ev111,u11,u20,Tuesday,15:00,l9,7,Coach demonstrated excellent communication with students.,true,2025-03-02T04:31:21.100Z,2025-07-16T01:16:32.736Z,scs1225,cl1,true
-ev112,u11,u21,Monday,14:00,l10,10,Lesson plan was well structured and clear.,true,2025-02-12T10:06:13.176Z,2025-07-16T01:12:14.934Z,scs1231,cl1,true
-ev113,u11,u20,Sunday,20:00,l1,6,Lesson plan was well structured and clear.,true,2025-03-08T07:13:04.603Z,2025-07-15T18:57:34.312Z,scs1256,cl2,true
-ev114,u11,u20,Monday,15:00,l4,6,Coach provided helpful feedback to students.,true,2024-08-08T22:10:17.882Z,2025-07-15T04:34:05.479Z,scs1259,cl2,true
-ev115,u12,u21,Wednesday,11:00,l10,7,Coach maintained positive energy in class.,true,2025-02-05T13:39:49.042Z,2025-07-15T15:26:16.677Z,scs1266,cl1,true
-ev116,u12,u20,Monday,11:00,l4,9,Safety protocols were followed throughout the session.,false,2025-06-20T08:10:56.805Z,2025-07-15T16:46:30.256Z,scs1267,cl3,true
-ev117,u12,u21,Saturday,17:00,l5,8,Coach provided helpful feedback to students.,true,2025-07-04T03:59:19.061Z,2025-07-15T17:40:34.638Z,scs1272,cl3,true
-ev118,u12,u21,Tuesday,20:00,l1,4,Coach was late to the session.,true,2025-03-04T05:13:50.533Z,2025-07-15T17:04:36.765Z,scs1287,cl1,false
-ev119,u12,u21,Wednesday,13:00,l1,8,Coach maintained positive energy in class.,true,2025-02-21T07:11:37.865Z,2025-07-16T02:05:53.315Z,scs1291,cl2,true
-ev120,u12,u21,Saturday,8:00,l10,10,Coach adapted well to student needs.,false,2025-05-29T11:41:30.878Z,2025-07-16T02:56:48.318Z,scs1314,cl2,true
-ev121,u12,u21,Thursday,20:00,l4,6,Coach adapted well to student needs.,false,2025-05-28T09:37:46.275Z,2025-07-15T19:05:03.655Z,scs1317,cl2,true
-ev122,u3,u21,Saturday,19:00,l2,2,Coach adapted well to student needs.,true,2025-01-22T03:20:30.715Z,2025-07-16T00:33:25.176Z,scs1327,cl3,true
-ev123,u3,u19,Tuesday,13:00,l2,4,Coach provided helpful feedback to students.,true,2025-01-14T04:44:47.166Z,2025-07-16T00:41:06.517Z,scs1331,cl1,true
-ev124,u3,u20,Wednesday,13:00,l7,5,Lesson plan was well structured and clear.,true,2024-10-04T14:00:47.970Z,2025-07-15T08:19:55.177Z,scs1337,cl1,true
-ev125,u3,u20,Saturday,18:00,l2,4,Coach adapted well to student needs.,false,2025-06-09T04:49:49.290Z,2025-07-15T21:23:32.534Z,scs1340,cl1,true
-ev126,u3,u20,Sunday,8:00,l8,7,Coach adapted well to student needs.,true,2024-10-19T07:20:36.497Z,2025-07-16T00:17:51.822Z,scs1366,cl1,true
-ev127,u2,u19,Friday,15:00,l1,3,Coach was late to the session.,true,2025-01-12T21:08:37.293Z,2025-07-15T23:31:40.049Z,scs1381,cl2,false
-ev128,u2,u21,Wednesday,19:00,l5,6,Students showed good progress under coach guidance.,false,2025-06-24T20:24:08.785Z,2025-07-15T05:36:45.620Z,scs1386,cl3,true
-ev129,u2,u21,Friday,12:00,l9,2,Lesson objectives were not fully met.,false,2025-04-07T12:31:10.080Z,2025-07-15T06:45:45.975Z,scs1399,cl1,false
-ev130,u2,u19,Friday,8:00,l9,10,Safety protocols were followed throughout the session.,true,2024-11-29T10:19:42.385Z,2025-07-15T20:58:27.573Z,scs1413,cl1,true
-ev131,u2,u19,Wednesday,19:00,l6,3,Coach was late to the session.,true,2024-10-07T06:46:29.107Z,2025-07-15T16:13:50.371Z,scs1416,cl3,false
-ev132,u2,u19,Saturday,14:00,l6,6,Coach did not complete the planned activities.,true,2025-03-17T04:07:27.660Z,2025-07-15T23:31:07.750Z,scs1417,cl1,false
-ev133,u14,u21,Wednesday,11:00,l8,3,Coach demonstrated excellent communication with students.,true,2025-04-06T08:39:56.331Z,2025-07-15T23:35:49.558Z,scs1450,cl2,true
-ev134,u14,u20,Friday,9:00,l1,2,Coach provided helpful feedback to students.,false,2024-07-30T08:21:20.953Z,2025-07-15T05:07:41.092Z,scs1460,cl1,true
-ev135,u14,u21,Thursday,8:00,l5,2,Coach showed strong leadership skills.,true,2025-04-16T02:54:17.834Z,2025-07-15T18:04:23.472Z,scs1464,cl2,true
-ev136,u14,u20,Saturday,12:00,l3,3,Coach provided helpful feedback to students.,true,2025-01-01T19:16:02.412Z,2025-07-16T01:40:15.429Z,scs1480,cl3,true
-ev137,u14,u20,Tuesday,18:00,l9,4,Lesson objectives were not fully met.,true,2025-01-04T15:03:09.409Z,2025-07-15T14:49:02.335Z,scs1485,cl1,false
-ev138,u14,u21,Monday,8:00,l4,10,Coach adapted well to student needs.,true,2024-12-22T17:57:29.883Z,2025-07-16T02:47:22.684Z,scs1487,cl3,true
-ev139,u15,u21,Saturday,9:00,l10,6,Coach demonstrated excellent communication with students.,true,2024-10-04T09:51:54.916Z,2025-07-15T14:23:35.179Z,scs1507,cl2,true
-ev140,u15,u20,Saturday,18:00,l5,10,Lesson plan was well structured and clear.,true,2024-08-21T13:38:40.891Z,2025-07-15T19:30:19.892Z,scs1526,cl3,true
-ev141,u15,u19,Friday,14:00,l2,6,Safety protocols were followed throughout the session.,true,2025-03-28T01:17:50.863Z,2025-07-15T14:06:03.806Z,scs1529,cl3,true
-ev142,u15,u19,Wednesday,17:00,l8,4,Students showed good progress under coach guidance.,true,2025-02-18T19:13:47.204Z,2025-07-16T01:38:12.306Z,scs1541,cl3,true
-ev143,u15,u21,Saturday,10:00,l3,9,Coach provided helpful feedback to students.,false,2024-09-08T13:53:25.050Z,2025-07-15T16:52:02.638Z,scs1553,cl3,true
-ev144,u15,u21,Saturday,19:00,l1,3,Coach maintained positive energy in class.,true,2025-05-12T03:29:43.554Z,2025-07-15T19:55:56.366Z,scs1555,cl1,true
-ev145,u1,u20,Friday,16:00,l2,9,Coach should work on engaging quieter students.,true,2025-02-04T20:10:51.450Z,2025-07-16T02:57:11.857Z,scs1562,cl3,false
-ev146,u1,u19,Monday,12:00,l6,8,Coach needs to improve time management during sessions.,true,2024-10-20T17:53:43.606Z,2025-07-16T00:39:31.483Z,scs1564,cl1,false
-ev147,u1,u19,Sunday,17:00,l8,9,Coach needs to improve technical explanations.,true,2025-04-11T09:55:49.938Z,2025-07-15T20:24:32.667Z,scs1588,cl1,false
-ev148,u1,u20,Tuesday,18:00,l2,10,Coach did not complete the planned activities.,true,2024-08-14T12:26:07.637Z,2025-07-15T18:03:00.826Z,scs1590,cl3,false
-ev149,u1,u21,Thursday,13:00,l8,4,Coach struggled to maintain class discipline.,true,2024-10-30T08:52:19.446Z,2025-07-16T01:05:41.788Z,scs1602,cl2,false
-ev150,u1,u19,Tuesday,15:00,l2,3,Coach needs to improve technical explanations.,true,2025-01-19T08:30:30.475Z,2025-07-15T10:45:49.410Z,scs1620,cl2,false
-ev151,u3,u19,Thursday,17:00,l7,3,Coach adapted well to student needs.,true,2024-11-22T09:51:03.839Z,2025-07-15T19:43:52.280Z,scs1621,cl2,true
-ev152,u3,u19,Thursday,20:00,l2,8,Students showed good progress under coach guidance.,false,2024-08-14T08:29:47.241Z,2025-07-15T14:19:23.777Z,scs1625,cl2,true
-ev153,u3,u20,Sunday,20:00,l5,10,Lesson objectives were not fully met.,true,2024-09-12T15:10:51.327Z,2025-07-15T15:16:01.699Z,scs1632,cl2,false
-ev154,u3,u21,Sunday,15:00,l1,2,Coach showed strong leadership skills.,true,2024-08-30T02:04:11.334Z,2025-07-15T19:32:45.861Z,scs1640,cl1,true
-ev155,u3,u19,Thursday,17:00,l2,10,Students showed good progress under coach guidance.,false,2024-08-12T09:14:22.106Z,2025-07-15T20:17:36.305Z,scs1646,cl1,true
-ev156,u3,u19,Wednesday,15:00,l2,5,Students showed good progress under coach guidance.,true,2024-12-29T21:20:44.007Z,2025-07-15T09:38:11.383Z,scs1650,cl3,true
-ev157,u3,u19,Wednesday,10:00,l8,3,Coach demonstrated excellent communication with students.,true,2025-07-14T14:25:43.401Z,2025-07-15T05:53:30.020Z,scs1676,cl1,true
-ev158,u6,u20,Sunday,19:00,l10,5,Coach showed strong leadership skills.,true,2025-03-05T01:48:02.371Z,2025-07-16T00:32:56.647Z,scs1695,cl1,true
-ev159,u6,u21,Saturday,16:00,l7,4,Coach demonstrated excellent communication with students.,true,2025-04-21T19:30:14.577Z,2025-07-16T04:04:00.183Z,scs1713,cl1,true
-ev160,u6,u19,Friday,13:00,l1,9,Coach showed strong leadership skills.,true,2025-02-28T23:53:36.682Z,2025-07-15T20:21:22.311Z,scs1717,cl1,true
-ev161,u6,u19,Sunday,12:00,l10,10,Coach maintained positive energy in class.,true,2025-04-20T05:01:34.506Z,2025-07-15T18:57:45.386Z,scs1718,cl3,true
-ev162,u6,u21,Saturday,19:00,l7,7,Lesson plan was well structured and clear.,true,2024-11-17T05:55:53.057Z,2025-07-15T05:31:20.114Z,scs1748,cl3,true
-ev163,u6,u19,Monday,17:00,l3,7,Coach demonstrated excellent communication with students.,false,2025-06-18T06:41:13.619Z,2025-07-15T18:19:53.925Z,scs1755,cl1,true
-ev164,u6,u21,Monday,18:00,l6,8,Coach maintained positive energy in class.,true,2025-01-16T00:20:12.373Z,2025-07-15T21:09:47.753Z,scs1761,cl1,true
-ev165,u6,u21,Monday,16:00,l1,3,Lesson plan was well structured and clear.,true,2024-12-07T16:20:32.606Z,2025-07-15T20:10:04.741Z,scs1769,cl1,true
-ev166,u6,u21,Friday,12:00,l4,2,Coach demonstrated excellent communication with students.,true,2024-12-24T15:52:32.347Z,2025-07-15T13:58:12.461Z,scs1774,cl1,true
-ev167,u6,u19,Thursday,11:00,l7,10,Coach showed strong leadership skills.,true,2024-10-16T03:02:17.567Z,2025-07-15T20:30:33.431Z,scs1779,cl1,true
-ev168,u11,u21,Saturday,13:00,l6,3,Lesson plan was well structured and clear.,true,2024-12-14T12:54:00.219Z,2025-07-16T02:50:05.544Z,scs1809,cl1,true
-ev169,u11,u21,Sunday,10:00,l3,4,Coach did not complete the planned activities.,false,2025-03-28T18:01:19.245Z,2025-07-15T16:06:58.680Z,scs1818,cl3,false
-ev170,u11,u19,Tuesday,17:00,l10,4,Lesson plan was well structured and clear.,true,2024-10-02T00:34:45.579Z,2025-07-15T11:54:32.097Z,scs1819,cl3,true
-ev171,u11,u19,Wednesday,14:00,l10,8,Lesson objectives were not fully met.,true,2024-07-31T08:31:50.873Z,2025-07-16T03:21:46.828Z,scs1825,cl1,false
-ev172,u11,u20,Monday,10:00,l9,9,Coach demonstrated excellent communication with students.,true,2025-04-10T00:16:00.723Z,2025-07-16T03:20:20.825Z,scs1830,cl3,true
-ev173,u15,u21,Saturday,12:00,l6,10,Coach provided helpful feedback to students.,false,2024-10-23T15:05:35.164Z,2025-07-15T18:08:42.363Z,scs1877,cl1,true
-ev174,u15,u20,Friday,18:00,l3,6,Coach did not complete the planned activities.,true,2024-12-10T04:31:16.806Z,2025-07-15T05:53:01.525Z,scs1878,cl1,false
-ev175,u15,u21,Saturday,17:00,l1,5,Safety protocols were followed throughout the session.,true,2024-10-08T11:34:20.370Z,2025-07-15T21:15:38.871Z,scs1885,cl2,true
-ev176,u15,u19,Monday,12:00,l6,9,Coach demonstrated excellent communication with students.,true,2024-08-17T18:44:00.882Z,2025-07-15T23:06:58.392Z,scs1895,cl3,true
-ev177,u15,u19,Wednesday,20:00,l3,6,Coach showed strong leadership skills.,true,2025-01-25T18:36:33.051Z,2025-07-15T04:39:25.521Z,scs1912,cl1,true
-ev178,u15,u21,Friday,15:00,l8,7,Coach provided helpful feedback to students.,true,2024-10-12T21:00:18.102Z,2025-07-15T21:35:22.719Z,scs1920,cl1,true
-ev179,u10,u20,Monday,18:00,l9,9,Safety protocols were followed throughout the session.,false,2024-08-30T16:32:57.776Z,2025-07-15T13:32:50.211Z,scs1924,cl1,true
-ev180,u10,u21,Thursday,9:00,l3,7,Lesson plan was well structured and clear.,true,2025-06-09T05:09:19.001Z,2025-07-15T16:00:25.515Z,scs1927,cl3,true
-ev181,u10,u20,Tuesday,16:00,l10,7,Coach needs to improve time management during sessions.,true,2025-06-28T05:25:18.413Z,2025-07-15T05:26:13.882Z,scs1931,cl1,false
-ev182,u10,u21,Wednesday,12:00,l9,2,Students showed good progress under coach guidance.,true,2025-03-25T09:40:07.731Z,2025-07-15T20:00:18.861Z,scs1933,cl1,true
-ev183,u10,u20,Friday,14:00,l10,4,Coach demonstrated excellent communication with students.,true,2024-09-21T15:13:00.100Z,2025-07-15T11:59:23.427Z,scs1955,cl1,true
-ev184,u10,u21,Sunday,13:00,l6,2,Coach struggled to maintain class discipline.,true,2025-01-21T16:18:12.879Z,2025-07-15T15:08:47.325Z,scs1976,cl1,false
-ev185,u10,u21,Monday,20:00,l4,5,Coach provided helpful feedback to students.,true,2025-01-16T05:11:15.411Z,2025-07-15T11:32:51.299Z,scs1980,cl1,true
-ev186,u15,u20,Friday,17:00,l6,7,Students showed good progress under coach guidance.,true,2024-10-16T21:43:49.216Z,2025-07-15T20:41:39.095Z,scs1989,cl3,true
-ev187,u15,u20,Sunday,11:00,l6,6,Coach adapted well to student needs.,false,2025-06-12T18:00:29.772Z,2025-07-15T19:40:01.770Z,scs2017,cl3,true
-ev188,u15,u19,Tuesday,10:00,l1,8,Coach showed strong leadership skills.,true,2025-02-03T16:15:55.978Z,2025-07-15T10:03:34.254Z,scs2031,cl2,true
-ev189,u3,u19,Tuesday,14:00,l7,3,Safety protocols were followed throughout the session.,true,2024-08-06T22:06:27.584Z,2025-07-15T18:21:48.559Z,scs2048,cl2,true
-ev190,u3,u19,Friday,8:00,l5,6,Students showed good progress under coach guidance.,false,2025-02-16T06:32:42.018Z,2025-07-15T12:18:37.482Z,scs2051,cl1,true
-ev191,u3,u21,Monday,12:00,l4,9,Safety protocols were followed throughout the session.,true,2025-03-04T23:05:42.231Z,2025-07-16T01:21:29.798Z,scs2071,cl3,true
-ev192,u3,u20,Thursday,13:00,l10,2,Students showed good progress under coach guidance.,true,2025-04-08T00:59:02.249Z,2025-07-15T16:08:33.060Z,scs2083,cl3,true
-ev193,u3,u19,Thursday,10:00,l3,3,Coach showed strong leadership skills.,true,2024-11-21T09:26:37.638Z,2025-07-16T01:18:07.017Z,scs2097,cl1,true
-ev194,u3,u21,Wednesday,9:00,l4,6,Students showed good progress under coach guidance.,true,2024-09-01T13:37:18.589Z,2025-07-15T22:36:47.854Z,scs2098,cl2,true
-ev195,u1,u21,Wednesday,12:00,l5,2,Coach needs to improve technical explanations.,true,2025-06-06T11:40:44.267Z,2025-07-15T16:07:57.849Z,scs2121,cl3,false
-ev196,u1,u20,Tuesday,11:00,l1,9,Coach needs to improve technical explanations.,true,2024-11-27T04:15:09.366Z,2025-07-15T09:49:31.435Z,scs2124,cl3,false
-ev197,u1,u20,Saturday,14:00,l10,6,Coach struggled to maintain class discipline.,false,2024-11-22T09:15:12.578Z,2025-07-15T17:52:00.971Z,scs2131,cl2,false
-ev198,u1,u20,Tuesday,16:00,l8,4,Coach adapted well to student needs.,true,2024-11-02T13:18:00.067Z,2025-07-15T23:53:56.202Z,scs2138,cl2,true
-ev199,u1,u21,Monday,17:00,l4,10,Coach was late to the session.,false,2025-02-16T07:34:44.662Z,2025-07-15T12:43:21.242Z,scs2139,cl3,false
-ev200,u1,u19,Saturday,8:00,l9,3,Coach did not complete the planned activities.,true,2025-04-23T01:43:37.014Z,2025-07-15T13:45:53.977Z,scs2141,cl2,false
-ev201,u1,u19,Tuesday,8:00,l3,5,Coach did not complete the planned activities.,true,2024-11-19T03:47:29.415Z,2025-07-15T20:25:02.082Z,scs2151,cl3,false
-ev202,u1,u20,Wednesday,15:00,l7,8,Coach should work on engaging quieter students.,true,2024-08-12T15:47:37.874Z,2025-07-15T15:43:48.576Z,scs2155,cl1,false
-ev203,u15,u20,Tuesday,17:00,l1,8,Students showed good progress under coach guidance.,true,2024-12-27T20:32:10.720Z,2025-07-15T09:37:00.716Z,scs2179,cl2,true
-ev204,u15,u21,Wednesday,18:00,l10,8,Safety protocols were followed throughout the session.,true,2024-10-03T10:48:47.622Z,2025-07-15T11:16:43.301Z,scs2191,cl2,true
-ev205,u15,u19,Friday,14:00,l7,4,Coach showed strong leadership skills.,true,2025-02-26T20:10:55.695Z,2025-07-15T23:49:58.093Z,scs2193,cl1,true
-ev206,u15,u20,Thursday,19:00,l1,9,Coach maintained positive energy in class.,true,2025-04-18T10:25:02.788Z,2025-07-15T11:08:59.606Z,scs2197,cl1,true
-ev207,u15,u21,Wednesday,19:00,l7,7,Coach provided helpful feedback to students.,true,2024-08-19T06:50:10.678Z,2025-07-15T09:42:22.031Z,scs2199,cl1,true
-ev208,u15,u21,Thursday,12:00,l3,3,Lesson plan was well structured and clear.,true,2025-05-07T14:40:08.377Z,2025-07-15T09:34:34.557Z,scs2202,cl1,true
-ev209,u15,u19,Thursday,15:00,l1,6,Coach showed strong leadership skills.,true,2024-07-20T09:50:57.048Z,2025-07-15T06:35:03.365Z,scs2203,cl1,true
-ev210,u15,u20,Friday,12:00,l6,5,Safety protocols were followed throughout the session.,true,2025-03-08T18:58:21.767Z,2025-07-16T03:12:12.083Z,scs2214,cl3,true
-ev211,u10,u20,Tuesday,19:00,l10,4,Coach demonstrated excellent communication with students.,false,2024-07-25T12:24:12.604Z,2025-07-15T14:11:34.597Z,scs2232,cl2,true
-ev212,u10,u19,Thursday,19:00,l5,4,Lesson plan was well structured and clear.,true,2025-02-19T21:37:46.048Z,2025-07-15T22:15:16.929Z,scs2249,cl3,true
-ev213,u10,u20,Friday,19:00,l5,6,Safety protocols were followed throughout the session.,true,2025-05-07T01:16:04.887Z,2025-07-16T00:22:09.062Z,scs2250,cl2,true
-ev214,u10,u19,Wednesday,8:00,l1,7,Coach maintained positive energy in class.,true,2024-11-07T12:11:31.946Z,2025-07-15T13:12:49.645Z,scs2253,cl1,true
-ev215,u10,u21,Friday,20:00,l7,8,Lesson objectives were not fully met.,true,2024-11-04T08:49:35.524Z,2025-07-15T21:13:14.141Z,scs2258,cl3,false
-ev216,u10,u21,Thursday,16:00,l1,9,Coach demonstrated excellent communication with students.,true,2025-05-10T11:25:42.513Z,2025-07-15T08:26:36.854Z,scs2265,cl1,true
-ev217,u10,u19,Saturday,17:00,l7,5,Coach was late to the session.,false,2025-03-24T04:41:31.686Z,2025-07-15T09:16:37.631Z,scs2273,cl3,false
-ev218,u1,u20,Wednesday,13:00,l3,8,Coach did not complete the planned activities.,false,2025-03-02T04:03:33.209Z,2025-07-16T00:53:11.150Z,scs2286,cl3,false
-ev219,u1,u21,Thursday,18:00,l8,9,Coach needs to improve technical explanations.,true,2024-10-29T22:46:14.479Z,2025-07-15T19:52:11.816Z,scs2298,cl1,false
-ev220,u1,u20,Monday,15:00,l6,3,Coach demonstrated excellent communication with students.,true,2024-08-02T23:43:05.960Z,2025-07-15T11:58:33.241Z,scs2305,cl1,true
-ev221,u1,u19,Saturday,12:00,l5,2,Coach was late to the session.,true,2024-11-01T08:47:00.329Z,2025-07-16T01:01:01.146Z,scs2319,cl3,false
-ev222,u1,u19,Monday,15:00,l10,7,Coach demonstrated excellent communication with students.,true,2024-07-27T00:53:58.643Z,2025-07-15T20:24:18.299Z,scs2338,cl2,true
-ev223,u7,u20,Friday,20:00,l9,5,Coach adapted well to student needs.,true,2024-10-10T11:51:21.358Z,2025-07-15T05:45:07.858Z,scs2348,cl1,true
-ev224,u7,u20,Monday,10:00,l8,8,Coach adapted well to student needs.,true,2025-05-01T14:00:41.054Z,2025-07-15T15:35:57.007Z,scs2362,cl3,true
-ev225,u7,u19,Saturday,12:00,l9,5,Lesson plan was well structured and clear.,false,2025-03-12T01:07:41.795Z,2025-07-15T14:09:57.016Z,scs2364,cl2,true
-ev226,u7,u21,Thursday,19:00,l4,4,Coach demonstrated excellent communication with students.,true,2024-11-20T06:11:04.050Z,2025-07-15T18:04:02.595Z,scs2369,cl2,true
-ev227,u7,u20,Saturday,12:00,l8,3,Safety protocols were followed throughout the session.,true,2025-04-15T15:48:41.059Z,2025-07-15T05:32:21.613Z,scs2375,cl2,true
-ev228,u7,u21,Sunday,10:00,l2,2,Coach was late to the session.,true,2024-09-08T05:41:49.920Z,2025-07-15T07:54:05.381Z,scs2396,cl2,false
-ev229,u7,u21,Saturday,10:00,l3,9,Coach was late to the session.,true,2024-12-19T08:04:46.670Z,2025-07-15T10:09:57.502Z,scs2397,cl3,false
-ev230,u13,u20,Tuesday,11:00,l5,8,Lesson plan was well structured and clear.,true,2024-08-21T17:32:15.799Z,2025-07-15T18:52:30.759Z,scs2408,cl2,true
-ev231,u13,u20,Thursday,13:00,l2,2,Students showed good progress under coach guidance.,true,2024-08-18T16:49:03.001Z,2025-07-15T13:39:52.557Z,scs2411,cl2,true
-ev232,u13,u20,Thursday,11:00,l2,4,Coach showed strong leadership skills.,true,2025-02-21T00:06:03.240Z,2025-07-15T09:36:52.874Z,scs2413,cl2,true
-ev233,u13,u21,Sunday,12:00,l6,5,Coach needs to improve time management during sessions.,true,2025-02-27T15:13:44.821Z,2025-07-15T06:27:27.652Z,scs2429,cl1,false
-ev234,u13,u19,Monday,11:00,l3,2,Coach showed strong leadership skills.,false,2025-01-16T19:51:02.267Z,2025-07-15T19:32:41.334Z,scs2455,cl2,true
-ev235,u4,u19,Tuesday,16:00,l7,10,Lesson plan was well structured and clear.,true,2025-04-15T06:25:22.881Z,2025-07-15T19:55:30.436Z,scs2461,cl2,true
-ev236,u4,u20,Wednesday,9:00,l3,7,Students showed good progress under coach guidance.,true,2025-02-03T16:16:23.163Z,2025-07-16T03:14:48.005Z,scs2464,cl1,true
-ev237,u4,u21,Sunday,15:00,l1,8,Students showed good progress under coach guidance.,true,2024-10-24T00:44:46.023Z,2025-07-15T05:30:04.342Z,scs2469,cl1,true
-ev238,u4,u20,Monday,19:00,l3,7,Students showed good progress under coach guidance.,true,2025-01-05T00:59:28.657Z,2025-07-15T09:54:07.408Z,scs2503,cl3,true
-ev239,u4,u21,Sunday,9:00,l4,8,Coach adapted well to student needs.,false,2024-10-03T07:33:20.209Z,2025-07-15T15:27:47.132Z,scs2510,cl2,true
-ev240,u14,u20,Thursday,17:00,l1,8,Coach maintained positive energy in class.,true,2025-06-08T22:04:55.234Z,2025-07-15T19:37:08.624Z,scs2539,cl3,true
-ev241,u14,u21,Saturday,15:00,l1,2,Coach maintained positive energy in class.,true,2024-10-31T16:07:20.310Z,2025-07-15T08:53:38.016Z,scs2543,cl1,true
-ev242,u14,u19,Tuesday,9:00,l9,2,Coach showed strong leadership skills.,true,2025-03-14T02:21:10.801Z,2025-07-15T16:26:41.518Z,scs2548,cl3,true
-ev243,u14,u21,Tuesday,20:00,l10,10,Coach needs to improve time management during sessions.,true,2024-09-14T19:47:15.750Z,2025-07-15T08:25:23.993Z,scs2550,cl1,false
-ev244,u14,u21,Thursday,12:00,l4,8,Coach did not complete the planned activities.,true,2025-01-03T15:21:01.578Z,2025-07-16T01:53:54.865Z,scs2558,cl2,false
-ev245,u14,u20,Monday,12:00,l9,7,Coach showed strong leadership skills.,true,2024-07-27T10:38:24.250Z,2025-07-15T11:17:42.327Z,scs2576,cl2,true
-ev246,u9,u19,Tuesday,8:00,l10,10,Coach struggled to maintain class discipline.,false,2025-06-30T03:56:36.123Z,2025-07-15T23:57:39.446Z,scs2603,cl3,false
-ev247,u9,u21,Tuesday,13:00,l7,8,Coach demonstrated excellent communication with students.,true,2024-09-18T18:20:33.138Z,2025-07-15T17:07:32.500Z,scs2620,cl1,true
-ev248,u9,u20,Monday,19:00,l2,6,Coach was late to the session.,true,2024-08-03T06:49:05.233Z,2025-07-15T17:36:49.460Z,scs2625,cl1,false
-ev249,u12,u20,Sunday,11:00,l10,8,Coach demonstrated excellent communication with students.,true,2025-06-27T20:58:05.662Z,2025-07-15T13:59:44.611Z,scs2654,cl2,true
-ev250,u12,u20,Sunday,8:00,l7,2,Coach provided helpful feedback to students.,true,2024-12-31T06:34:59.751Z,2025-07-15T21:22:37.892Z,scs2670,cl2,true
-ev251,u12,u19,Thursday,18:00,l6,2,Lesson plan was well structured and clear.,true,2025-06-29T12:07:56.773Z,2025-07-15T18:58:00.935Z,scs2678,cl1,true
-ev252,u12,u21,Sunday,20:00,l5,10,Coach maintained positive energy in class.,true,2025-03-23T12:24:21.743Z,2025-07-15T19:02:00.500Z,scs2691,cl1,true
-ev253,u12,u19,Thursday,15:00,l3,6,Coach maintained positive energy in class.,false,2025-04-13T03:06:07.319Z,2025-07-16T00:48:00.401Z,scs2693,cl3,true
-ev254,u12,u20,Saturday,8:00,l9,6,Safety protocols were followed throughout the session.,true,2025-01-24T13:40:11.935Z,2025-07-15T23:13:03.849Z,scs2701,cl1,true
-ev255,u12,u19,Sunday,10:00,l2,8,Coach showed strong leadership skills.,false,2024-11-24T07:20:52.770Z,2025-07-15T22:11:21.419Z,scs2709,cl1,true
-ev256,u12,u19,Sunday,15:00,l9,6,Students showed good progress under coach guidance.,true,2024-07-29T02:54:52.542Z,2025-07-15T14:12:53.447Z,scs2711,cl2,true
-ev257,u12,u20,Saturday,15:00,l10,5,Coach adapted well to student needs.,true,2025-05-20T06:25:18.657Z,2025-07-15T07:09:03.941Z,scs2723,cl1,true
-ev258,u12,u20,Thursday,15:00,l4,6,Coach was late to the session.,true,2024-12-09T20:24:49.139Z,2025-07-16T00:57:06.368Z,scs2750,cl3,false
-ev259,u2,u21,Monday,19:00,l3,2,Coach needs to improve time management during sessions.,true,2024-09-21T19:24:30.481Z,2025-07-15T23:38:56.955Z,scs2766,cl3,false
-ev260,u2,u19,Saturday,16:00,l6,6,Coach struggled to maintain class discipline.,true,2025-01-15T17:01:30.418Z,2025-07-16T01:35:11.140Z,scs2776,cl1,false
-ev261,u2,u19,Saturday,20:00,l2,8,Coach did not complete the planned activities.,true,2024-12-28T00:54:28.841Z,2025-07-16T01:01:55.501Z,scs2788,cl1,false
-ev262,u2,u20,Saturday,14:00,l1,10,Coach was late to the session.,true,2025-03-04T23:56:32.915Z,2025-07-15T12:16:16.348Z,scs2797,cl2,false
-ev263,u2,u19,Tuesday,14:00,l6,10,Coach did not complete the planned activities.,true,2025-03-14T10:21:46.779Z,2025-07-15T20:27:28.969Z,scs2802,cl1,false
-ev264,u2,u20,Thursday,17:00,l8,8,Coach should work on engaging quieter students.,true,2025-03-01T15:12:47.029Z,2025-07-15T13:57:15.395Z,scs2809,cl1,false
-ev265,u2,u21,Thursday,12:00,l3,5,Coach adapted well to student needs.,true,2025-07-04T10:32:03.651Z,2025-07-15T11:47:30.546Z,scs2820,cl2,true
-ev266,u15,u20,Sunday,10:00,l3,2,Lesson plan was well structured and clear.,true,2024-10-25T19:31:25.185Z,2025-07-15T18:00:27.130Z,scs2821,cl2,true
-ev267,u15,u21,Tuesday,10:00,l5,8,Coach demonstrated excellent communication with students.,true,2025-02-02T02:14:49.469Z,2025-07-15T17:21:19.786Z,scs2824,cl3,true
-ev268,u15,u19,Friday,17:00,l1,6,Coach maintained positive energy in class.,true,2025-01-30T00:17:04.485Z,2025-07-15T09:55:48.759Z,scs2829,cl2,true
-ev269,u15,u19,Sunday,15:00,l7,9,Coach maintained positive energy in class.,true,2024-08-30T12:54:55.467Z,2025-07-16T03:25:19.096Z,scs2833,cl1,true
-ev270,u15,u19,Monday,14:00,l4,5,Safety protocols were followed throughout the session.,false,2024-08-29T05:29:58.392Z,2025-07-15T08:18:25.653Z,scs2840,cl2,true
-ev271,u15,u20,Thursday,11:00,l9,7,Coach demonstrated excellent communication with students.,true,2024-12-26T18:32:18.346Z,2025-07-15T06:43:28.397Z,scs2861,cl3,true
-ev272,u15,u19,Monday,12:00,l2,6,Coach maintained positive energy in class.,true,2025-07-10T06:58:13.052Z,2025-07-15T06:09:25.313Z,scs2867,cl2,true
-ev273,u15,u20,Thursday,11:00,l5,5,Coach showed strong leadership skills.,true,2025-04-02T06:31:56.281Z,2025-07-15T19:22:30.447Z,scs2869,cl2,true
-ev274,u15,u19,Wednesday,18:00,l10,9,Lesson plan was well structured and clear.,true,2024-07-29T22:11:20.820Z,2025-07-15T19:02:50.795Z,scs2873,cl3,true
-ev275,u15,u21,Tuesday,14:00,l7,8,Coach maintained positive energy in class.,true,2024-12-19T11:52:15.938Z,2025-07-15T23:29:06.976Z,scs2881,cl2,true
-ev276,u15,u19,Friday,16:00,l1,4,Lesson plan was well structured and clear.,true,2024-08-09T07:25:43.710Z,2025-07-16T02:46:23.958Z,scs2893,cl1,true
-ev277,u15,u19,Friday,10:00,l5,3,Coach provided helpful feedback to students.,true,2024-09-08T21:32:55.606Z,2025-07-15T08:48:24.961Z,scs2896,cl2,true
-ev278,u15,u19,Thursday,15:00,l8,9,Students showed good progress under coach guidance.,true,2024-09-27T05:56:08.294Z,2025-07-15T20:19:24.590Z,scs2899,cl2,true
-ev279,u15,u20,Saturday,10:00,l1,10,Coach provided helpful feedback to students.,true,2025-03-04T04:49:01.829Z,2025-07-15T09:24:40.989Z,scs2915,cl2,true
-ev280,u15,u21,Monday,13:00,l10,4,Coach provided helpful feedback to students.,true,2024-07-20T08:27:16.870Z,2025-07-15T05:55:30.344Z,scs2922,cl2,true
-ev281,u15,u21,Sunday,15:00,l7,5,Lesson plan was well structured and clear.,true,2024-09-21T21:36:25.735Z,2025-07-15T23:30:13.551Z,scs2925,cl3,true
-ev282,u15,u19,Sunday,11:00,l3,9,Students showed good progress under coach guidance.,true,2024-10-02T17:48:54.040Z,2025-07-15T22:09:27.390Z,scs2938,cl3,true
-ev283,u11,u19,Wednesday,18:00,l2,5,Coach maintained positive energy in class.,true,2025-06-03T02:10:04.557Z,2025-07-15T15:50:06.749Z,scs2950,cl3,true
-ev284,u11,u19,Tuesday,10:00,l1,5,Lesson plan was well structured and clear.,true,2024-07-27T21:35:41.717Z,2025-07-15T06:27:07.362Z,scs2960,cl3,true
-ev285,u11,u20,Tuesday,11:00,l4,6,Coach demonstrated excellent communication with students.,true,2025-05-29T20:00:39.372Z,2025-07-15T07:42:51.179Z,scs2969,cl3,true
-ev286,u11,u20,Thursday,15:00,l10,9,Coach needs to improve time management during sessions.,true,2025-01-04T04:45:20.797Z,2025-07-15T07:12:15.165Z,scs2975,cl3,false
-ev287,u11,u19,Thursday,16:00,l10,4,Coach needs to improve time management during sessions.,true,2024-12-16T08:21:58.950Z,2025-07-15T07:36:55.639Z,scs2977,cl2,false
-ev288,u11,u21,Saturday,16:00,l1,3,Lesson plan was well structured and clear.,true,2025-07-11T03:57:08.948Z,2025-07-15T12:29:21.791Z,scs2994,cl2,true
-ev289,u11,u21,Monday,17:00,l2,5,Lesson plan was well structured and clear.,true,2025-04-17T05:24:42.117Z,2025-07-15T08:27:48.633Z,scs2995,cl1,true
-ev290,u4,u19,Monday,10:00,l4,5,Coach demonstrated excellent communication with students.,true,2024-10-31T01:03:00.807Z,2025-07-15T05:10:01.810Z,scs3004,cl3,true
-ev291,u4,u20,Sunday,14:00,l10,7,Coach should work on engaging quieter students.,false,2025-01-15T01:06:52.205Z,2025-07-15T05:07:34.837Z,scs3011,cl2,false
-ev292,u4,u19,Tuesday,16:00,l8,10,Safety protocols were followed throughout the session.,true,2025-04-17T00:15:22.675Z,2025-07-15T10:32:17.482Z,scs3020,cl3,true
-ev293,u4,u21,Sunday,16:00,l10,4,Coach demonstrated excellent communication with students.,false,2024-08-18T15:01:17.489Z,2025-07-15T20:51:12.728Z,scs3021,cl1,true
-ev294,u4,u21,Wednesday,18:00,l2,10,Lesson objectives were not fully met.,false,2025-05-19T14:12:21.101Z,2025-07-15T06:19:26.366Z,scs3022,cl2,false
-ev295,u4,u19,Saturday,19:00,l10,3,Safety protocols were followed throughout the session.,true,2025-01-19T09:12:24.827Z,2025-07-15T09:17:02.099Z,scs3052,cl2,true
-ev296,u14,u20,Wednesday,10:00,l1,7,Safety protocols were followed throughout the session.,true,2025-01-01T16:24:27.376Z,2025-07-16T02:47:06.759Z,scs3067,cl1,true
-ev297,u14,u20,Friday,18:00,l7,3,Coach maintained positive energy in class.,true,2025-02-24T09:26:00.749Z,2025-07-15T20:34:43.520Z,scs3070,cl3,true
-ev298,u14,u20,Wednesday,16:00,l7,8,Coach adapted well to student needs.,true,2025-05-08T10:16:19.968Z,2025-07-15T08:32:16.887Z,scs3082,cl2,true
-ev299,u14,u19,Monday,19:00,l1,9,Safety protocols were followed throughout the session.,true,2024-08-30T02:16:01.882Z,2025-07-15T20:19:53.802Z,scs3118,cl1,true
-ev300,u14,u19,Tuesday,10:00,l5,10,Coach maintained positive energy in class.,true,2024-11-22T07:59:18.174Z,2025-07-15T23:15:17.106Z,scs3119,cl3,true
-ev301,u1,u19,Saturday,12:00,l9,9,Coach struggled to maintain class discipline.,true,2025-02-24T00:32:52.363Z,2025-07-15T14:15:10.758Z,scs3125,cl1,false
-ev302,u1,u21,Wednesday,14:00,l8,7,Coach struggled to maintain class discipline.,true,2024-07-20T14:01:47.545Z,2025-07-15T04:28:21.332Z,scs3137,cl1,false
-ev303,u1,u19,Saturday,9:00,l2,4,Safety protocols were followed throughout the session.,true,2025-05-04T06:31:07.924Z,2025-07-15T22:22:08.995Z,scs3138,cl1,true
-ev304,u1,u19,Wednesday,12:00,l5,3,Coach did not complete the planned activities.,true,2024-10-16T16:49:39.632Z,2025-07-15T22:54:14.854Z,scs3145,cl2,false
-ev305,u1,u21,Friday,9:00,l9,2,Students showed good progress under coach guidance.,true,2024-12-26T14:34:12.794Z,2025-07-15T16:41:14.628Z,scs3150,cl1,true
-ev306,u1,u19,Tuesday,15:00,l10,6,Coach struggled to maintain class discipline.,true,2024-10-11T05:45:15.948Z,2025-07-15T17:09:16.461Z,scs3161,cl3,false
-ev307,u1,u20,Saturday,20:00,l1,2,Coach should work on engaging quieter students.,true,2025-04-25T00:01:53.923Z,2025-07-15T05:34:51.574Z,scs3177,cl2,false
-ev308,u6,u20,Wednesday,20:00,l8,5,Coach struggled to maintain class discipline.,true,2025-04-01T10:32:54.235Z,2025-07-15T08:39:01.151Z,scs3181,cl1,false
-ev309,u6,u21,Thursday,17:00,l9,8,Coach maintained positive energy in class.,false,2025-04-23T23:27:54.393Z,2025-07-15T06:04:45.271Z,scs3182,cl2,true
-ev310,u6,u19,Saturday,20:00,l1,10,Coach adapted well to student needs.,true,2025-07-05T12:06:29.064Z,2025-07-15T10:20:45.913Z,scs3196,cl1,true
-ev311,u6,u20,Tuesday,16:00,l4,6,Coach adapted well to student needs.,true,2024-07-17T18:38:26.117Z,2025-07-15T18:48:17.791Z,scs3205,cl1,true
-ev312,u6,u21,Friday,17:00,l2,9,Coach provided helpful feedback to students.,true,2025-05-15T15:46:43.520Z,2025-07-15T10:07:55.866Z,scs3213,cl2,true
-ev313,u6,u21,Friday,8:00,l3,2,Coach showed strong leadership skills.,true,2024-10-01T07:22:12.432Z,2025-07-15T11:47:28.434Z,scs3228,cl3,true
-ev314,u6,u20,Friday,14:00,l10,5,Coach showed strong leadership skills.,false,2025-06-29T23:33:31.819Z,2025-07-15T07:14:46.898Z,scs3230,cl3,true
-ev315,u6,u19,Sunday,15:00,l4,3,Coach adapted well to student needs.,true,2025-01-09T17:38:44.706Z,2025-07-15T16:41:09.056Z,scs3235,cl3,true
-ev316,u6,u20,Sunday,8:00,l7,4,Coach showed strong leadership skills.,false,2024-09-21T11:30:10.811Z,2025-07-16T01:54:14.586Z,scs3236,cl3,true
-ev317,u12,u20,Saturday,15:00,l3,3,Coach struggled to maintain class discipline.,false,2024-09-13T17:19:16.177Z,2025-07-15T12:33:08.099Z,scs3254,cl1,false
-ev318,u12,u19,Saturday,12:00,l6,2,Students showed good progress under coach guidance.,true,2025-04-27T07:18:01.346Z,2025-07-16T04:02:22.189Z,scs3260,cl2,true
-ev319,u12,u19,Friday,8:00,l4,2,Lesson objectives were not fully met.,false,2025-07-07T05:44:57.796Z,2025-07-15T16:35:18.696Z,scs3284,cl1,false
-ev320,u12,u20,Sunday,16:00,l1,6,Coach adapted well to student needs.,true,2025-01-13T17:17:10.305Z,2025-07-15T09:49:02.826Z,scs3294,cl3,true
-ev321,u13,u21,Saturday,19:00,l9,6,Coach adapted well to student needs.,true,2025-01-03T01:28:54.892Z,2025-07-15T15:40:26.256Z,scs3307,cl3,true
-ev322,u13,u20,Sunday,12:00,l3,10,Coach provided helpful feedback to students.,true,2024-09-28T14:27:16.347Z,2025-07-15T14:12:16.318Z,scs3310,cl2,true
-ev323,u13,u21,Thursday,16:00,l9,4,Lesson plan was well structured and clear.,true,2025-04-18T11:49:47.485Z,2025-07-15T14:33:08.367Z,scs3317,cl1,true
-ev324,u13,u19,Saturday,17:00,l10,4,Lesson plan was well structured and clear.,true,2025-03-29T17:03:34.933Z,2025-07-16T02:09:45.108Z,scs3327,cl2,true
-ev325,u13,u19,Wednesday,12:00,l3,7,Students showed good progress under coach guidance.,true,2024-11-14T08:38:26.660Z,2025-07-15T22:57:48.166Z,scs3330,cl2,true
-ev326,u13,u20,Thursday,18:00,l7,4,Coach maintained positive energy in class.,false,2025-04-12T23:49:50.331Z,2025-07-15T16:36:47.933Z,scs3331,cl2,true
-ev327,u13,u19,Wednesday,12:00,l1,6,Coach demonstrated excellent communication with students.,true,2024-08-07T00:36:35.694Z,2025-07-15T12:55:52.267Z,scs3333,cl2,true
-ev328,u13,u19,Thursday,18:00,l4,6,Students showed good progress under coach guidance.,false,2024-09-13T07:37:10.356Z,2025-07-15T12:17:50.968Z,scs3334,cl2,true
-ev329,u13,u19,Thursday,15:00,l2,3,Safety protocols were followed throughout the session.,true,2025-02-17T12:54:07.219Z,2025-07-15T22:45:25.505Z,scs3346,cl3,true
-ev330,u13,u19,Tuesday,9:00,l10,7,Lesson plan was well structured and clear.,true,2024-08-09T08:04:41.723Z,2025-07-15T15:55:29.744Z,scs3357,cl1,true
-ev331,u10,u20,Wednesday,20:00,l9,8,Coach demonstrated excellent communication with students.,true,2025-05-10T19:29:44.748Z,2025-07-16T00:20:13.357Z,scs3379,cl1,true
-ev332,u10,u20,Friday,14:00,l9,10,Coach showed strong leadership skills.,true,2025-05-07T09:27:09.917Z,2025-07-15T05:50:55.899Z,scs3382,cl3,true
-ev333,u10,u19,Saturday,18:00,l7,8,Lesson plan was well structured and clear.,true,2024-11-02T12:33:19.117Z,2025-07-15T11:21:24.723Z,scs3388,cl1,true
-ev334,u10,u19,Monday,11:00,l3,7,Coach maintained positive energy in class.,false,2024-07-27T12:36:53.978Z,2025-07-15T17:17:33.535Z,scs3389,cl1,true
-ev335,u10,u20,Friday,14:00,l6,8,Coach adapted well to student needs.,true,2024-11-08T01:10:45.739Z,2025-07-15T12:48:30.085Z,scs3414,cl1,true
-ev336,u13,u21,Friday,11:00,l7,3,Coach demonstrated excellent communication with students.,true,2024-10-20T18:21:51.731Z,2025-07-15T15:52:14.234Z,scs3436,cl2,true
-ev337,u13,u19,Sunday,13:00,l2,7,Safety protocols were followed throughout the session.,true,2024-08-18T15:14:56.297Z,2025-07-15T12:26:03.052Z,scs3461,cl3,true
-ev338,u12,u21,Monday,19:00,l2,7,Coach showed strong leadership skills.,true,2025-02-08T01:26:49.059Z,2025-07-15T12:05:09.351Z,scs3481,cl1,true
-ev339,u12,u20,Wednesday,16:00,l1,5,Coach showed strong leadership skills.,true,2025-03-31T14:08:18.696Z,2025-07-15T09:29:43.837Z,scs3509,cl2,true
-ev340,u12,u19,Sunday,17:00,l6,2,Lesson plan was well structured and clear.,false,2024-07-30T16:12:57.830Z,2025-07-15T06:16:03.048Z,scs3521,cl1,true
-ev341,u12,u19,Friday,13:00,l7,5,Lesson plan was well structured and clear.,true,2025-03-25T04:04:12.010Z,2025-07-15T17:54:54.700Z,scs3528,cl3,true
-ev342,u12,u19,Monday,11:00,l9,10,Students showed good progress under coach guidance.,false,2025-07-02T16:34:05.844Z,2025-07-15T21:16:06.557Z,scs3539,cl1,true
-ev343,u10,u21,Monday,17:00,l8,5,Coach adapted well to student needs.,false,2025-03-07T19:08:24.608Z,2025-07-15T14:00:39.925Z,scs3548,cl1,true
-ev344,u10,u20,Wednesday,10:00,l5,9,Lesson plan was well structured and clear.,true,2025-01-15T04:52:45.949Z,2025-07-15T23:25:50.793Z,scs3584,cl2,true
-ev345,u8,u21,Friday,14:00,l3,6,Coach provided helpful feedback to students.,true,2025-06-06T19:34:00.204Z,2025-07-15T10:45:42.372Z,scs3612,cl1,true
-ev346,u8,u19,Friday,12:00,l9,9,Coach was late to the session.,true,2024-10-31T16:20:55.814Z,2025-07-15T08:25:33.751Z,scs3618,cl1,false
-ev347,u8,u19,Friday,20:00,l8,6,Safety protocols were followed throughout the session.,true,2024-11-24T21:07:02.260Z,2025-07-15T05:12:22.485Z,scs3639,cl2,true
-ev348,u8,u19,Wednesday,17:00,l7,3,Lesson plan was well structured and clear.,true,2024-09-04T14:36:53.505Z,2025-07-15T06:33:28.535Z,scs3654,cl1,true
-ev349,u12,u19,Tuesday,12:00,l3,9,Coach should work on engaging quieter students.,false,2025-02-20T14:40:49.280Z,2025-07-16T02:31:26.442Z,scs3662,cl1,false
-ev350,u12,u21,Saturday,13:00,l8,10,Coach maintained positive energy in class.,true,2024-12-29T02:12:12.330Z,2025-07-15T21:59:10.914Z,scs3664,cl1,true
-ev351,u12,u19,Friday,8:00,l10,8,Coach maintained positive energy in class.,false,2024-09-26T13:28:10.822Z,2025-07-15T23:59:00.465Z,scs3667,cl2,true
-ev352,u12,u19,Monday,8:00,l8,10,Coach showed strong leadership skills.,true,2025-04-22T13:38:45.769Z,2025-07-15T15:34:43.461Z,scs3672,cl2,true
-ev353,u12,u19,Sunday,16:00,l4,2,Students showed good progress under coach guidance.,true,2024-10-10T08:26:36.772Z,2025-07-15T12:13:33.240Z,scs3688,cl2,true
-ev354,u12,u20,Wednesday,14:00,l4,2,Coach showed strong leadership skills.,true,2025-01-25T17:22:03.631Z,2025-07-16T02:16:54.025Z,scs3689,cl3,true
-ev355,u12,u19,Wednesday,16:00,l10,4,Students showed good progress under coach guidance.,false,2025-06-25T17:38:58.564Z,2025-07-15T05:19:19.991Z,scs3691,cl2,true
-ev356,u12,u19,Friday,19:00,l8,5,Students showed good progress under coach guidance.,true,2024-10-04T12:11:47.505Z,2025-07-15T05:08:07.563Z,scs3695,cl2,true
-ev357,u9,u21,Wednesday,11:00,l6,3,Safety protocols were followed throughout the session.,true,2025-05-20T13:28:10.359Z,2025-07-15T15:12:38.215Z,scs3727,cl1,true
-ev358,u9,u21,Sunday,19:00,l3,3,Coach maintained positive energy in class.,true,2025-04-15T15:24:17.462Z,2025-07-15T09:24:41.238Z,scs3730,cl3,true
-ev359,u9,u20,Thursday,8:00,l6,2,Coach adapted well to student needs.,true,2024-10-12T22:24:08.689Z,2025-07-15T20:50:40.463Z,scs3739,cl3,true
-ev360,u9,u21,Thursday,19:00,l10,2,Students showed good progress under coach guidance.,true,2025-04-30T07:30:17.616Z,2025-07-15T08:42:57.552Z,scs3740,cl1,true
-ev361,u9,u20,Sunday,11:00,l9,6,Coach maintained positive energy in class.,true,2025-03-12T02:20:47.509Z,2025-07-15T17:35:05.997Z,scs3746,cl2,true
-ev362,u9,u21,Wednesday,11:00,l1,5,Coach showed strong leadership skills.,true,2024-12-04T01:23:22.521Z,2025-07-15T19:26:06.677Z,scs3750,cl2,true
-ev363,u9,u21,Sunday,19:00,l7,3,Coach demonstrated excellent communication with students.,true,2025-05-18T22:36:02.149Z,2025-07-15T16:42:24.674Z,scs3761,cl2,true
-ev364,u9,u21,Saturday,14:00,l1,5,Coach showed strong leadership skills.,true,2024-10-18T18:12:27.771Z,2025-07-15T10:56:38.743Z,scs3779,cl1,true
-ev365,u12,u20,Saturday,14:00,l5,7,Coach was late to the session.,true,2025-04-22T10:31:07.088Z,2025-07-15T09:36:29.584Z,scs3786,cl3,false
-ev366,u12,u21,Wednesday,13:00,l9,3,Coach maintained positive energy in class.,true,2024-10-23T00:48:39.838Z,2025-07-15T06:53:13.144Z,scs3791,cl3,true
-ev367,u12,u21,Sunday,8:00,l7,9,Coach needs to improve technical explanations.,true,2024-08-27T20:22:39.752Z,2025-07-15T15:31:39.141Z,scs3794,cl3,false
-ev368,u12,u21,Monday,13:00,l4,7,Coach adapted well to student needs.,true,2025-02-08T00:30:39.756Z,2025-07-15T05:57:37.065Z,scs3805,cl3,true
-ev369,u12,u19,Wednesday,17:00,l6,7,Safety protocols were followed throughout the session.,true,2025-01-17T22:48:29.472Z,2025-07-16T00:56:09.160Z,scs3808,cl2,true
-ev370,u12,u20,Wednesday,13:00,l9,10,Lesson plan was well structured and clear.,false,2025-04-26T10:20:53.794Z,2025-07-15T20:27:15.544Z,scs3819,cl1,true
-ev371,u12,u20,Saturday,19:00,l3,6,Students showed good progress under coach guidance.,true,2025-03-09T15:44:30.444Z,2025-07-15T22:35:51.912Z,scs3824,cl3,true
-ev372,u12,u20,Saturday,10:00,l2,8,Students showed good progress under coach guidance.,true,2025-01-28T23:01:49.985Z,2025-07-16T01:32:54.623Z,scs3828,cl1,true
-ev373,u12,u20,Saturday,12:00,l3,7,Coach demonstrated excellent communication with students.,true,2024-07-26T01:26:07.268Z,2025-07-15T16:04:26.548Z,scs3834,cl3,true
-ev374,u2,u19,Friday,20:00,l3,5,Coach did not complete the planned activities.,true,2024-12-01T11:35:10.707Z,2025-07-15T21:15:13.250Z,scs3842,cl1,false
-ev375,u2,u19,Sunday,11:00,l4,4,Lesson objectives were not fully met.,true,2024-08-21T10:48:41.494Z,2025-07-15T15:23:04.788Z,scs3846,cl3,false
-ev376,u2,u21,Saturday,12:00,l7,7,Coach struggled to maintain class discipline.,true,2024-09-04T21:24:56.695Z,2025-07-16T00:23:57.006Z,scs3878,cl3,false
-ev377,u2,u19,Wednesday,19:00,l10,2,Coach needs to improve technical explanations.,true,2024-09-29T16:32:09.666Z,2025-07-15T04:25:01.196Z,scs3885,cl1,false
-ev378,u2,u21,Saturday,8:00,l5,6,Coach should work on engaging quieter students.,true,2025-07-08T21:17:55.001Z,2025-07-16T03:52:50.901Z,scs3898,cl2,false
-ev379,u15,u21,Thursday,12:00,l7,2,Students showed good progress under coach guidance.,true,2025-01-27T12:26:16.153Z,2025-07-15T21:13:49.828Z,scs3902,cl2,true
-ev380,u15,u20,Thursday,13:00,l8,4,Students showed good progress under coach guidance.,false,2024-12-23T01:48:19.224Z,2025-07-15T07:15:53.046Z,scs3905,cl2,true
-ev381,u15,u19,Thursday,19:00,l5,3,Students showed good progress under coach guidance.,true,2024-09-07T09:31:43.571Z,2025-07-15T08:57:20.534Z,scs3906,cl2,true
-ev382,u15,u21,Thursday,12:00,l4,3,Coach adapted well to student needs.,true,2025-02-24T03:25:22.662Z,2025-07-15T20:13:32.377Z,scs3914,cl3,true
-ev383,u15,u20,Saturday,16:00,l6,4,Coach provided helpful feedback to students.,true,2024-07-23T01:42:21.051Z,2025-07-16T01:50:27.545Z,scs3929,cl3,true
-ev384,u15,u19,Friday,9:00,l7,4,Coach provided helpful feedback to students.,true,2024-10-18T15:05:27.722Z,2025-07-15T21:37:10.982Z,scs3937,cl1,true
-ev385,u15,u20,Tuesday,15:00,l10,10,Coach maintained positive energy in class.,true,2024-09-10T12:57:17.878Z,2025-07-15T20:01:01.592Z,scs3947,cl2,true
-ev386,u15,u19,Friday,11:00,l9,6,Coach demonstrated excellent communication with students.,false,2025-06-16T22:02:14.922Z,2025-07-15T18:39:38.471Z,scs3952,cl1,true
-ev387,u6,u20,Sunday,8:00,l4,4,Students showed good progress under coach guidance.,true,2024-08-04T21:18:04.459Z,2025-07-15T15:47:50.783Z,scs3961,cl3,true
-ev388,u6,u19,Friday,9:00,l3,4,Lesson plan was well structured and clear.,true,2025-07-03T03:41:52.269Z,2025-07-15T04:33:45.944Z,scs3966,cl2,true
-ev389,u6,u21,Friday,12:00,l6,6,Coach showed strong leadership skills.,true,2024-09-01T23:04:30.237Z,2025-07-15T21:21:55.858Z,scs3971,cl2,true
-ev390,u6,u19,Thursday,19:00,l8,5,Coach provided helpful feedback to students.,true,2025-06-13T03:17:23.535Z,2025-07-15T08:39:24.210Z,scs3976,cl2,true
-ev391,u6,u21,Tuesday,9:00,l5,4,Coach maintained positive energy in class.,true,2025-06-05T11:51:27.231Z,2025-07-15T19:51:39.519Z,scs3992,cl2,true
-ev392,u6,u19,Thursday,12:00,l3,3,Coach showed strong leadership skills.,true,2025-01-11T10:12:09.362Z,2025-07-15T10:39:53.964Z,scs3993,cl1,true
-ev393,u6,u21,Sunday,9:00,l3,7,Coach showed strong leadership skills.,true,2025-04-13T08:31:03.900Z,2025-07-15T09:44:58.485Z,scs4003,cl1,true
-ev394,u4,u20,Saturday,13:00,l2,8,Coach adapted well to student needs.,true,2025-02-25T09:14:12.876Z,2025-07-15T21:17:47.380Z,scs4030,cl1,true
-ev395,u4,u21,Friday,16:00,l3,7,Coach maintained positive energy in class.,true,2025-05-16T10:44:47.174Z,2025-07-15T13:31:01.492Z,scs4050,cl2,true
-ev396,u4,u21,Sunday,8:00,l9,8,Coach adapted well to student needs.,false,2024-07-27T05:41:59.048Z,2025-07-15T07:07:47.660Z,scs4069,cl2,true
-ev397,u4,u20,Sunday,20:00,l2,3,Lesson plan was well structured and clear.,true,2024-09-13T04:21:01.118Z,2025-07-15T08:45:40.945Z,scs4070,cl2,true
-ev398,u4,u21,Tuesday,9:00,l4,8,Coach demonstrated excellent communication with students.,true,2024-10-09T03:48:28.954Z,2025-07-16T03:16:31.581Z,scs4072,cl1,true
-ev399,u4,u19,Monday,16:00,l1,4,Safety protocols were followed throughout the session.,false,2025-06-07T19:36:21.564Z,2025-07-15T13:23:17.357Z,scs4076,cl3,true
-ev400,u4,u21,Sunday,12:00,l7,4,Safety protocols were followed throughout the session.,true,2025-04-15T07:45:03.335Z,2025-07-16T02:20:11.580Z,scs4078,cl1,true
-ev401,u15,u21,Monday,20:00,l6,4,Lesson plan was well structured and clear.,true,2025-03-04T08:49:21.905Z,2025-07-15T08:22:39.646Z,scs4084,cl3,true
-ev402,u15,u20,Wednesday,11:00,l6,9,Coach adapted well to student needs.,true,2024-12-07T03:39:09.487Z,2025-07-15T09:36:49.016Z,scs4093,cl1,true
-ev403,u15,u19,Friday,15:00,l8,4,Students showed good progress under coach guidance.,true,2025-07-13T16:30:07.508Z,2025-07-15T20:54:14.105Z,scs4110,cl1,true
-ev404,u15,u20,Wednesday,14:00,l1,3,Coach demonstrated excellent communication with students.,true,2025-03-12T13:36:17.227Z,2025-07-16T01:15:14.594Z,scs4120,cl2,true
-ev405,u15,u20,Monday,10:00,l1,4,Coach provided helpful feedback to students.,true,2024-11-29T11:02:32.142Z,2025-07-15T08:16:35.402Z,scs4135,cl3,true
-ev406,u6,u19,Friday,11:00,l10,9,Coach adapted well to student needs.,true,2025-06-30T22:59:14.720Z,2025-07-16T04:08:02.004Z,scs4155,cl3,true
-ev407,u6,u19,Friday,8:00,l8,10,Coach adapted well to student needs.,true,2024-10-19T02:13:19.506Z,2025-07-15T06:47:26.837Z,scs4168,cl3,true
-ev408,u6,u20,Thursday,18:00,l9,3,Coach struggled to maintain class discipline.,true,2025-03-06T06:14:42.868Z,2025-07-16T01:22:35.866Z,scs4169,cl2,false
-ev409,u6,u21,Saturday,18:00,l10,8,Coach should work on engaging quieter students.,true,2024-11-03T09:38:09.240Z,2025-07-15T11:07:42.797Z,scs4186,cl2,false
-ev410,u6,u21,Wednesday,8:00,l3,4,Coach provided helpful feedback to students.,true,2025-02-06T05:01:17.645Z,2025-07-15T06:40:02.464Z,scs4196,cl3,true
+ev1,u11,u20,Saturday,8:00,l8,7,Coach maintained positive energy in class.,true,2024-07-29T00:56:15.802Z,2025-07-16T01:43:14.789Z,scs3,cl1,true
+ev2,u11,u19,Sunday,12:00,l10,4,Safety protocols were followed throughout the session.,true,2024-09-17T22:08:12.003Z,2025-07-15T16:21:13.986Z,scs6,cl3,true
+ev3,u11,u19,Saturday,9:00,l1,2,Coach adapted well to student needs.,false,2025-01-27T06:02:24.134Z,2025-07-16T00:41:08.645Z,scs16,cl3,true
+ev4,u11,u19,Thursday,14:00,l1,10,Coach maintained positive energy in class.,true,2024-10-24T19:57:21.577Z,2025-07-15T13:06:38.077Z,scs30,cl3,true
+ev5,u11,u19,Thursday,11:00,l2,4,Students showed good progress under coach guidance.,false,2025-02-27T14:57:24.131Z,2025-07-15T15:14:51.110Z,scs31,cl2,true
+ev6,u10,u20,Friday,11:00,l2,3,Coach provided helpful feedback to students.,true,2025-05-31T05:19:00.880Z,2025-07-15T18:20:16.138Z,scs63,cl3,true
+ev7,u10,u19,Friday,17:00,l1,5,Lesson plan was well structured and clear.,true,2024-12-13T23:11:02.514Z,2025-07-15T19:03:58.626Z,scs68,cl1,true
+ev8,u10,u20,Tuesday,20:00,l8,5,Coach showed strong leadership skills.,true,2025-04-18T16:22:28.897Z,2025-07-15T11:10:49.176Z,scs87,cl2,true
+ev9,u10,u20,Thursday,18:00,l3,7,Coach provided helpful feedback to students.,false,2025-01-31T15:04:29.453Z,2025-07-15T12:25:39.245Z,scs93,cl1,true
+ev10,u10,u21,Saturday,11:00,l2,3,Safety protocols were followed throughout the session.,false,2024-12-16T00:06:29.908Z,2025-07-15T21:15:16.618Z,scs114,cl1,true
+ev11,u13,u20,Saturday,8:00,l3,7,Coach provided helpful feedback to students.,true,2025-05-06T14:02:59.202Z,2025-07-15T09:31:22.953Z,scs134,cl1,true
+ev12,u13,u20,Monday,8:00,l9,2,Coach maintained positive energy in class.,true,2025-03-15T12:04:59.349Z,2025-07-15T21:29:11.603Z,scs142,cl1,true
+ev13,u13,u19,Wednesday,9:00,l6,6,Coach demonstrated excellent communication with students.,true,2024-12-11T03:40:48.528Z,2025-07-15T20:16:39.570Z,scs146,cl2,true
+ev14,u13,u19,Monday,12:00,l1,9,Coach showed strong leadership skills.,true,2024-09-11T20:09:38.697Z,2025-07-15T22:34:45.182Z,scs152,cl2,true
+ev15,u13,u21,Saturday,12:00,l7,4,Students showed good progress under coach guidance.,true,2025-03-21T14:25:34.418Z,2025-07-15T09:26:02.912Z,scs165,cl1,true
+ev16,u13,u19,Sunday,15:00,l1,5,Students showed good progress under coach guidance.,true,2024-08-23T16:00:31.090Z,2025-07-15T14:49:36.171Z,scs168,cl3,true
+ev17,u8,u21,Sunday,12:00,l1,2,Coach provided helpful feedback to students.,true,2025-06-28T05:53:32.901Z,2025-07-16T02:40:41.553Z,scs185,cl3,true
+ev18,u8,u21,Saturday,17:00,l3,10,Lesson plan was well structured and clear.,true,2024-08-05T08:47:48.458Z,2025-07-15T10:20:52.398Z,scs187,cl1,true
+ev19,u8,u19,Friday,9:00,l6,9,Safety protocols were followed throughout the session.,true,2025-04-24T08:28:10.174Z,2025-07-15T12:43:39.438Z,scs211,cl3,true
+ev20,u8,u19,Tuesday,14:00,l7,7,Coach provided helpful feedback to students.,true,2025-06-26T13:35:14.916Z,2025-07-15T07:47:12.751Z,scs225,cl1,true
+ev21,u8,u19,Saturday,16:00,l4,8,Coach needs to improve time management during sessions.,true,2024-09-21T16:06:35.166Z,2025-07-15T08:11:01.180Z,scs230,cl1,false
+ev22,u10,u19,Wednesday,20:00,l3,8,Coach maintained positive energy in class.,true,2024-08-07T01:16:36.534Z,2025-07-16T01:01:50.463Z,scs262,cl2,true
+ev23,u10,u20,Saturday,19:00,l1,2,Coach demonstrated excellent communication with students.,true,2025-03-10T19:53:31.877Z,2025-07-15T22:20:04.819Z,scs270,cl2,true
+ev24,u10,u20,Saturday,14:00,l4,5,Coach struggled to maintain class discipline.,true,2024-12-11T08:41:57.582Z,2025-07-15T08:20:37.929Z,scs279,cl2,false
+ev25,u5,u21,Thursday,9:00,l6,4,Safety protocols were followed throughout the session.,true,2025-01-06T18:52:41.148Z,2025-07-15T14:52:47.524Z,scs303,cl1,true
+ev26,u5,u21,Tuesday,11:00,l6,4,Coach adapted well to student needs.,true,2024-10-15T09:23:45.091Z,2025-07-15T21:02:16.838Z,scs309,cl3,true
+ev27,u5,u20,Sunday,18:00,l5,3,Students showed good progress under coach guidance.,true,2025-01-18T06:30:12.177Z,2025-07-16T03:12:56.877Z,scs312,cl3,true
+ev28,u5,u19,Saturday,16:00,l7,6,Coach showed strong leadership skills.,true,2025-03-04T13:52:13.985Z,2025-07-16T00:50:25.123Z,scs316,cl2,true
+ev29,u5,u20,Saturday,8:00,l1,10,Coach provided helpful feedback to students.,true,2024-10-07T21:33:00.978Z,2025-07-15T07:27:17.308Z,scs318,cl1,true
+ev30,u5,u21,Thursday,19:00,l6,4,Lesson plan was well structured and clear.,true,2025-01-29T07:48:33.035Z,2025-07-16T04:34:32.693Z,scs343,cl3,true
+ev31,u5,u19,Friday,8:00,l1,4,Safety protocols were followed throughout the session.,true,2024-09-08T02:01:52.445Z,2025-07-15T23:01:49.002Z,scs345,cl3,true
+ev32,u5,u20,Sunday,11:00,l4,3,Coach needs to improve time management during sessions.,true,2025-06-15T04:06:28.710Z,2025-07-15T10:24:44.231Z,scs350,cl1,false
+ev33,u5,u21,Sunday,10:00,l4,5,Coach adapted well to student needs.,false,2025-02-27T04:34:26.229Z,2025-07-15T11:44:31.428Z,scs353,cl1,true
+ev34,u5,u20,Friday,13:00,l10,9,Students showed good progress under coach guidance.,true,2025-04-20T00:16:24.680Z,2025-07-15T20:38:31.645Z,scs366,cl1,true
+ev35,u5,u21,Thursday,18:00,l8,3,Coach was late to the session.,false,2024-08-17T13:54:03.154Z,2025-07-15T23:06:12.192Z,scs369,cl2,false
+ev36,u5,u19,Friday,17:00,l2,3,Lesson plan was well structured and clear.,true,2024-11-27T02:16:57.481Z,2025-07-16T01:45:57.103Z,scs371,cl1,true
+ev37,u5,u19,Sunday,10:00,l2,3,Lesson plan was well structured and clear.,false,2025-06-15T11:27:10.138Z,2025-07-15T08:34:15.868Z,scs387,cl1,true
+ev38,u5,u19,Saturday,17:00,l5,5,Coach adapted well to student needs.,true,2024-09-20T07:13:45.908Z,2025-07-15T09:21:29.042Z,scs396,cl1,true
+ev39,u5,u20,Sunday,18:00,l8,8,Students showed good progress under coach guidance.,true,2025-06-25T20:33:07.467Z,2025-07-15T05:05:13.255Z,scs402,cl2,true
+ev40,u13,u21,Tuesday,11:00,l10,9,Coach showed strong leadership skills.,false,2025-05-18T23:36:17.119Z,2025-07-16T01:32:54.878Z,scs449,cl1,true
+ev41,u13,u19,Tuesday,17:00,l5,10,Coach provided helpful feedback to students.,true,2025-02-12T05:23:44.804Z,2025-07-16T04:13:32.618Z,scs470,cl2,true
+ev42,u8,u21,Tuesday,19:00,l1,8,Coach adapted well to student needs.,true,2025-03-13T05:50:28.840Z,2025-07-15T19:29:43.308Z,scs481,cl1,true
+ev43,u8,u19,Thursday,13:00,l9,8,Coach adapted well to student needs.,true,2024-08-17T21:15:48.362Z,2025-07-15T14:45:01.509Z,scs482,cl3,true
+ev44,u8,u21,Thursday,17:00,l7,5,Coach maintained positive energy in class.,true,2024-08-28T00:45:00.256Z,2025-07-16T03:16:17.071Z,scs484,cl1,true
+ev45,u8,u20,Friday,14:00,l4,10,Safety protocols were followed throughout the session.,true,2025-01-31T14:02:32.099Z,2025-07-15T23:44:30.044Z,scs506,cl1,true
+ev46,u8,u19,Tuesday,8:00,l2,7,Coach needs to improve technical explanations.,true,2024-10-05T01:27:59.323Z,2025-07-15T06:10:14.896Z,scs510,cl2,false
+ev47,u8,u19,Wednesday,18:00,l2,9,Coach maintained positive energy in class.,false,2025-01-10T19:51:32.155Z,2025-07-16T04:47:01.209Z,scs512,cl1,true
+ev48,u8,u21,Monday,12:00,l9,3,Students showed good progress under coach guidance.,true,2025-03-15T10:37:16.097Z,2025-07-15T06:57:18.783Z,scs520,cl3,true
+ev49,u8,u21,Saturday,8:00,l2,9,Coach needs to improve time management during sessions.,true,2025-01-31T07:05:10.882Z,2025-07-16T01:57:01.017Z,scs532,cl2,false
+ev50,u8,u21,Friday,8:00,l8,2,Coach demonstrated excellent communication with students.,true,2025-04-22T06:20:42.587Z,2025-07-15T12:51:47.342Z,scs537,cl1,true
+ev51,u9,u20,Saturday,9:00,l4,10,Coach provided helpful feedback to students.,true,2025-04-29T12:32:07.985Z,2025-07-15T20:27:18.098Z,scs542,cl3,true
+ev52,u9,u19,Thursday,12:00,l5,2,Coach provided helpful feedback to students.,true,2025-04-17T03:35:33.877Z,2025-07-15T23:49:34.106Z,scs547,cl2,true
+ev53,u9,u21,Friday,17:00,l6,9,Coach maintained positive energy in class.,true,2024-07-22T08:20:06.645Z,2025-07-15T19:22:27.627Z,scs557,cl1,true
+ev54,u9,u21,Friday,13:00,l4,8,Students showed good progress under coach guidance.,true,2025-03-18T04:00:53.978Z,2025-07-15T16:34:33.519Z,scs566,cl2,true
+ev55,u9,u20,Thursday,12:00,l8,3,Coach provided helpful feedback to students.,true,2025-04-12T03:41:25.774Z,2025-07-15T22:44:57.955Z,scs576,cl3,true
+ev56,u9,u21,Monday,16:00,l9,8,Safety protocols were followed throughout the session.,true,2025-01-01T03:53:51.823Z,2025-07-15T07:09:30.703Z,scs586,cl2,true
+ev57,u9,u21,Tuesday,17:00,l3,10,Coach needs to improve time management during sessions.,false,2025-05-23T18:28:33.432Z,2025-07-15T14:26:18.804Z,scs594,cl2,false
+ev58,u9,u21,Sunday,12:00,l8,8,Coach demonstrated excellent communication with students.,true,2025-01-07T20:06:21.517Z,2025-07-15T10:32:30.333Z,scs597,cl2,true
+ev59,u11,u21,Thursday,18:00,l1,10,Coach provided helpful feedback to students.,false,2025-02-23T15:03:11.927Z,2025-07-15T16:01:16.949Z,scs603,cl3,true
+ev60,u11,u20,Friday,18:00,l2,2,Coach demonstrated excellent communication with students.,true,2025-03-26T13:23:55.197Z,2025-07-15T17:55:26.029Z,scs614,cl2,true
+ev61,u11,u20,Wednesday,14:00,l7,8,Coach showed strong leadership skills.,false,2025-07-13T03:23:44.721Z,2025-07-15T08:50:43.723Z,scs619,cl2,true
+ev62,u11,u20,Thursday,10:00,l4,6,Coach showed strong leadership skills.,true,2024-12-23T20:42:05.862Z,2025-07-15T16:32:10.824Z,scs620,cl1,true
+ev63,u11,u19,Thursday,15:00,l3,6,Students showed good progress under coach guidance.,true,2025-03-10T09:51:42.807Z,2025-07-15T08:29:16.118Z,scs623,cl3,true
+ev64,u11,u20,Sunday,16:00,l1,6,Lesson plan was well structured and clear.,false,2024-12-25T04:22:11.355Z,2025-07-15T14:18:27.743Z,scs632,cl3,true
+ev65,u11,u20,Friday,12:00,l1,2,Coach needs to improve technical explanations.,true,2024-10-30T10:46:39.668Z,2025-07-15T14:48:02.871Z,scs637,cl3,false
+ev66,u11,u20,Sunday,16:00,l10,2,Students showed good progress under coach guidance.,true,2025-06-14T15:02:06.294Z,2025-07-15T22:16:43.871Z,scs638,cl2,true
+ev67,u11,u20,Tuesday,16:00,l10,2,Safety protocols were followed throughout the session.,true,2025-02-10T04:35:17.628Z,2025-07-15T11:50:05.752Z,scs655,cl1,true
+ev68,u13,u21,Wednesday,14:00,l3,4,Lesson plan was well structured and clear.,true,2025-02-21T09:31:38.569Z,2025-07-15T22:02:10.096Z,scs669,cl2,true
+ev69,u13,u20,Wednesday,13:00,l1,5,Coach maintained positive energy in class.,true,2024-09-07T06:35:50.159Z,2025-07-15T23:09:52.298Z,scs680,cl2,true
+ev70,u13,u21,Thursday,14:00,l7,5,Safety protocols were followed throughout the session.,true,2025-04-24T02:07:40.603Z,2025-07-15T20:09:59.843Z,scs683,cl2,true
+ev71,u13,u21,Saturday,8:00,l1,6,Coach should work on engaging quieter students.,true,2025-04-17T14:15:23.354Z,2025-07-15T05:34:46.110Z,scs692,cl3,false
+ev72,u13,u19,Saturday,16:00,l3,5,Safety protocols were followed throughout the session.,true,2025-03-19T07:10:42.622Z,2025-07-16T04:23:07.442Z,scs706,cl3,true
+ev73,u9,u20,Thursday,15:00,l6,6,Coach provided helpful feedback to students.,true,2024-12-11T18:43:31.306Z,2025-07-15T15:23:14.942Z,scs728,cl3,true
+ev74,u9,u21,Monday,13:00,l6,7,Coach maintained positive energy in class.,true,2024-11-02T16:56:14.366Z,2025-07-15T21:30:09.858Z,scs739,cl3,true
+ev75,u9,u20,Sunday,10:00,l10,3,Lesson plan was well structured and clear.,true,2025-07-02T05:43:41.135Z,2025-07-15T19:18:08.859Z,scs741,cl2,true
+ev76,u9,u19,Friday,18:00,l10,2,Coach provided helpful feedback to students.,false,2025-01-01T21:06:08.917Z,2025-07-15T18:30:49.663Z,scs743,cl1,true
+ev77,u9,u19,Tuesday,10:00,l6,7,Coach adapted well to student needs.,true,2024-09-27T08:07:36.318Z,2025-07-15T11:13:20.955Z,scs745,cl2,true
+ev78,u9,u20,Sunday,18:00,l1,4,Students showed good progress under coach guidance.,false,2025-04-29T19:11:45.893Z,2025-07-16T03:28:18.386Z,scs751,cl3,true
+ev79,u9,u21,Monday,8:00,l1,10,Coach adapted well to student needs.,true,2024-11-15T10:30:42.915Z,2025-07-15T09:20:32.963Z,scs762,cl1,true
+ev80,u9,u20,Thursday,20:00,l1,5,Coach demonstrated excellent communication with students.,true,2024-12-17T15:56:22.784Z,2025-07-15T07:29:10.959Z,scs766,cl2,true
+ev81,u9,u20,Sunday,14:00,l9,9,Coach showed strong leadership skills.,true,2025-06-12T15:42:51.076Z,2025-07-15T05:18:33.305Z,scs768,cl2,true
+ev82,u8,u21,Sunday,17:00,l10,5,Students showed good progress under coach guidance.,false,2025-05-03T10:19:17.651Z,2025-07-15T06:19:25.452Z,scs784,cl3,true
+ev83,u8,u21,Thursday,9:00,l4,2,Coach should work on engaging quieter students.,true,2024-09-24T19:23:53.196Z,2025-07-15T20:18:56.089Z,scs791,cl1,false
+ev84,u8,u19,Monday,13:00,l2,8,Coach demonstrated excellent communication with students.,true,2024-11-08T20:43:37.537Z,2025-07-16T00:47:39.280Z,scs807,cl2,true
+ev85,u8,u21,Sunday,10:00,l4,3,Students showed good progress under coach guidance.,false,2025-06-21T02:00:47.262Z,2025-07-15T22:15:22.342Z,scs811,cl1,true
+ev86,u8,u21,Tuesday,12:00,l7,10,Coach did not complete the planned activities.,false,2025-07-11T07:22:19.264Z,2025-07-15T19:46:30.812Z,scs813,cl1,false
+ev87,u1,u19,Thursday,18:00,l9,5,Coach showed strong leadership skills.,true,2024-12-10T06:36:23.606Z,2025-07-16T03:00:27.517Z,scs849,cl3,true
+ev88,u1,u19,Thursday,11:00,l10,2,Coach should work on engaging quieter students.,true,2024-11-18T12:01:56.411Z,2025-07-15T21:21:07.939Z,scs857,cl1,false
+ev89,u1,u21,Monday,8:00,l5,2,Coach needs to improve time management during sessions.,true,2024-09-02T21:34:05.542Z,2025-07-15T10:11:17.002Z,scs860,cl2,false
+ev90,u1,u20,Monday,20:00,l10,6,Coach adapted well to student needs.,true,2024-11-22T06:51:58.823Z,2025-07-15T13:37:02.722Z,scs884,cl1,true
+ev91,u1,u19,Sunday,18:00,l1,4,Coach needs to improve time management during sessions.,true,2024-12-31T17:50:33.101Z,2025-07-16T01:52:03.275Z,scs898,cl3,false
+ev92,u1,u21,Wednesday,17:00,l9,4,Coach should work on engaging quieter students.,true,2024-09-29T04:56:00.234Z,2025-07-15T08:10:34.052Z,scs899,cl1,false
+ev93,u1,u19,Tuesday,18:00,l4,10,Coach did not complete the planned activities.,false,2025-03-21T12:39:08.218Z,2025-07-15T19:58:10.593Z,scs924,cl1,false
+ev94,u1,u21,Tuesday,18:00,l7,2,Coach struggled to maintain class discipline.,true,2024-07-30T06:34:41.545Z,2025-07-15T06:31:13.237Z,scs926,cl2,false
+ev95,u1,u20,Thursday,16:00,l4,7,Lesson objectives were not fully met.,true,2024-07-25T02:52:43.167Z,2025-07-15T17:30:26.657Z,scs938,cl2,false
+ev96,u1,u21,Sunday,19:00,l9,4,Coach needs to improve time management during sessions.,true,2025-01-10T15:07:58.192Z,2025-07-15T20:37:33.434Z,scs950,cl3,false
+ev97,u1,u21,Wednesday,11:00,l6,4,Coach showed strong leadership skills.,true,2025-03-08T05:19:50.928Z,2025-07-16T00:52:35.134Z,scs953,cl2,true
+ev98,u14,u21,Wednesday,20:00,l5,4,Coach provided helpful feedback to students.,true,2025-03-11T23:48:41.301Z,2025-07-15T08:39:01.068Z,scs982,cl1,true
+ev99,u14,u19,Monday,20:00,l6,7,Lesson plan was well structured and clear.,true,2025-05-16T07:38:32.468Z,2025-07-15T08:41:51.626Z,scs983,cl2,true
+ev100,u14,u19,Sunday,12:00,l4,10,Coach demonstrated excellent communication with students.,true,2024-12-15T00:05:20.193Z,2025-07-15T07:47:43.513Z,scs984,cl3,true
+ev101,u14,u19,Wednesday,14:00,l9,2,Coach demonstrated excellent communication with students.,true,2024-07-24T16:19:33.749Z,2025-07-15T10:47:55.881Z,scs990,cl2,true
+ev102,u14,u20,Monday,9:00,l5,10,Coach demonstrated excellent communication with students.,true,2025-04-30T16:47:46.061Z,2025-07-15T20:22:31.659Z,scs996,cl2,true
+ev103,u14,u19,Wednesday,15:00,l4,8,Lesson plan was well structured and clear.,true,2025-06-11T03:09:15.154Z,2025-07-15T08:44:30.264Z,scs998,cl3,true
+ev104,u14,u19,Monday,17:00,l4,10,Coach maintained positive energy in class.,true,2025-06-17T12:39:07.610Z,2025-07-16T03:59:20.344Z,scs1004,cl1,true
+ev105,u14,u20,Monday,8:00,l2,5,Lesson plan was well structured and clear.,true,2024-10-09T01:02:01.175Z,2025-07-15T15:01:26.917Z,scs1007,cl2,true
+ev106,u14,u21,Monday,9:00,l5,10,Coach showed strong leadership skills.,true,2025-04-25T17:09:47.549Z,2025-07-15T06:15:30.585Z,scs1013,cl3,true
+ev107,u14,u19,Thursday,17:00,l4,5,Coach showed strong leadership skills.,true,2025-03-03T06:14:51.103Z,2025-07-15T13:37:14.940Z,scs1034,cl2,true
+ev108,u14,u19,Thursday,13:00,l9,2,Coach adapted well to student needs.,true,2024-08-09T12:35:33.873Z,2025-07-15T18:34:22.507Z,scs1038,cl1,true
+ev109,u14,u20,Wednesday,15:00,l1,8,Coach maintained positive energy in class.,true,2025-06-22T11:45:45.110Z,2025-07-15T07:01:13.454Z,scs1073,cl2,true
+ev110,u14,u21,Friday,15:00,l7,8,Safety protocols were followed throughout the session.,false,2024-07-18T06:12:53.344Z,2025-07-15T09:23:35.053Z,scs1075,cl1,true
+ev111,u12,u20,Saturday,11:00,l6,7,Coach adapted well to student needs.,false,2024-10-11T19:15:07.829Z,2025-07-15T21:28:38.187Z,scs1083,cl1,true
+ev112,u12,u21,Wednesday,9:00,l8,4,Coach showed strong leadership skills.,false,2025-02-01T21:36:52.621Z,2025-07-15T22:04:11.184Z,scs1087,cl1,true
+ev113,u12,u19,Saturday,17:00,l3,5,Coach maintained positive energy in class.,true,2025-03-18T01:33:52.563Z,2025-07-15T14:05:21.022Z,scs1107,cl3,true
+ev114,u12,u19,Sunday,13:00,l7,5,Lesson plan was well structured and clear.,true,2025-06-02T10:35:23.210Z,2025-07-15T23:27:26.221Z,scs1117,cl3,true
+ev115,u12,u20,Saturday,8:00,l9,4,Coach demonstrated excellent communication with students.,true,2024-07-18T18:43:11.907Z,2025-07-16T04:48:53.154Z,scs1120,cl2,true
+ev116,u12,u21,Friday,16:00,l9,4,Coach provided helpful feedback to students.,true,2024-09-13T06:46:55.276Z,2025-07-15T11:10:59.389Z,scs1127,cl2,true
+ev117,u12,u19,Monday,12:00,l2,7,Safety protocols were followed throughout the session.,true,2024-07-30T12:49:11.845Z,2025-07-15T17:19:44.398Z,scs1132,cl1,true
+ev118,u12,u19,Friday,13:00,l9,6,Lesson plan was well structured and clear.,false,2025-01-28T14:49:00.958Z,2025-07-15T11:27:20.194Z,scs1140,cl2,true
+ev119,u6,u19,Saturday,8:00,l4,10,Coach showed strong leadership skills.,false,2025-04-17T22:07:48.399Z,2025-07-15T09:46:06.580Z,scs1144,cl3,true
+ev120,u6,u19,Monday,10:00,l1,10,Coach showed strong leadership skills.,true,2024-09-21T19:00:34.820Z,2025-07-15T08:31:20.306Z,scs1148,cl1,true
+ev121,u6,u20,Saturday,15:00,l8,7,Coach did not complete the planned activities.,true,2025-05-17T00:19:43.911Z,2025-07-15T15:56:00.968Z,scs1179,cl3,false
+ev122,u6,u19,Wednesday,20:00,l6,5,Students showed good progress under coach guidance.,true,2025-02-24T03:27:09.631Z,2025-07-15T11:21:13.579Z,scs1180,cl1,true
+ev123,u6,u21,Monday,17:00,l5,3,Students showed good progress under coach guidance.,true,2025-04-27T10:39:31.195Z,2025-07-15T08:36:55.331Z,scs1183,cl3,true
+ev124,u3,u20,Wednesday,16:00,l6,5,Coach demonstrated excellent communication with students.,true,2025-02-28T19:12:31.526Z,2025-07-15T05:53:36.277Z,scs1211,cl1,true
+ev125,u3,u21,Monday,12:00,l8,7,Lesson plan was well structured and clear.,true,2025-05-27T01:41:44.610Z,2025-07-15T15:18:12.760Z,scs1224,cl3,true
+ev126,u3,u21,Tuesday,15:00,l3,6,Coach demonstrated excellent communication with students.,false,2025-03-23T13:02:22.872Z,2025-07-16T01:03:07.652Z,scs1228,cl1,true
+ev127,u3,u20,Sunday,8:00,l2,6,Coach provided helpful feedback to students.,true,2025-01-09T00:53:20.159Z,2025-07-15T23:22:36.479Z,scs1231,cl1,true
+ev128,u3,u19,Tuesday,10:00,l10,7,Coach provided helpful feedback to students.,true,2024-12-08T08:07:00.078Z,2025-07-15T15:53:54.544Z,scs1236,cl1,true
+ev129,u3,u20,Sunday,11:00,l9,6,Students showed good progress under coach guidance.,true,2025-04-24T19:25:22.095Z,2025-07-15T20:14:36.659Z,scs1260,cl2,true
+ev130,u1,u21,Sunday,11:00,l8,8,Coach struggled to maintain class discipline.,true,2025-01-05T15:49:35.854Z,2025-07-16T03:53:56.409Z,scs1262,cl3,false
+ev131,u1,u20,Monday,11:00,l5,4,Coach needs to improve technical explanations.,true,2024-12-06T18:46:07.753Z,2025-07-15T05:56:51.291Z,scs1275,cl2,false
+ev132,u1,u19,Thursday,15:00,l4,7,Coach did not complete the planned activities.,true,2025-05-29T12:42:13.861Z,2025-07-15T20:56:46.078Z,scs1288,cl3,false
+ev133,u1,u19,Monday,17:00,l1,8,Coach was late to the session.,true,2025-03-05T17:51:51.445Z,2025-07-15T16:52:38.781Z,scs1299,cl3,false
+ev134,u10,u21,Friday,18:00,l7,7,Students showed good progress under coach guidance.,true,2024-09-10T09:04:02.560Z,2025-07-15T15:50:59.661Z,scs1321,cl3,true
+ev135,u10,u19,Wednesday,16:00,l3,5,Coach showed strong leadership skills.,true,2025-04-07T07:33:13.308Z,2025-07-15T09:57:11.911Z,scs1326,cl1,true
+ev136,u10,u21,Tuesday,15:00,l5,2,Coach maintained positive energy in class.,true,2025-04-01T14:59:01.752Z,2025-07-15T12:34:21.107Z,scs1342,cl3,true
+ev137,u10,u21,Friday,17:00,l9,10,Coach maintained positive energy in class.,true,2025-05-24T02:19:46.085Z,2025-07-15T16:25:11.813Z,scs1357,cl2,true
+ev138,u2,u20,Saturday,10:00,l1,9,Coach needs to improve time management during sessions.,false,2024-10-07T23:29:51.928Z,2025-07-15T12:05:55.691Z,scs1426,cl3,false
+ev139,u2,u21,Friday,9:00,l4,5,Safety protocols were followed throughout the session.,true,2025-04-13T03:56:45.380Z,2025-07-15T18:52:33.715Z,scs1428,cl2,true
+ev140,u1,u20,Wednesday,14:00,l9,10,Coach needs to improve time management during sessions.,true,2025-02-05T00:32:33.544Z,2025-07-15T10:17:07.410Z,scs1441,cl2,false
+ev141,u1,u21,Friday,15:00,l4,6,Coach was late to the session.,true,2024-09-02T09:01:20.134Z,2025-07-15T21:59:31.048Z,scs1456,cl2,false
+ev142,u1,u21,Monday,12:00,l2,4,Coach demonstrated excellent communication with students.,true,2025-05-27T04:59:33.771Z,2025-07-15T16:55:34.274Z,scs1465,cl3,true
+ev143,u1,u21,Thursday,16:00,l1,10,Coach struggled to maintain class discipline.,true,2025-07-10T17:28:48.846Z,2025-07-16T00:11:32.950Z,scs1468,cl2,false
+ev144,u1,u20,Saturday,9:00,l10,3,Coach needs to improve time management during sessions.,false,2024-11-23T07:19:18.284Z,2025-07-16T04:21:48.289Z,scs1478,cl1,false
+ev145,u10,u19,Friday,12:00,l5,2,Coach adapted well to student needs.,true,2024-09-20T15:19:26.277Z,2025-07-16T00:20:00.953Z,scs1504,cl1,true
+ev146,u10,u21,Thursday,9:00,l6,5,Coach adapted well to student needs.,true,2025-01-14T19:15:19.114Z,2025-07-15T20:03:24.089Z,scs1505,cl3,true
+ev147,u10,u20,Tuesday,9:00,l10,2,Coach demonstrated excellent communication with students.,true,2024-12-25T08:11:11.059Z,2025-07-15T07:11:39.607Z,scs1509,cl2,true
+ev148,u10,u21,Wednesday,9:00,l2,8,Coach provided helpful feedback to students.,true,2025-06-25T10:02:33.042Z,2025-07-16T03:36:34.159Z,scs1516,cl2,true
+ev149,u10,u19,Friday,20:00,l8,3,Students showed good progress under coach guidance.,true,2025-04-01T01:02:32.858Z,2025-07-15T21:14:38.780Z,scs1535,cl1,true
+ev150,u10,u20,Saturday,19:00,l4,3,Coach adapted well to student needs.,true,2025-04-07T04:20:50.699Z,2025-07-15T18:21:23.346Z,scs1554,cl3,true
+ev151,u3,u21,Sunday,8:00,l7,6,Coach was late to the session.,false,2024-10-22T19:39:10.447Z,2025-07-15T12:19:54.298Z,scs1574,cl2,false
+ev152,u3,u19,Friday,20:00,l1,8,Coach showed strong leadership skills.,true,2024-09-09T14:01:00.612Z,2025-07-15T07:56:32.616Z,scs1587,cl3,true
+ev153,u3,u20,Thursday,9:00,l3,2,Lesson plan was well structured and clear.,true,2025-04-26T00:33:42.190Z,2025-07-16T00:56:48.693Z,scs1593,cl3,true
+ev154,u3,u21,Saturday,19:00,l5,3,Coach adapted well to student needs.,true,2024-07-31T03:05:39.889Z,2025-07-15T07:10:51.141Z,scs1610,cl2,true
+ev155,u3,u20,Friday,13:00,l5,5,Coach maintained positive energy in class.,true,2024-11-06T07:30:13.114Z,2025-07-16T04:18:21.983Z,scs1611,cl2,true
+ev156,u10,u20,Friday,12:00,l2,4,Coach showed strong leadership skills.,true,2025-04-05T20:28:11.766Z,2025-07-15T09:40:28.301Z,scs1633,cl1,true
+ev157,u10,u21,Saturday,20:00,l9,5,Coach should work on engaging quieter students.,true,2025-04-08T06:36:44.739Z,2025-07-15T11:50:06.560Z,scs1667,cl2,false
+ev158,u10,u20,Monday,14:00,l1,4,Coach demonstrated excellent communication with students.,true,2024-11-19T04:12:07.663Z,2025-07-16T03:26:13.162Z,scs1671,cl2,true
+ev159,u10,u21,Saturday,9:00,l1,10,Coach provided helpful feedback to students.,true,2025-05-01T06:08:30.731Z,2025-07-16T01:22:52.699Z,scs1673,cl3,true
+ev160,u4,u21,Tuesday,8:00,l1,7,Coach demonstrated excellent communication with students.,true,2024-12-10T07:02:16.503Z,2025-07-15T20:14:13.416Z,scs1684,cl2,true
+ev161,u4,u21,Saturday,14:00,l7,3,Coach maintained positive energy in class.,false,2025-03-29T14:06:53.119Z,2025-07-15T06:01:13.185Z,scs1697,cl2,true
+ev162,u4,u21,Sunday,11:00,l2,6,Coach adapted well to student needs.,true,2025-06-29T03:38:24.306Z,2025-07-15T19:00:30.747Z,scs1706,cl1,true
+ev163,u4,u19,Sunday,12:00,l3,10,Safety protocols were followed throughout the session.,true,2025-04-01T08:32:34.607Z,2025-07-15T07:12:27.931Z,scs1709,cl2,true
+ev164,u4,u20,Friday,9:00,l1,3,Coach was late to the session.,false,2025-04-14T19:16:26.948Z,2025-07-15T22:22:15.190Z,scs1718,cl1,false
+ev165,u4,u19,Tuesday,20:00,l5,6,Lesson plan was well structured and clear.,true,2025-04-21T18:48:00.106Z,2025-07-15T23:15:29.917Z,scs1729,cl1,true
+ev166,u4,u21,Sunday,15:00,l2,8,Coach needs to improve time management during sessions.,false,2025-07-02T16:19:55.060Z,2025-07-15T08:59:27.698Z,scs1735,cl3,false
+ev167,u4,u21,Monday,14:00,l9,3,Coach maintained positive energy in class.,true,2024-11-01T05:39:06.181Z,2025-07-15T14:40:52.162Z,scs1736,cl1,true
+ev168,u4,u20,Monday,20:00,l9,5,Coach maintained positive energy in class.,true,2025-06-21T02:07:12.156Z,2025-07-15T15:28:39.554Z,scs1737,cl3,true
+ev169,u3,u21,Friday,14:00,l7,3,Coach showed strong leadership skills.,true,2024-09-16T08:34:52.803Z,2025-07-16T02:19:39.475Z,scs1742,cl1,true
+ev170,u3,u20,Monday,20:00,l4,9,Coach was late to the session.,true,2024-10-20T11:34:58.879Z,2025-07-15T11:01:56.352Z,scs1748,cl2,false
+ev171,u3,u19,Saturday,13:00,l7,4,Coach adapted well to student needs.,true,2025-04-05T21:05:30.946Z,2025-07-15T11:18:59.946Z,scs1750,cl2,true
+ev172,u3,u21,Sunday,20:00,l6,2,Coach needs to improve time management during sessions.,true,2024-12-12T09:46:10.348Z,2025-07-16T02:39:30.208Z,scs1753,cl3,false
+ev173,u3,u20,Wednesday,17:00,l9,10,Coach did not complete the planned activities.,false,2024-12-29T09:06:08.942Z,2025-07-15T12:55:30.775Z,scs1770,cl3,false
+ev174,u3,u20,Sunday,8:00,l5,4,Coach showed strong leadership skills.,true,2025-05-13T00:48:46.788Z,2025-07-15T14:04:06.706Z,scs1772,cl1,true
+ev175,u3,u19,Saturday,12:00,l7,8,Coach did not complete the planned activities.,true,2025-07-09T17:05:54.136Z,2025-07-15T09:34:34.891Z,scs1781,cl2,false
+ev176,u3,u21,Saturday,12:00,l10,9,Students showed good progress under coach guidance.,true,2025-04-10T09:15:18.663Z,2025-07-15T08:40:59.754Z,scs1786,cl1,true
+ev177,u3,u20,Thursday,17:00,l1,3,Coach maintained positive energy in class.,false,2024-11-05T15:43:46.268Z,2025-07-15T05:56:40.101Z,scs1800,cl3,true
+ev178,u11,u19,Sunday,13:00,l3,9,Coach maintained positive energy in class.,true,2025-03-29T07:32:20.124Z,2025-07-15T15:16:10.398Z,scs1829,cl2,true
+ev179,u11,u19,Wednesday,13:00,l1,4,Lesson objectives were not fully met.,true,2024-10-07T13:01:48.019Z,2025-07-15T21:15:25.128Z,scs1835,cl3,false
+ev180,u11,u19,Wednesday,19:00,l7,6,Coach showed strong leadership skills.,true,2025-07-14T05:42:41.685Z,2025-07-16T03:11:55.254Z,scs1847,cl2,true
+ev181,u11,u20,Sunday,8:00,l2,3,Coach showed strong leadership skills.,true,2025-07-06T14:02:36.189Z,2025-07-15T13:33:03.032Z,scs1860,cl1,true
+ev182,u14,u20,Sunday,19:00,l9,10,Lesson objectives were not fully met.,true,2025-05-04T17:04:56.270Z,2025-07-15T08:27:21.415Z,scs1865,cl2,false
+ev183,u14,u19,Saturday,8:00,l8,3,Safety protocols were followed throughout the session.,true,2025-03-22T01:35:40.993Z,2025-07-15T06:38:44.887Z,scs1871,cl1,true
+ev184,u14,u20,Thursday,19:00,l2,9,Coach adapted well to student needs.,false,2025-05-01T11:06:49.257Z,2025-07-15T13:29:36.696Z,scs1878,cl1,true
+ev185,u14,u20,Saturday,8:00,l4,10,Coach provided helpful feedback to students.,true,2024-11-28T17:59:27.443Z,2025-07-15T16:49:59.316Z,scs1888,cl2,true
+ev186,u14,u20,Friday,16:00,l4,10,Coach provided helpful feedback to students.,true,2024-09-20T09:12:17.756Z,2025-07-15T17:08:43.172Z,scs1900,cl2,true
+ev187,u14,u20,Sunday,13:00,l1,5,Coach maintained positive energy in class.,true,2025-05-31T13:40:54.343Z,2025-07-15T20:16:46.674Z,scs1901,cl2,true
+ev188,u14,u21,Saturday,10:00,l1,10,Coach provided helpful feedback to students.,true,2025-05-18T15:41:32.993Z,2025-07-15T20:08:28.999Z,scs1908,cl2,true
+ev189,u14,u21,Friday,11:00,l5,7,Coach demonstrated excellent communication with students.,true,2025-02-16T23:17:01.557Z,2025-07-15T13:58:57.306Z,scs1909,cl1,true
+ev190,u14,u19,Saturday,11:00,l7,7,Coach showed strong leadership skills.,true,2024-11-24T18:29:49.898Z,2025-07-15T17:05:13.696Z,scs1924,cl1,true
+ev191,u14,u21,Monday,15:00,l9,6,Lesson plan was well structured and clear.,true,2024-11-30T03:44:12.613Z,2025-07-15T07:24:14.567Z,scs1933,cl3,true
+ev192,u14,u21,Saturday,9:00,l8,10,Coach adapted well to student needs.,true,2024-12-09T18:09:19.603Z,2025-07-15T05:11:17.654Z,scs1944,cl1,true
+ev193,u14,u21,Sunday,16:00,l2,3,Coach provided helpful feedback to students.,false,2025-04-22T14:14:29.880Z,2025-07-15T06:51:42.436Z,scs1953,cl1,true
+ev194,u14,u21,Tuesday,18:00,l3,4,Coach showed strong leadership skills.,false,2024-08-31T04:07:40.259Z,2025-07-15T17:40:15.162Z,scs1960,cl2,true
+ev195,u14,u21,Saturday,13:00,l7,2,Coach demonstrated excellent communication with students.,true,2024-12-14T17:33:03.469Z,2025-07-15T10:52:18.164Z,scs1961,cl2,true
+ev196,u14,u20,Tuesday,20:00,l1,6,Coach did not complete the planned activities.,true,2025-01-17T09:57:21.416Z,2025-07-16T00:48:19.224Z,scs1963,cl1,false
+ev197,u14,u21,Sunday,11:00,l5,9,Coach needs to improve technical explanations.,true,2024-09-06T02:10:10.286Z,2025-07-15T20:28:07.766Z,scs1973,cl3,false
+ev198,u14,u21,Wednesday,9:00,l6,9,Coach maintained positive energy in class.,true,2025-04-02T15:08:12.454Z,2025-07-15T15:04:51.525Z,scs1976,cl2,true
+ev199,u14,u21,Tuesday,18:00,l1,3,Lesson plan was well structured and clear.,true,2025-05-16T18:40:24.356Z,2025-07-15T14:24:31.045Z,scs1987,cl2,true
+ev200,u14,u20,Thursday,16:00,l9,8,Coach demonstrated excellent communication with students.,true,2025-04-04T16:04:53.095Z,2025-07-15T21:43:19.972Z,scs2009,cl2,true
+ev201,u14,u21,Tuesday,10:00,l9,10,Coach maintained positive energy in class.,true,2025-07-02T14:44:40.813Z,2025-07-15T12:58:11.136Z,scs2011,cl3,true
+ev202,u14,u19,Monday,18:00,l7,3,Safety protocols were followed throughout the session.,true,2024-11-30T09:57:35.522Z,2025-07-15T07:47:14.106Z,scs2014,cl3,true
+ev203,u14,u21,Wednesday,9:00,l9,8,Coach demonstrated excellent communication with students.,false,2024-09-13T02:16:39.968Z,2025-07-16T00:04:55.638Z,scs2028,cl3,true
+ev204,u14,u21,Monday,12:00,l6,6,Lesson objectives were not fully met.,false,2025-03-20T00:40:30.534Z,2025-07-15T22:25:24.256Z,scs2034,cl3,false
+ev205,u14,u20,Sunday,19:00,l4,10,Coach maintained positive energy in class.,true,2025-01-09T19:16:13.993Z,2025-07-15T08:18:59.275Z,scs2038,cl2,true
+ev206,u4,u19,Monday,12:00,l8,8,Safety protocols were followed throughout the session.,false,2024-08-23T11:51:48.429Z,2025-07-15T13:57:34.622Z,scs2053,cl3,true
+ev207,u4,u20,Wednesday,14:00,l3,8,Students showed good progress under coach guidance.,true,2025-01-29T23:23:32.435Z,2025-07-15T22:41:29.356Z,scs2067,cl2,true
+ev208,u4,u21,Thursday,18:00,l10,9,Lesson plan was well structured and clear.,true,2025-04-29T19:47:53.777Z,2025-07-15T12:53:19.447Z,scs2070,cl3,true
+ev209,u4,u20,Wednesday,16:00,l2,3,Coach needs to improve technical explanations.,true,2025-05-24T01:20:21.813Z,2025-07-15T05:02:54.684Z,scs2083,cl3,false
+ev210,u4,u19,Monday,20:00,l3,5,Students showed good progress under coach guidance.,true,2024-07-22T10:22:41.654Z,2025-07-15T11:04:16.502Z,scs2088,cl1,true
+ev211,u13,u19,Sunday,13:00,l10,9,Safety protocols were followed throughout the session.,false,2024-11-22T00:05:44.619Z,2025-07-15T23:42:24.178Z,scs2103,cl1,true
+ev212,u13,u20,Sunday,18:00,l8,3,Coach provided helpful feedback to students.,false,2024-09-30T01:01:21.610Z,2025-07-15T22:25:28.736Z,scs2109,cl2,true
+ev213,u13,u19,Tuesday,12:00,l3,2,Coach was late to the session.,false,2025-07-02T10:34:52.782Z,2025-07-16T02:27:19.719Z,scs2152,cl2,false
+ev214,u13,u19,Tuesday,19:00,l7,4,Safety protocols were followed throughout the session.,true,2025-05-21T06:03:27.379Z,2025-07-16T02:18:33.100Z,scs2154,cl1,true
+ev215,u8,u21,Wednesday,8:00,l6,5,Coach adapted well to student needs.,false,2024-10-15T10:02:40.209Z,2025-07-15T22:31:06.708Z,scs2173,cl2,true
+ev216,u8,u19,Monday,13:00,l2,3,Lesson plan was well structured and clear.,true,2024-10-01T01:04:04.793Z,2025-07-15T16:52:05.440Z,scs2177,cl2,true
+ev217,u8,u21,Monday,17:00,l6,7,Coach provided helpful feedback to students.,true,2024-09-28T01:11:05.975Z,2025-07-15T21:00:56.771Z,scs2193,cl2,true
+ev218,u8,u19,Wednesday,13:00,l6,2,Safety protocols were followed throughout the session.,true,2025-04-24T05:39:33.462Z,2025-07-15T21:06:00.834Z,scs2196,cl1,true
+ev219,u8,u19,Friday,11:00,l6,10,Students showed good progress under coach guidance.,true,2024-10-19T14:08:09.905Z,2025-07-15T19:14:31.488Z,scs2199,cl2,true
+ev220,u8,u20,Friday,16:00,l6,3,Students showed good progress under coach guidance.,true,2025-02-28T03:45:24.197Z,2025-07-16T02:47:57.744Z,scs2210,cl3,true
+ev221,u8,u21,Tuesday,15:00,l1,5,Coach provided helpful feedback to students.,true,2024-10-18T01:30:21.381Z,2025-07-15T10:33:19.977Z,scs2213,cl3,true
+ev222,u3,u19,Monday,20:00,l9,5,Coach provided helpful feedback to students.,true,2024-08-18T06:40:26.796Z,2025-07-15T12:09:31.353Z,scs2244,cl3,true
+ev223,u3,u19,Wednesday,17:00,l6,9,Coach maintained positive energy in class.,false,2024-09-03T18:08:33.034Z,2025-07-15T16:00:07.010Z,scs2249,cl3,true
+ev224,u3,u21,Tuesday,17:00,l10,8,Coach adapted well to student needs.,true,2024-11-12T19:10:59.281Z,2025-07-15T19:22:32.308Z,scs2251,cl1,true
+ev225,u3,u21,Tuesday,15:00,l3,6,Lesson plan was well structured and clear.,true,2024-08-29T11:51:38.940Z,2025-07-15T20:55:16.869Z,scs2259,cl2,true
+ev226,u3,u20,Monday,17:00,l9,6,Safety protocols were followed throughout the session.,true,2024-12-10T22:17:00.199Z,2025-07-15T17:02:39.613Z,scs2266,cl1,true
+ev227,u3,u20,Thursday,15:00,l3,9,Coach needs to improve technical explanations.,false,2025-06-10T14:00:43.987Z,2025-07-15T13:13:57.844Z,scs2273,cl3,false
+ev228,u5,u19,Sunday,15:00,l3,6,Coach maintained positive energy in class.,true,2025-03-14T00:07:20.014Z,2025-07-16T02:06:07.331Z,scs2318,cl2,true
+ev229,u5,u20,Tuesday,15:00,l6,7,Safety protocols were followed throughout the session.,true,2025-07-15T07:32:52.535Z,2025-07-15T21:49:03.743Z,scs2327,cl2,true
+ev230,u6,u20,Tuesday,8:00,l9,10,Coach needs to improve time management during sessions.,true,2024-08-23T15:00:13.547Z,2025-07-15T22:06:32.154Z,scs2347,cl3,false
+ev231,u6,u20,Sunday,8:00,l10,6,Lesson plan was well structured and clear.,true,2025-07-09T06:02:04.700Z,2025-07-16T02:16:38.516Z,scs2355,cl3,true
+ev232,u6,u20,Sunday,18:00,l5,10,Students showed good progress under coach guidance.,false,2025-01-12T10:00:34.930Z,2025-07-16T02:15:21.792Z,scs2358,cl2,true
+ev233,u6,u20,Tuesday,19:00,l4,6,Students showed good progress under coach guidance.,true,2024-09-01T23:21:21.410Z,2025-07-15T18:00:46.452Z,scs2379,cl1,true
+ev234,u6,u19,Thursday,12:00,l9,8,Coach demonstrated excellent communication with students.,true,2025-05-04T05:02:06.983Z,2025-07-16T02:20:55.151Z,scs2381,cl3,true
+ev235,u6,u20,Wednesday,8:00,l1,4,Coach did not complete the planned activities.,true,2025-02-12T17:31:25.467Z,2025-07-15T23:14:37.500Z,scs2386,cl2,false
+ev236,u14,u21,Saturday,16:00,l7,7,Coach provided helpful feedback to students.,true,2025-05-20T12:24:44.362Z,2025-07-15T12:54:39.676Z,scs2402,cl3,true
+ev237,u14,u19,Sunday,19:00,l6,5,Safety protocols were followed throughout the session.,true,2025-02-27T07:33:27.169Z,2025-07-15T13:33:52.538Z,scs2403,cl3,true
+ev238,u14,u20,Sunday,9:00,l4,4,Coach showed strong leadership skills.,true,2024-07-29T05:40:41.955Z,2025-07-15T23:43:47.837Z,scs2421,cl3,true
+ev239,u14,u20,Saturday,13:00,l2,6,Coach showed strong leadership skills.,true,2025-01-21T22:42:20.734Z,2025-07-15T15:50:11.528Z,scs2445,cl3,true
+ev240,u14,u21,Friday,17:00,l10,7,Coach adapted well to student needs.,false,2025-03-13T08:05:27.378Z,2025-07-15T22:39:59.883Z,scs2446,cl2,true
+ev241,u14,u20,Tuesday,12:00,l8,6,Coach maintained positive energy in class.,true,2025-01-11T11:49:07.836Z,2025-07-15T18:36:23.004Z,scs2454,cl2,true
+ev242,u14,u20,Saturday,12:00,l5,7,Students showed good progress under coach guidance.,true,2025-03-16T03:20:17.868Z,2025-07-16T02:53:25.667Z,scs2465,cl2,true
+ev243,u14,u21,Tuesday,8:00,l3,6,Lesson objectives were not fully met.,true,2025-02-23T14:46:29.417Z,2025-07-15T21:43:15.187Z,scs2470,cl3,false
+ev244,u14,u20,Wednesday,12:00,l3,7,Coach demonstrated excellent communication with students.,true,2025-05-08T10:03:26.291Z,2025-07-15T23:56:11.143Z,scs2472,cl1,true
+ev245,u14,u20,Wednesday,18:00,l9,6,Coach demonstrated excellent communication with students.,true,2025-05-04T08:42:01.666Z,2025-07-15T20:38:03.407Z,scs2473,cl3,true
+ev246,u14,u19,Wednesday,20:00,l9,10,Coach needs to improve technical explanations.,true,2024-09-26T16:31:06.281Z,2025-07-15T13:43:01.568Z,scs2480,cl2,false
+ev247,u14,u21,Saturday,15:00,l5,9,Safety protocols were followed throughout the session.,true,2025-05-27T04:44:07.135Z,2025-07-15T21:41:55.560Z,scs2490,cl1,true
+ev248,u14,u19,Tuesday,19:00,l2,5,Coach provided helpful feedback to students.,true,2025-05-02T19:19:00.796Z,2025-07-15T19:25:12.667Z,scs2494,cl1,true
+ev249,u14,u19,Monday,18:00,l5,2,Lesson objectives were not fully met.,true,2025-05-11T04:39:50.697Z,2025-07-16T04:33:04.858Z,scs2505,cl3,false
+ev250,u15,u21,Wednesday,13:00,l2,8,Coach adapted well to student needs.,true,2025-03-22T23:55:28.999Z,2025-07-15T07:07:22.060Z,scs2525,cl1,true
+ev251,u15,u19,Sunday,18:00,l9,2,Coach provided helpful feedback to students.,true,2024-10-13T14:29:02.786Z,2025-07-15T17:09:36.179Z,scs2529,cl3,true
+ev252,u15,u20,Friday,20:00,l3,8,Coach showed strong leadership skills.,true,2025-07-03T02:10:56.696Z,2025-07-15T11:55:29.023Z,scs2540,cl2,true
+ev253,u15,u21,Sunday,8:00,l10,5,Coach maintained positive energy in class.,false,2025-03-01T03:36:04.465Z,2025-07-15T14:18:47.918Z,scs2541,cl2,true
+ev254,u15,u19,Tuesday,18:00,l5,8,Coach showed strong leadership skills.,true,2025-01-05T02:33:53.659Z,2025-07-15T12:17:01.287Z,scs2545,cl2,true
+ev255,u15,u21,Monday,15:00,l5,6,Students showed good progress under coach guidance.,false,2024-12-16T20:54:18.769Z,2025-07-15T13:30:09.154Z,scs2554,cl1,true
+ev256,u15,u19,Sunday,20:00,l6,8,Safety protocols were followed throughout the session.,true,2025-07-02T12:54:59.485Z,2025-07-16T01:20:09.998Z,scs2561,cl3,true
+ev257,u15,u21,Saturday,15:00,l6,4,Coach demonstrated excellent communication with students.,true,2024-08-25T08:25:27.903Z,2025-07-15T22:42:53.565Z,scs2563,cl3,true
+ev258,u15,u19,Monday,20:00,l4,2,Coach adapted well to student needs.,false,2024-08-21T18:59:42.133Z,2025-07-15T16:41:16.081Z,scs2564,cl3,true
+ev259,u15,u20,Sunday,13:00,l7,5,Coach adapted well to student needs.,true,2024-10-01T19:12:39.203Z,2025-07-15T22:07:35.572Z,scs2573,cl1,true
+ev260,u15,u21,Tuesday,16:00,l2,9,Students showed good progress under coach guidance.,false,2025-03-03T01:17:50.208Z,2025-07-16T00:31:51.073Z,scs2578,cl1,true
+ev261,u10,u20,Saturday,16:00,l4,8,Students showed good progress under coach guidance.,true,2025-01-01T00:54:01.669Z,2025-07-15T06:01:57.800Z,scs2587,cl1,true
+ev262,u10,u19,Wednesday,15:00,l8,9,Coach needs to improve time management during sessions.,true,2025-04-22T04:51:37.022Z,2025-07-15T08:47:11.481Z,scs2588,cl3,false
+ev263,u10,u20,Monday,19:00,l5,4,Coach demonstrated excellent communication with students.,true,2025-03-03T19:11:02.391Z,2025-07-15T13:24:29.701Z,scs2595,cl2,true
+ev264,u10,u20,Sunday,18:00,l3,5,Coach showed strong leadership skills.,true,2024-09-18T09:14:58.806Z,2025-07-15T23:11:38.693Z,scs2600,cl1,true
+ev265,u10,u20,Tuesday,9:00,l5,6,Lesson plan was well structured and clear.,true,2024-12-14T05:06:14.939Z,2025-07-16T00:52:29.736Z,scs2601,cl3,true
+ev266,u10,u20,Friday,19:00,l8,9,Lesson plan was well structured and clear.,true,2024-09-08T15:52:41.749Z,2025-07-15T21:48:02.122Z,scs2632,cl1,true
+ev267,u10,u21,Friday,18:00,l5,3,Students showed good progress under coach guidance.,true,2025-04-20T13:00:12.517Z,2025-07-16T00:02:15.112Z,scs2638,cl2,true
+ev268,u14,u21,Friday,20:00,l4,6,Coach demonstrated excellent communication with students.,true,2025-05-17T14:32:30.629Z,2025-07-15T15:24:33.334Z,scs2646,cl1,true
+ev269,u14,u19,Thursday,8:00,l6,9,Lesson plan was well structured and clear.,false,2024-11-27T08:06:07.306Z,2025-07-15T22:32:07.688Z,scs2650,cl3,true
+ev270,u14,u20,Sunday,8:00,l9,8,Coach was late to the session.,true,2024-08-25T13:53:28.110Z,2025-07-15T19:38:34.330Z,scs2654,cl2,false
+ev271,u14,u21,Tuesday,8:00,l10,3,Coach showed strong leadership skills.,true,2025-02-21T19:30:31.173Z,2025-07-16T04:49:07.110Z,scs2663,cl1,true
+ev272,u14,u21,Sunday,12:00,l4,4,Coach demonstrated excellent communication with students.,false,2024-12-20T06:02:27.119Z,2025-07-15T17:10:28.029Z,scs2678,cl1,true
+ev273,u14,u19,Saturday,10:00,l10,8,Coach maintained positive energy in class.,false,2025-05-10T04:27:13.866Z,2025-07-15T22:39:32.445Z,scs2689,cl2,true
+ev274,u6,u20,Friday,19:00,l6,3,Coach needs to improve technical explanations.,false,2025-01-14T13:14:44.652Z,2025-07-15T23:01:48.591Z,scs2743,cl3,false
+ev275,u6,u19,Wednesday,13:00,l5,3,Lesson plan was well structured and clear.,true,2024-08-03T11:19:56.804Z,2025-07-16T03:36:27.528Z,scs2746,cl2,true
+ev276,u6,u20,Wednesday,14:00,l10,6,Lesson plan was well structured and clear.,false,2024-09-24T05:23:55.375Z,2025-07-16T01:27:03.497Z,scs2755,cl1,true
+ev277,u6,u19,Tuesday,14:00,l3,8,Coach did not complete the planned activities.,true,2025-05-25T22:31:43.037Z,2025-07-16T03:09:57.778Z,scs2756,cl2,false
+ev278,u10,u20,Sunday,14:00,l1,7,Students showed good progress under coach guidance.,true,2024-09-26T17:25:12.736Z,2025-07-15T11:41:03.245Z,scs2761,cl3,true
+ev279,u10,u19,Sunday,15:00,l7,7,Safety protocols were followed throughout the session.,true,2025-07-15T16:00:34.998Z,2025-07-15T13:08:58.634Z,scs2767,cl1,true
+ev280,u10,u19,Thursday,9:00,l9,2,Safety protocols were followed throughout the session.,true,2025-06-06T03:57:20.530Z,2025-07-15T12:32:15.927Z,scs2790,cl1,true
+ev281,u10,u21,Tuesday,16:00,l7,5,Lesson plan was well structured and clear.,false,2024-12-04T14:15:06.626Z,2025-07-15T07:58:38.209Z,scs2796,cl2,true
+ev282,u10,u19,Saturday,8:00,l5,7,Coach provided helpful feedback to students.,true,2024-12-01T18:25:09.961Z,2025-07-16T02:37:07.020Z,scs2803,cl1,true
+ev283,u10,u21,Friday,9:00,l1,6,Safety protocols were followed throughout the session.,true,2025-06-09T21:49:43.149Z,2025-07-15T20:46:28.549Z,scs2812,cl1,true
+ev284,u7,u20,Wednesday,18:00,l1,4,Coach showed strong leadership skills.,true,2024-09-17T11:24:10.238Z,2025-07-16T02:39:19.623Z,scs2824,cl3,true
+ev285,u7,u21,Friday,16:00,l9,5,Coach adapted well to student needs.,true,2025-03-16T00:03:56.639Z,2025-07-15T22:39:17.438Z,scs2831,cl3,true
+ev286,u7,u19,Monday,11:00,l3,3,Students showed good progress under coach guidance.,true,2024-11-20T04:14:03.928Z,2025-07-15T12:35:06.379Z,scs2844,cl3,true
+ev287,u7,u20,Wednesday,14:00,l4,9,Coach needs to improve technical explanations.,true,2025-06-10T06:20:31.707Z,2025-07-15T09:31:24.342Z,scs2853,cl1,false
+ev288,u7,u21,Friday,14:00,l8,3,Coach demonstrated excellent communication with students.,true,2024-08-20T16:11:00.411Z,2025-07-16T03:41:51.870Z,scs2862,cl1,true
+ev289,u5,u21,Sunday,10:00,l1,2,Lesson plan was well structured and clear.,true,2025-03-08T14:45:02.157Z,2025-07-15T18:53:21.664Z,scs2888,cl2,true
+ev290,u5,u20,Thursday,12:00,l10,8,Coach provided helpful feedback to students.,true,2025-03-29T18:52:29.531Z,2025-07-15T09:07:24.983Z,scs2930,cl1,true
+ev291,u5,u20,Monday,20:00,l8,3,Coach provided helpful feedback to students.,true,2025-03-10T08:02:05.101Z,2025-07-15T23:26:20.761Z,scs2931,cl2,true
+ev292,u11,u21,Tuesday,12:00,l7,2,Coach showed strong leadership skills.,true,2024-10-01T23:06:46.936Z,2025-07-16T02:25:20.895Z,scs2941,cl3,true
+ev293,u11,u19,Tuesday,20:00,l4,4,Coach maintained positive energy in class.,true,2024-08-18T23:28:22.744Z,2025-07-16T04:29:41.144Z,scs2946,cl1,true
+ev294,u11,u21,Wednesday,11:00,l8,10,Coach needs to improve technical explanations.,true,2024-08-29T20:07:59.782Z,2025-07-16T00:03:50.411Z,scs2971,cl2,false
+ev295,u11,u19,Saturday,20:00,l4,8,Students showed good progress under coach guidance.,true,2024-12-05T06:08:18.243Z,2025-07-15T21:26:47.551Z,scs2986,cl1,true
+ev296,u7,u21,Monday,20:00,l2,2,Coach maintained positive energy in class.,true,2024-08-09T22:00:47.142Z,2025-07-15T21:15:15.690Z,scs3022,cl3,true
+ev297,u7,u21,Monday,9:00,l8,5,Coach adapted well to student needs.,true,2024-10-22T21:26:41.936Z,2025-07-15T10:56:35.831Z,scs3023,cl2,true
+ev298,u7,u19,Wednesday,18:00,l9,9,Coach maintained positive energy in class.,false,2025-04-26T04:34:00.469Z,2025-07-15T23:06:00.660Z,scs3035,cl2,true
+ev299,u7,u19,Thursday,17:00,l5,7,Coach demonstrated excellent communication with students.,true,2025-04-22T08:48:38.225Z,2025-07-15T06:22:41.785Z,scs3047,cl3,true
+ev300,u7,u21,Tuesday,15:00,l7,10,Lesson plan was well structured and clear.,true,2025-06-10T12:31:51.353Z,2025-07-16T00:15:40.811Z,scs3056,cl3,true
+ev301,u10,u20,Saturday,9:00,l8,5,Coach demonstrated excellent communication with students.,true,2024-10-02T18:45:07.007Z,2025-07-15T07:06:55.307Z,scs3075,cl2,true
+ev302,u10,u20,Sunday,16:00,l7,4,Coach maintained positive energy in class.,true,2024-07-17T03:58:14.111Z,2025-07-15T10:05:31.980Z,scs3079,cl3,true
+ev303,u10,u21,Monday,8:00,l6,2,Coach provided helpful feedback to students.,true,2025-05-16T05:10:26.693Z,2025-07-15T11:58:42.242Z,scs3095,cl2,true
+ev304,u10,u21,Sunday,19:00,l9,6,Coach struggled to maintain class discipline.,true,2025-01-21T13:59:40.957Z,2025-07-15T21:43:06.382Z,scs3099,cl1,false
+ev305,u10,u19,Thursday,19:00,l2,4,Coach needs to improve time management during sessions.,true,2024-08-23T22:28:12.478Z,2025-07-15T05:59:25.924Z,scs3110,cl2,false
+ev306,u10,u20,Tuesday,15:00,l2,5,Coach adapted well to student needs.,true,2025-04-20T20:32:58.392Z,2025-07-15T15:02:18.189Z,scs3115,cl1,true
+ev307,u2,u21,Saturday,9:00,l4,9,Coach struggled to maintain class discipline.,false,2025-01-21T04:11:51.641Z,2025-07-16T04:47:05.246Z,scs3134,cl1,false
+ev308,u2,u21,Sunday,15:00,l10,6,Coach did not complete the planned activities.,false,2024-10-04T00:02:49.424Z,2025-07-15T09:22:23.103Z,scs3143,cl3,false
+ev309,u2,u19,Sunday,19:00,l10,10,Coach adapted well to student needs.,true,2024-08-13T12:24:08.398Z,2025-07-15T08:53:07.825Z,scs3156,cl2,true
+ev310,u2,u20,Saturday,9:00,l8,6,Lesson plan was well structured and clear.,true,2025-05-04T05:55:52.977Z,2025-07-15T15:08:09.234Z,scs3161,cl1,true
+ev311,u2,u20,Tuesday,10:00,l2,7,Safety protocols were followed throughout the session.,true,2024-07-16T15:41:35.271Z,2025-07-15T16:27:14.281Z,scs3175,cl2,true
+ev312,u7,u20,Saturday,20:00,l5,10,Lesson plan was well structured and clear.,true,2024-12-03T18:02:29.110Z,2025-07-15T09:45:07.699Z,scs3181,cl1,true
+ev313,u7,u20,Saturday,15:00,l10,2,Coach needs to improve technical explanations.,true,2024-12-13T14:48:24.586Z,2025-07-16T04:23:51.325Z,scs3195,cl1,false
+ev314,u7,u19,Monday,14:00,l10,6,Coach adapted well to student needs.,true,2024-12-27T17:32:27.638Z,2025-07-15T16:20:46.507Z,scs3202,cl1,true
+ev315,u7,u20,Friday,13:00,l10,9,Safety protocols were followed throughout the session.,true,2024-11-25T08:51:19.953Z,2025-07-15T20:06:05.650Z,scs3223,cl3,true
+ev316,u7,u21,Saturday,11:00,l6,3,Safety protocols were followed throughout the session.,true,2025-06-03T23:59:50.959Z,2025-07-15T20:24:59.155Z,scs3231,cl1,true
+ev317,u7,u21,Friday,12:00,l8,9,Lesson plan was well structured and clear.,true,2024-10-27T09:42:26.349Z,2025-07-15T19:16:49.602Z,scs3234,cl2,true
+ev318,u2,u19,Wednesday,11:00,l8,9,Coach needs to improve technical explanations.,true,2025-05-20T12:59:48.792Z,2025-07-15T23:07:58.351Z,scs3249,cl2,false
+ev319,u2,u21,Sunday,15:00,l6,4,Coach did not complete the planned activities.,true,2024-07-23T18:58:08.162Z,2025-07-15T21:33:40.922Z,scs3251,cl2,false
+ev320,u2,u20,Monday,19:00,l5,2,Coach was late to the session.,false,2025-06-28T08:38:11.000Z,2025-07-15T08:25:34.539Z,scs3261,cl1,false
+ev321,u2,u21,Sunday,16:00,l6,7,Lesson objectives were not fully met.,true,2024-09-10T06:17:00.339Z,2025-07-15T10:07:39.838Z,scs3272,cl3,false
+ev322,u2,u21,Tuesday,18:00,l8,8,Coach needs to improve technical explanations.,false,2024-09-06T17:52:25.765Z,2025-07-15T16:36:54.061Z,scs3300,cl2,false
+ev323,u4,u19,Saturday,19:00,l7,3,Coach adapted well to student needs.,true,2025-02-15T08:08:35.248Z,2025-07-15T23:18:39.362Z,scs3317,cl1,true
+ev324,u4,u19,Wednesday,16:00,l1,6,Coach needs to improve technical explanations.,false,2025-02-10T13:28:25.269Z,2025-07-15T18:33:48.698Z,scs3336,cl1,false
+ev325,u4,u20,Tuesday,16:00,l5,2,Coach was late to the session.,true,2024-10-19T04:58:49.598Z,2025-07-15T07:20:27.735Z,scs3338,cl3,false
+ev326,u4,u19,Tuesday,19:00,l8,4,Coach demonstrated excellent communication with students.,false,2024-11-20T15:04:32.092Z,2025-07-15T07:08:13.911Z,scs3351,cl2,true
+ev327,u4,u21,Sunday,20:00,l4,9,Coach showed strong leadership skills.,true,2024-07-25T08:09:09.591Z,2025-07-15T22:32:45.127Z,scs3353,cl3,true
+ev328,u4,u21,Tuesday,17:00,l3,10,Students showed good progress under coach guidance.,true,2024-08-11T05:02:16.272Z,2025-07-15T18:03:11.141Z,scs3358,cl3,true
+ev329,u15,u19,Monday,20:00,l7,3,Coach maintained positive energy in class.,true,2025-02-14T00:42:56.126Z,2025-07-16T01:53:51.104Z,scs3361,cl2,true
+ev330,u15,u20,Tuesday,10:00,l10,7,Coach provided helpful feedback to students.,true,2025-04-15T22:48:20.024Z,2025-07-15T23:51:02.847Z,scs3388,cl3,true
+ev331,u15,u19,Wednesday,16:00,l4,10,Coach adapted well to student needs.,false,2024-12-13T00:33:39.378Z,2025-07-15T10:52:14.331Z,scs3413,cl3,true
+ev332,u12,u19,Wednesday,13:00,l2,5,Coach showed strong leadership skills.,true,2024-08-22T09:22:17.566Z,2025-07-15T09:43:32.863Z,scs3426,cl2,true
+ev333,u12,u19,Saturday,15:00,l10,7,Lesson plan was well structured and clear.,true,2024-09-12T10:31:21.059Z,2025-07-16T01:39:10.446Z,scs3432,cl2,true
+ev334,u12,u21,Saturday,17:00,l3,4,Coach maintained positive energy in class.,false,2025-01-14T04:27:41.142Z,2025-07-16T02:33:08.782Z,scs3437,cl2,true
+ev335,u12,u20,Friday,14:00,l3,9,Coach adapted well to student needs.,false,2024-07-22T21:28:20.806Z,2025-07-15T18:20:07.815Z,scs3445,cl1,true
+ev336,u12,u19,Wednesday,10:00,l2,6,Safety protocols were followed throughout the session.,true,2025-01-21T05:05:42.004Z,2025-07-15T19:31:46.619Z,scs3451,cl2,true
+ev337,u12,u19,Tuesday,13:00,l3,9,Coach needs to improve technical explanations.,false,2025-06-22T09:41:06.739Z,2025-07-15T11:58:16.546Z,scs3456,cl3,false
+ev338,u12,u21,Friday,10:00,l6,10,Coach showed strong leadership skills.,false,2025-05-12T14:54:58.370Z,2025-07-15T13:45:24.907Z,scs3461,cl3,true
+ev339,u14,u19,Thursday,16:00,l5,7,Coach demonstrated excellent communication with students.,true,2025-01-21T07:11:21.274Z,2025-07-15T10:44:26.059Z,scs3491,cl2,true
+ev340,u14,u20,Sunday,15:00,l10,6,Safety protocols were followed throughout the session.,true,2024-08-31T12:40:53.296Z,2025-07-16T01:18:59.572Z,scs3508,cl2,true
+ev341,u14,u19,Friday,12:00,l2,9,Coach showed strong leadership skills.,true,2025-04-14T19:40:22.243Z,2025-07-16T01:43:28.913Z,scs3512,cl1,true
+ev342,u14,u21,Sunday,18:00,l8,2,Safety protocols were followed throughout the session.,true,2024-10-06T00:07:42.768Z,2025-07-15T21:21:46.927Z,scs3514,cl1,true
+ev343,u14,u21,Wednesday,17:00,l6,6,Coach needs to improve technical explanations.,true,2025-05-15T22:52:49.215Z,2025-07-15T19:17:38.687Z,scs3522,cl3,false
+ev344,u7,u19,Friday,18:00,l2,5,Lesson objectives were not fully met.,true,2025-04-03T05:44:51.324Z,2025-07-15T23:10:39.476Z,scs3543,cl3,false
+ev345,u7,u20,Monday,18:00,l4,2,Coach demonstrated excellent communication with students.,true,2025-02-09T11:51:21.807Z,2025-07-15T06:11:13.991Z,scs3562,cl1,true
+ev346,u7,u19,Saturday,11:00,l2,3,Coach provided helpful feedback to students.,true,2025-06-23T01:48:16.531Z,2025-07-15T18:32:54.097Z,scs3564,cl1,true
+ev347,u7,u19,Friday,9:00,l9,4,Safety protocols were followed throughout the session.,true,2024-08-14T08:43:50.770Z,2025-07-15T17:16:01.842Z,scs3572,cl3,true
+ev348,u7,u20,Monday,17:00,l7,7,Coach did not complete the planned activities.,true,2024-10-24T16:29:57.335Z,2025-07-15T11:51:54.977Z,scs3574,cl3,false
+ev349,u7,u21,Wednesday,14:00,l3,3,Lesson plan was well structured and clear.,true,2025-07-02T17:47:24.226Z,2025-07-15T07:44:41.652Z,scs3575,cl2,true
+ev350,u7,u19,Wednesday,16:00,l2,3,Coach provided helpful feedback to students.,false,2025-05-13T21:13:42.305Z,2025-07-15T18:58:30.637Z,scs3583,cl1,true
+ev351,u7,u21,Sunday,18:00,l1,6,Lesson plan was well structured and clear.,false,2025-03-15T22:30:21.971Z,2025-07-15T14:33:11.997Z,scs3600,cl3,true
+ev352,u12,u19,Friday,17:00,l1,3,Lesson plan was well structured and clear.,true,2025-03-08T14:37:03.660Z,2025-07-16T03:04:51.858Z,scs3603,cl1,true
+ev353,u12,u20,Thursday,12:00,l6,10,Safety protocols were followed throughout the session.,false,2025-03-03T08:33:57.131Z,2025-07-16T00:55:56.856Z,scs3606,cl3,true
+ev354,u12,u19,Tuesday,12:00,l10,10,Students showed good progress under coach guidance.,true,2024-08-04T19:18:34.167Z,2025-07-16T02:27:42.299Z,scs3614,cl3,true
+ev355,u12,u20,Friday,9:00,l8,5,Safety protocols were followed throughout the session.,false,2025-03-05T10:58:57.206Z,2025-07-15T22:27:46.730Z,scs3615,cl2,true
+ev356,u12,u21,Thursday,10:00,l7,4,Coach demonstrated excellent communication with students.,false,2025-06-02T20:07:03.524Z,2025-07-15T18:56:00.220Z,scs3619,cl1,true
+ev357,u12,u21,Friday,11:00,l10,3,Coach demonstrated excellent communication with students.,true,2024-09-07T12:51:17.570Z,2025-07-15T23:00:37.029Z,scs3630,cl3,true
+ev358,u12,u21,Monday,16:00,l4,5,Coach showed strong leadership skills.,false,2024-08-25T16:20:31.700Z,2025-07-15T15:06:00.272Z,scs3632,cl2,true
+ev359,u12,u19,Saturday,8:00,l2,9,Coach maintained positive energy in class.,true,2025-03-27T10:44:10.874Z,2025-07-15T08:37:44.194Z,scs3646,cl1,true
+ev360,u12,u21,Sunday,8:00,l10,2,Coach provided helpful feedback to students.,true,2024-07-27T15:02:08.093Z,2025-07-15T09:12:24.337Z,scs3659,cl3,true
+ev361,u12,u21,Tuesday,16:00,l1,10,Coach maintained positive energy in class.,false,2024-12-28T03:17:08.999Z,2025-07-15T22:47:16.621Z,scs3669,cl3,true
+ev362,u12,u21,Thursday,19:00,l9,4,Coach showed strong leadership skills.,true,2025-06-16T16:51:06.857Z,2025-07-15T19:49:56.576Z,scs3681,cl3,true
+ev363,u12,u21,Thursday,15:00,l7,5,Coach adapted well to student needs.,true,2025-02-28T21:03:58.998Z,2025-07-16T02:19:11.438Z,scs3696,cl3,true
+ev364,u12,u19,Tuesday,14:00,l8,5,Coach needs to improve time management during sessions.,true,2025-03-09T17:29:00.574Z,2025-07-15T11:18:42.476Z,scs3700,cl2,false
+ev365,u12,u20,Monday,9:00,l1,9,Coach provided helpful feedback to students.,true,2025-04-21T21:05:30.520Z,2025-07-15T15:16:43.535Z,scs3710,cl3,true
+ev366,u12,u21,Tuesday,17:00,l3,3,Coach adapted well to student needs.,true,2025-04-14T16:47:17.282Z,2025-07-15T17:54:10.286Z,scs3716,cl3,true
+ev367,u12,u21,Thursday,20:00,l4,8,Coach needs to improve technical explanations.,false,2024-09-20T04:52:04.682Z,2025-07-15T21:13:16.630Z,scs3717,cl1,false
+ev368,u5,u21,Wednesday,12:00,l10,10,Coach demonstrated excellent communication with students.,true,2024-09-27T00:24:47.538Z,2025-07-16T02:03:35.933Z,scs3723,cl1,true
+ev369,u5,u20,Monday,9:00,l2,5,Coach maintained positive energy in class.,false,2025-01-05T18:06:22.170Z,2025-07-15T20:03:39.203Z,scs3730,cl1,true
+ev370,u5,u19,Saturday,20:00,l8,5,Coach maintained positive energy in class.,true,2024-11-25T02:30:15.547Z,2025-07-16T01:11:31.135Z,scs3734,cl1,true
+ev371,u5,u19,Tuesday,12:00,l4,3,Safety protocols were followed throughout the session.,true,2025-04-02T21:51:05.203Z,2025-07-15T16:31:02.737Z,scs3735,cl3,true
+ev372,u5,u21,Friday,19:00,l5,8,Coach provided helpful feedback to students.,true,2024-08-18T11:47:24.682Z,2025-07-15T05:35:36.935Z,scs3745,cl2,true
+ev373,u5,u19,Friday,15:00,l2,6,Coach maintained positive energy in class.,true,2025-05-19T20:19:50.914Z,2025-07-16T01:19:35.732Z,scs3769,cl2,true
+ev374,u5,u20,Saturday,11:00,l5,3,Safety protocols were followed throughout the session.,true,2025-03-23T03:06:42.876Z,2025-07-15T09:56:51.915Z,scs3776,cl1,true
+ev375,u10,u20,Friday,10:00,l2,3,Lesson objectives were not fully met.,false,2024-12-26T10:35:22.789Z,2025-07-15T14:07:31.945Z,scs3789,cl1,false
+ev376,u10,u21,Saturday,15:00,l9,10,Students showed good progress under coach guidance.,false,2024-09-20T06:09:16.016Z,2025-07-15T20:35:03.431Z,scs3790,cl2,true
+ev377,u10,u19,Sunday,20:00,l3,10,Coach showed strong leadership skills.,true,2024-12-08T06:55:04.398Z,2025-07-15T17:58:04.822Z,scs3807,cl2,true
+ev378,u10,u21,Tuesday,10:00,l3,8,Lesson plan was well structured and clear.,true,2024-07-18T07:23:02.618Z,2025-07-15T18:27:00.021Z,scs3830,cl1,true
+ev379,u6,u19,Thursday,11:00,l4,6,Coach did not complete the planned activities.,true,2024-11-17T07:08:32.350Z,2025-07-15T21:04:55.145Z,scs3851,cl1,false
+ev380,u6,u20,Wednesday,20:00,l4,7,Coach maintained positive energy in class.,true,2024-09-04T10:04:27.406Z,2025-07-15T12:20:10.517Z,scs3858,cl3,true
+ev381,u6,u20,Saturday,17:00,l10,6,Safety protocols were followed throughout the session.,true,2025-04-19T04:13:19.803Z,2025-07-15T15:23:30.415Z,scs3866,cl2,true
+ev382,u6,u19,Saturday,20:00,l6,5,Coach demonstrated excellent communication with students.,false,2024-09-22T12:47:37.608Z,2025-07-15T18:36:11.544Z,scs3869,cl1,true
+ev383,u6,u21,Monday,11:00,l4,2,Coach demonstrated excellent communication with students.,false,2024-12-20T08:33:32.539Z,2025-07-15T12:19:54.013Z,scs3881,cl2,true
+ev384,u6,u21,Friday,15:00,l9,9,Coach demonstrated excellent communication with students.,true,2024-08-06T02:40:47.146Z,2025-07-15T19:15:33.921Z,scs3886,cl3,true
+ev385,u6,u19,Tuesday,17:00,l4,5,Students showed good progress under coach guidance.,true,2024-11-19T11:52:52.567Z,2025-07-15T05:22:29.261Z,scs3896,cl3,true
+ev386,u6,u20,Sunday,10:00,l1,8,Coach adapted well to student needs.,true,2025-05-13T10:40:21.988Z,2025-07-15T13:56:34.388Z,scs3897,cl2,true
+ev387,u4,u19,Saturday,15:00,l8,3,Safety protocols were followed throughout the session.,false,2025-04-22T07:16:42.454Z,2025-07-15T21:45:54.284Z,scs3905,cl2,true
+ev388,u4,u19,Thursday,19:00,l4,3,Coach demonstrated excellent communication with students.,true,2024-07-22T20:40:40.872Z,2025-07-16T04:46:52.918Z,scs3913,cl3,true
+ev389,u4,u21,Saturday,16:00,l6,7,Coach provided helpful feedback to students.,true,2024-10-21T20:29:02.058Z,2025-07-15T13:15:57.937Z,scs3916,cl3,true
+ev390,u4,u21,Saturday,10:00,l7,9,Coach needs to improve technical explanations.,true,2025-04-26T10:37:02.849Z,2025-07-15T23:59:06.559Z,scs3921,cl1,false
+ev391,u4,u19,Monday,15:00,l3,3,Coach maintained positive energy in class.,false,2024-09-07T05:22:31.125Z,2025-07-15T18:31:58.001Z,scs3924,cl1,true
+ev392,u4,u19,Thursday,9:00,l6,2,Students showed good progress under coach guidance.,false,2025-03-03T23:33:20.121Z,2025-07-16T00:39:28.077Z,scs3931,cl3,true
+ev393,u4,u19,Friday,19:00,l1,7,Coach maintained positive energy in class.,false,2024-08-14T18:53:40.001Z,2025-07-15T09:30:24.055Z,scs3935,cl3,true
+ev394,u4,u20,Friday,20:00,l7,4,Coach demonstrated excellent communication with students.,false,2025-04-07T01:08:34.009Z,2025-07-16T01:31:24.485Z,scs3960,cl3,true
+ev395,u6,u19,Thursday,18:00,l9,9,Coach should work on engaging quieter students.,true,2024-09-03T21:43:15.250Z,2025-07-15T11:47:32.183Z,scs3974,cl3,false
+ev396,u6,u19,Monday,13:00,l8,3,Coach demonstrated excellent communication with students.,true,2025-03-24T12:20:03.431Z,2025-07-15T23:10:35.480Z,scs3978,cl3,true
+ev397,u6,u20,Saturday,18:00,l1,8,Coach demonstrated excellent communication with students.,true,2025-02-17T17:34:11.738Z,2025-07-15T22:43:19.936Z,scs3986,cl3,true
+ev398,u6,u20,Tuesday,17:00,l6,8,Safety protocols were followed throughout the session.,true,2025-04-07T01:14:21.632Z,2025-07-15T20:20:25.739Z,scs4004,cl2,true
+ev399,u6,u19,Tuesday,12:00,l7,10,Coach should work on engaging quieter students.,true,2025-03-21T20:24:11.901Z,2025-07-16T01:35:58.934Z,scs4013,cl3,false
+ev400,u6,u20,Wednesday,8:00,l8,2,Coach demonstrated excellent communication with students.,true,2024-12-11T21:28:37.127Z,2025-07-15T06:56:01.662Z,scs4018,cl2,true
+ev401,u6,u20,Friday,17:00,l9,8,Students showed good progress under coach guidance.,true,2024-12-24T12:34:11.022Z,2025-07-16T04:40:24.909Z,scs4031,cl3,true
+ev402,u6,u21,Wednesday,17:00,l5,5,Coach adapted well to student needs.,true,2024-11-21T15:25:13.194Z,2025-07-15T06:56:27.389Z,scs4039,cl3,true
+ev403,u6,u20,Wednesday,12:00,l6,5,Coach showed strong leadership skills.,true,2025-06-17T13:43:13.188Z,2025-07-15T14:15:06.833Z,scs4040,cl1,true
+ev404,u6,u19,Sunday,15:00,l2,3,Students showed good progress under coach guidance.,true,2024-09-30T12:42:38.084Z,2025-07-15T22:22:34.847Z,scs4048,cl3,true
+ev405,u6,u20,Monday,19:00,l3,4,Coach maintained positive energy in class.,true,2025-01-24T03:45:13.079Z,2025-07-16T01:48:33.598Z,scs4049,cl2,true
+ev406,u6,u21,Friday,20:00,l3,9,Lesson plan was well structured and clear.,false,2025-03-06T12:58:11.446Z,2025-07-15T18:26:58.941Z,scs4075,cl2,true
+ev407,u6,u21,Saturday,19:00,l7,9,Coach showed strong leadership skills.,false,2025-03-14T18:46:49.432Z,2025-07-15T21:34:58.003Z,scs4080,cl1,true
+ev408,u5,u19,Sunday,16:00,l9,7,Coach showed strong leadership skills.,true,2024-07-17T09:42:13.320Z,2025-07-15T19:20:25.396Z,scs4086,cl3,true
+ev409,u5,u21,Tuesday,15:00,l3,2,Coach maintained positive energy in class.,true,2025-03-18T03:21:27.073Z,2025-07-15T22:03:19.979Z,scs4095,cl3,true
+ev410,u5,u20,Wednesday,10:00,l9,4,Coach showed strong leadership skills.,false,2025-04-12T16:29:36.897Z,2025-07-15T20:18:56.646Z,scs4096,cl1,true
+ev411,u5,u20,Tuesday,8:00,l9,10,Safety protocols were followed throughout the session.,true,2025-04-17T21:05:16.115Z,2025-07-15T13:04:19.471Z,scs4127,cl1,true
+ev412,u5,u21,Sunday,8:00,l6,3,Coach provided helpful feedback to students.,true,2025-03-26T07:34:19.576Z,2025-07-15T20:40:41.901Z,scs4133,cl1,true
+ev413,u2,u21,Thursday,11:00,l6,7,Students showed good progress under coach guidance.,true,2024-09-20T12:03:30.658Z,2025-07-15T14:58:04.615Z,scs4149,cl1,true
+ev414,u2,u21,Friday,11:00,l2,10,Coach did not complete the planned activities.,true,2025-02-16T23:01:03.213Z,2025-07-15T05:17:38.074Z,scs4151,cl2,false
+ev415,u2,u21,Friday,12:00,l9,3,Coach did not complete the planned activities.,true,2025-02-08T20:53:30.743Z,2025-07-15T13:21:11.523Z,scs4157,cl3,false
