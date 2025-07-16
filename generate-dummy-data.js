@@ -77,8 +77,29 @@ const classTypes = [
 // --- USERS (STAFF) ---
 let userId = 1;
 const users = [];
+// Ensure both underperforming coaches are in the same branch (Penang)
+const underperformingBranchId = 'b2';
+// Add 2 underperforming coaches to Penang first
+for (let i = 0; i < 2; i++) {
+  users.push({
+    id: `u${userId++}`,
+    fullName: faker.person.fullName(),
+    username: faker.internet.username(),
+    contact: faker.phone.number('01#########'),
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+    role: 'coach',
+    branchId: underperformingBranchId,
+    isDeleted: false,
+    createdAt: faker.date.past().toISOString(),
+    updatedAt: faker.date.recent().toISOString()
+  });
+}
+// Add remaining coaches per branch
 BRANCHES.forEach(branch => {
-  for (let i = 0; i < COACHES_PER_BRANCH; i++) {
+  let n = COACHES_PER_BRANCH;
+  if (branch.id === underperformingBranchId) n -= 2; // already added 2
+  for (let i = 0; i < n; i++) {
     users.push({
       id: `u${userId++}`,
       fullName: faker.person.fullName(),
@@ -365,9 +386,9 @@ students.forEach(student => {
 // ...existing code...
 let skillProgressId = 1;
 const studentSkillProgress = [];
-// Identify two underperforming coaches and one good performing coach
+// Identify two underperforming coaches (first two in KL) and one good performing coach
 const coachUsers = users.filter(u => u.role === 'coach');
-const underperformingCoaches = coachUsers.slice(0,2);
+const underperformingCoaches = coachUsers.filter(u => u.branchId === underperformingBranchId).slice(0,2);
 const goodCoach = coachUsers[coachUsers.length-1];
 const underperformingCoachIds = underperformingCoaches.map(c => c.id);
 const goodCoachId = goodCoach.id;
@@ -441,10 +462,18 @@ students.forEach(student => {
   let activeAssigned = false;
   // If this student is in a Monday class, all packages inactive
   const mondayInactive = mondayStudentIds.includes(student.id);
+  // Simulate package purchase decline in June 2025 for underperforming coach's students
+  // Most of their students will not buy new packages in June 2025
+  let skipJune = false;
+  if (underperformingStudentIds.includes(student.id)) {
+    // 80% of underperforming coach's students skip June 2025
+    skipJune = Math.random() < 0.8;
+  }
   for (let i = 0; i < n; i++) {
     const pt = randomFrom(packageTypes);
     const total = pt.totalClasses;
     let classRemaining = 0;
+    let createdAt;
     if (!mondayInactive) {
       // Only one package can be active (classRemaining > 0)
       if (!activeAssigned && (i === n - 1 || Math.random() < 0.5)) {
@@ -452,7 +481,25 @@ students.forEach(student => {
         activeAssigned = true;
       }
     }
-    const firstClassDate = faker.date.past().toISOString();
+    // Assign createdAt: if skipping June, avoid creating any package in June 2025
+    if (skipJune) {
+      // Distribute packages before or after June 2025
+      if (Math.random() < 0.5) {
+        // Before June 2025
+        createdAt = faker.date.between({from: '2024-01-01', to: '2025-05-31'}).toISOString();
+      } else {
+        // After June 2025
+        createdAt = faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString();
+      }
+    } else {
+      // Normal distribution, but bias so that very few underperforming students get June 2025
+      if (underperformingStudentIds.includes(student.id) && Math.random() < 0.1) {
+        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
+      } else {
+        createdAt = faker.date.past().toISOString();
+      }
+    }
+    const firstClassDate = createdAt;
     const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
     packages.push({
       id: `pkg${packageId++}`,
@@ -462,7 +509,7 @@ students.forEach(student => {
       expiredAt,
       classRemaining,
       isDeleted: false,
-      createdAt: faker.date.past().toISOString(),
+      createdAt,
       updatedAt: faker.date.recent().toISOString()
     });
   }
