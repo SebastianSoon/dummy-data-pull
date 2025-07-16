@@ -465,20 +465,8 @@ students.forEach(student => {
   // Penang (underperforming) students: simulate package purchase decline in June 2025
   // KL and Johor: keep May/June 2025 sales steady
   const studentBranch = students.find(s => s.id === student.id)?.branchId;
-  let skipJune = false;
-  let mayBoost = false;
   if (underperformingStudentIds.includes(student.id)) {
-    // 95% of underperforming coach's students skip June 2025
-    skipJune = Math.random() < 0.95;
-    // 80% of underperforming coach's students get a package in May 2025
-    mayBoost = Math.random() < 0.8;
-    // If boosting May, add an extra package for May
-    if (mayBoost) n += 1;
-  }
-  if (studentBranch === 'b1' || studentBranch === 'b3') {
-    // KL/Johor: split packages evenly between May and June, extra goes to May
-    const mayCount = Math.ceil(n / 2);
-    const juneCount = Math.floor(n / 2);
+    // Penang underperforming: NO packages in June 2025
     for (let i = 0; i < n; i++) {
       const pt = randomFrom(packageTypes);
       const total = pt.totalClasses;
@@ -490,11 +478,12 @@ students.forEach(student => {
           activeAssigned = true;
         }
       }
-      if (i < mayCount) {
-        createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
-      } else {
-        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
-      }
+      // Pick a random month, but skip June 2025
+      let year = 2025;
+      let monthChoices = [1,2,3,4,5,7,8,9,10,11,12]; // 1=Jan, 5=May, 7=July, ...
+      let month = randomFrom(monthChoices);
+      let day = faker.number.int({min:1,max:28});
+      createdAt = new Date(year, month-1, day).toISOString();
       const firstClassDate = createdAt;
       const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
       packages.push({
@@ -510,6 +499,18 @@ students.forEach(student => {
       });
     }
   } else {
+    // KL/Johor/others: distribute packages randomly, allow May/June, keep counts roughly equal
+    // We'll assign half to May, half to June, rest to other months
+    let mayJune = [];
+    let otherMonths = [];
+    let mayCount = Math.floor(n/2);
+    let juneCount = Math.floor(n/2);
+    let rest = n - (mayCount + juneCount);
+    for (let i = 0; i < mayCount; i++) mayJune.push('may');
+    for (let i = 0; i < juneCount; i++) mayJune.push('june');
+    for (let i = 0; i < rest; i++) otherMonths.push('other');
+    // Shuffle order
+    let monthOrder = faker.helpers.shuffle([...mayJune, ...otherMonths]);
     for (let i = 0; i < n; i++) {
       const pt = randomFrom(packageTypes);
       const total = pt.totalClasses;
@@ -521,21 +522,17 @@ students.forEach(student => {
           activeAssigned = true;
         }
       }
-      if (underperformingStudentIds.includes(student.id)) {
-        // Penang: simulate dip in June 2025
-        if (mayBoost && i === 0) {
-          createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
-        } else if (skipJune) {
-          if (Math.random() < 0.5) {
-            createdAt = faker.date.between({from: '2024-01-01', to: '2025-05-31'}).toISOString();
-          } else {
-            createdAt = faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString();
-          }
-        } else {
-          createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
-        }
+      if (monthOrder[i] === 'may') {
+        createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
+      } else if (monthOrder[i] === 'june') {
+        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
       } else {
-        createdAt = faker.date.past().toISOString();
+        // Pick a random month except May/June
+        let year = 2025;
+        let monthChoices = [1,2,3,4,7,8,9,10,11,12];
+        let month = randomFrom(monthChoices);
+        let day = faker.number.int({min:1,max:28});
+        createdAt = new Date(year, month-1, day).toISOString();
       }
       const firstClassDate = createdAt;
       const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
