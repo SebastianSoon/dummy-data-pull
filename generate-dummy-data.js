@@ -462,21 +462,32 @@ students.forEach(student => {
   let activeAssigned = false;
   // If this student is in a Monday class, all packages inactive
   const mondayInactive = mondayStudentIds.includes(student.id);
-  // Penang (underperforming) students: simulate package purchase decline in June 2025
+  // Penang (underperforming) students: simulate moderate package purchase decline
   // KL and Johor: keep May/June 2025 sales steady
   const studentBranch = students.find(s => s.id === student.id)?.branchId;
   if (studentBranch === 'b2') {
-    // Penang: Max 2 packages, only 'Trial', 1 in April, maybe 1 in May, almost none in June
-    const trialType = packageTypes.find(pt => pt.name === 'Trial');
-    let penangPkgCount = faker.number.int({ min: 1, max: 2 });
+    // Penang: About half the packages of other branches, all package types allowed
+    // Reduce from original n to about half
+    let penangPkgCount = Math.max(1, Math.floor(n / 2));
+    // Allow all package types, not just Trial
     let monthOrder = [];
-    if (penangPkgCount === 2) {
-      monthOrder = ['april', Math.random() < 0.7 ? 'may' : 'june']; // 70% chance for May, 30% for June
-    } else {
-      monthOrder = ['april'];
-    }
+    // Distribute across months with moderate decline: 40% other months, 40% may, 20% june
+    let mayCount = Math.floor(penangPkgCount * 0.40);
+    let juneCount = Math.floor(penangPkgCount * 0.25);
+    let otherCount = penangPkgCount - (mayCount + juneCount);
+    
+    for (let i = 0; i < mayCount; i++) monthOrder.push('may');
+    for (let i = 0; i < juneCount; i++) monthOrder.push('june');
+    for (let i = 0; i < otherCount; i++) monthOrder.push('other');
+    
+    // Shuffle the order
+    monthOrder = faker.helpers.shuffle(monthOrder);
+    
     for (let i = 0; i < penangPkgCount; i++) {
-      const pt = trialType;
+      // Allow all package types for Penang, but favor Trial and Standard
+      const pt = Math.random() < 0.6 ? 
+        randomFrom(packageTypes.filter(p => ['Trial', 'Standard'].includes(p.name))) : 
+        randomFrom(packageTypes);
       const total = pt.totalClasses;
       let classRemaining = 0;
       let createdAt;
@@ -486,13 +497,17 @@ students.forEach(student => {
           activeAssigned = true;
         }
       }
-      if (monthOrder[i] === 'april') {
-        createdAt = faker.date.between({from: '2025-04-01', to: '2025-04-30'}).toISOString();
-      } else if (monthOrder[i] === 'may') {
+      if (monthOrder[i] === 'may') {
         createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
-      } else {
-        // Only a tiny fraction in June
+      } else if (monthOrder[i] === 'june') {
         createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
+      } else {
+        // Pick a random month except May/June, but still in 2025
+        let year = 2025;
+        let monthChoices = [1,2,3,4,7,8,9,10,11,12];
+        let month = randomFrom(monthChoices);
+        let day = faker.number.int({min:1,max:28});
+        createdAt = new Date(year, month-1, day).toISOString();
       }
       const firstClassDate = createdAt;
       // Expired at: only in 2025
@@ -511,13 +526,14 @@ students.forEach(student => {
       });
     }
   } else {
-    // KL/Johor/others: distribute packages randomly, allow May/June, keep counts roughly equal
-    // We'll assign half to May, half to June, rest to other months
+    // KL/Johor/others: distribute packages with June decline
+    // Ensure June has fewer sales than May: 40% May, 25% June, 35% other months
+    let mayCount = Math.floor(n * 0.40);
+    let juneCount = Math.floor(n * 0.25);
+    let rest = n - (mayCount + juneCount);
+    
     let mayJune = [];
     let otherMonths = [];
-    let mayCount = Math.floor(n/2);
-    let juneCount = Math.floor(n/2);
-    let rest = n - (mayCount + juneCount);
     for (let i = 0; i < mayCount; i++) mayJune.push('may');
     for (let i = 0; i < juneCount; i++) mayJune.push('june');
     for (let i = 0; i < rest; i++) otherMonths.push('other');
