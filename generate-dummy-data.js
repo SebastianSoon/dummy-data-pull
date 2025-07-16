@@ -475,62 +475,82 @@ students.forEach(student => {
     // If boosting May, add an extra package for May
     if (mayBoost) n += 1;
   }
-  for (let i = 0; i < n; i++) {
-    const pt = randomFrom(packageTypes);
-    const total = pt.totalClasses;
-    let classRemaining = 0;
-    let createdAt;
-    if (!mondayInactive) {
-      // Only one package can be active (classRemaining > 0)
-      if (!activeAssigned && (i === n - 1 || Math.random() < 0.5)) {
-        classRemaining = faker.number.int({ min: 1, max: total });
-        activeAssigned = true;
+  if (studentBranch === 'b1' || studentBranch === 'b3') {
+    // KL/Johor: split packages evenly between May and June, extra goes to May
+    const mayCount = Math.ceil(n / 2);
+    const juneCount = Math.floor(n / 2);
+    for (let i = 0; i < n; i++) {
+      const pt = randomFrom(packageTypes);
+      const total = pt.totalClasses;
+      let classRemaining = 0;
+      let createdAt;
+      if (!mondayInactive) {
+        if (!activeAssigned && (i === n - 1 || Math.random() < 0.5)) {
+          classRemaining = faker.number.int({ min: 1, max: total });
+          activeAssigned = true;
+        }
       }
-    }
-    if (underperformingStudentIds.includes(student.id)) {
-      // Penang: simulate dip in June 2025
-      if (mayBoost && i === 0) {
-        // First package for May 2025
+      if (i < mayCount) {
         createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
-      } else if (skipJune) {
-        // Distribute packages before or after June 2025
-        if (Math.random() < 0.5) {
-          // Before June 2025
-          createdAt = faker.date.between({from: '2024-01-01', to: '2025-05-31'}).toISOString();
+      } else {
+        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
+      }
+      const firstClassDate = createdAt;
+      const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
+      packages.push({
+        id: `pkg${packageId++}`,
+        studentId: student.id,
+        packageTypeId: pt.id,
+        firstClassDate: createdAt,
+        expiredAt,
+        classRemaining,
+        isDeleted: false,
+        createdAt: createdAt,
+        updatedAt: faker.date.recent().toISOString()
+      });
+    }
+  } else {
+    for (let i = 0; i < n; i++) {
+      const pt = randomFrom(packageTypes);
+      const total = pt.totalClasses;
+      let classRemaining = 0;
+      let createdAt;
+      if (!mondayInactive) {
+        if (!activeAssigned && (i === n - 1 || Math.random() < 0.5)) {
+          classRemaining = faker.number.int({ min: 1, max: total });
+          activeAssigned = true;
+        }
+      }
+      if (underperformingStudentIds.includes(student.id)) {
+        // Penang: simulate dip in June 2025
+        if (mayBoost && i === 0) {
+          createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
+        } else if (skipJune) {
+          if (Math.random() < 0.5) {
+            createdAt = faker.date.between({from: '2024-01-01', to: '2025-05-31'}).toISOString();
+          } else {
+            createdAt = faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString();
+          }
         } else {
-          // After June 2025
-          createdAt = faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString();
+          createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
         }
       } else {
-        // Allow a rare June package
-        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
+        createdAt = faker.date.past().toISOString();
       }
-    } else if (studentBranch === 'b1' || studentBranch === 'b3') {
-      // KL (b1) and Johor (b3): ensure steady May/June 2025 sales
-      // 50% chance for a package in May, 50% in June
-      if (Math.random() < 0.5) {
-        createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
-      } else {
-        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
-      }
-    } else {
-      // Normal distribution for other students
-      createdAt = faker.date.past().toISOString();
+      const firstClassDate = createdAt;
+      const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
+      packages.push({
+        id: `pkg${packageId++}`,
+        studentId: student.id,
+        packageTypeId: pt.id,
+        firstClassDate: createdAt,
+        expiredAt,
+        classRemaining,
+        isDeleted: false,
+        createdAt: createdAt,
+        updatedAt: faker.date.recent().toISOString()
+      });
     }
-    // Ensure firstClassDate and createdAt are always the same
-    const firstClassDate = createdAt;
-    const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
-    packages.push({
-      id: `pkg${packageId++}`,
-      studentId: student.id,
-      packageTypeId: pt.id,
-      firstClassDate: createdAt,
-      expiredAt,
-      classRemaining,
-      isDeleted: false,
-      createdAt: createdAt,
-      updatedAt: faker.date.recent().toISOString()
-    });
   }
 });
 
