@@ -465,8 +465,17 @@ students.forEach(student => {
   // Penang (underperforming) students: simulate package purchase decline in June 2025
   // KL and Johor: keep May/June 2025 sales steady
   const studentBranch = students.find(s => s.id === student.id)?.branchId;
-  if (underperformingStudentIds.includes(student.id)) {
-    // Penang underperforming: NO packages in June 2025
+  if (studentBranch === 'b2') {
+    // Penang: Drastic decline from April -> May -> June 2025
+    // 60% of packages in April, 30% in May, 10% in June (or less)
+    let aprilCount = Math.ceil(n * 0.6);
+    let mayCount = Math.floor(n * 0.3);
+    let juneCount = n - (aprilCount + mayCount);
+    let monthOrder = [];
+    for (let i = 0; i < aprilCount; i++) monthOrder.push('april');
+    for (let i = 0; i < mayCount; i++) monthOrder.push('may');
+    for (let i = 0; i < juneCount; i++) monthOrder.push('june');
+    monthOrder = faker.helpers.shuffle(monthOrder);
     for (let i = 0; i < n; i++) {
       const pt = randomFrom(packageTypes);
       const total = pt.totalClasses;
@@ -478,12 +487,14 @@ students.forEach(student => {
           activeAssigned = true;
         }
       }
-      // Pick a random month, but skip June 2025
-      let year = 2025;
-      let monthChoices = [1,2,3,4,5,7,8,9,10,11,12]; // 1=Jan, 5=May, 7=July, ...
-      let month = randomFrom(monthChoices);
-      let day = faker.number.int({min:1,max:28});
-      createdAt = new Date(year, month-1, day).toISOString();
+      if (monthOrder[i] === 'april') {
+        createdAt = faker.date.between({from: '2025-04-01', to: '2025-04-30'}).toISOString();
+      } else if (monthOrder[i] === 'may') {
+        createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
+      } else {
+        // Only a tiny fraction in June
+        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
+      }
       const firstClassDate = createdAt;
       const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
       packages.push({
