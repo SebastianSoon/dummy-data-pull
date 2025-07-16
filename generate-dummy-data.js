@@ -458,16 +458,21 @@ let packageId = 1;
 const packages = [];
 students.forEach(student => {
   // Each student can have 2-5 packages, but only one active (classRemaining > 0)
-  const n = faker.number.int({ min: 2, max: 5 });
+  let n = faker.number.int({ min: 2, max: 5 });
   let activeAssigned = false;
   // If this student is in a Monday class, all packages inactive
   const mondayInactive = mondayStudentIds.includes(student.id);
   // Simulate package purchase decline in June 2025 for underperforming coach's students
   // Most of their students will not buy new packages in June 2025
   let skipJune = false;
+  let mayBoost = false;
   if (underperformingStudentIds.includes(student.id)) {
-    // 80% of underperforming coach's students skip June 2025
-    skipJune = Math.random() < 0.8;
+    // 95% of underperforming coach's students skip June 2025
+    skipJune = Math.random() < 0.95;
+    // 80% of underperforming coach's students get a package in May 2025
+    mayBoost = Math.random() < 0.8;
+    // If boosting May, add an extra package for May
+    if (mayBoost) n += 1;
   }
   for (let i = 0; i < n; i++) {
     const pt = randomFrom(packageTypes);
@@ -482,34 +487,39 @@ students.forEach(student => {
       }
     }
     // Assign createdAt: if skipping June, avoid creating any package in June 2025
-    if (skipJune) {
-      // Distribute packages before or after June 2025
-      if (Math.random() < 0.5) {
-        // Before June 2025
-        createdAt = faker.date.between({from: '2024-01-01', to: '2025-05-31'}).toISOString();
+    if (underperformingStudentIds.includes(student.id)) {
+      if (mayBoost && i === 0) {
+        // First package for May 2025
+        createdAt = faker.date.between({from: '2025-05-01', to: '2025-05-31'}).toISOString();
+      } else if (skipJune) {
+        // Distribute packages before or after June 2025
+        if (Math.random() < 0.5) {
+          // Before June 2025
+          createdAt = faker.date.between({from: '2024-01-01', to: '2025-05-31'}).toISOString();
+        } else {
+          // After June 2025
+          createdAt = faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString();
+        }
       } else {
-        // After June 2025
-        createdAt = faker.date.between({from: '2025-07-01', to: '2025-12-31'}).toISOString();
+        // Allow a rare June package
+        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
       }
     } else {
-      // Normal distribution, but bias so that very few underperforming students get June 2025
-      if (underperformingStudentIds.includes(student.id) && Math.random() < 0.1) {
-        createdAt = faker.date.between({from: '2025-06-01', to: '2025-06-30'}).toISOString();
-      } else {
-        createdAt = faker.date.past().toISOString();
-      }
+      // Normal distribution for other students
+      createdAt = faker.date.past().toISOString();
     }
+    // Ensure firstClassDate and createdAt are always the same
     const firstClassDate = createdAt;
     const expiredAt = classRemaining === 0 && Math.random() < 0.5 ? faker.date.future().toISOString() : '';
     packages.push({
       id: `pkg${packageId++}`,
       studentId: student.id,
       packageTypeId: pt.id,
-      firstClassDate,
+      firstClassDate: createdAt,
       expiredAt,
       classRemaining,
       isDeleted: false,
-      createdAt,
+      createdAt: createdAt,
       updatedAt: faker.date.recent().toISOString()
     });
   }
