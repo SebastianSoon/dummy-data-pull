@@ -466,23 +466,22 @@ students.forEach(student => {
   // KL and Johor: keep May/June 2025 sales steady
   const studentBranch = students.find(s => s.id === student.id)?.branchId;
   if (studentBranch === 'b2') {
-    // Penang: Drastic decline from April -> May -> June 2025
-    // 60% of packages in April, 30% in May, 10% in June (or less)
-    let aprilCount = Math.ceil(n * 0.6);
-    let mayCount = Math.floor(n * 0.3);
-    let juneCount = n - (aprilCount + mayCount);
+    // Penang: Max 2 packages, only 'Trial', 1 in April, maybe 1 in May, almost none in June
+    const trialType = packageTypes.find(pt => pt.name === 'Trial');
+    let penangPkgCount = faker.number.int({ min: 1, max: 2 });
     let monthOrder = [];
-    for (let i = 0; i < aprilCount; i++) monthOrder.push('april');
-    for (let i = 0; i < mayCount; i++) monthOrder.push('may');
-    for (let i = 0; i < juneCount; i++) monthOrder.push('june');
-    monthOrder = faker.helpers.shuffle(monthOrder);
-    for (let i = 0; i < n; i++) {
-      const pt = randomFrom(packageTypes);
+    if (penangPkgCount === 2) {
+      monthOrder = ['april', Math.random() < 0.7 ? 'may' : 'june']; // 70% chance for May, 30% for June
+    } else {
+      monthOrder = ['april'];
+    }
+    for (let i = 0; i < penangPkgCount; i++) {
+      const pt = trialType;
       const total = pt.totalClasses;
       let classRemaining = 0;
       let createdAt;
       if (!mondayInactive) {
-        if (!activeAssigned && (i === n - 1 || Math.random() < 0.5)) {
+        if (!activeAssigned && (i === penangPkgCount - 1 || Math.random() < 0.5)) {
           classRemaining = faker.number.int({ min: 1, max: total });
           activeAssigned = true;
         }
