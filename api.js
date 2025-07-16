@@ -403,9 +403,6 @@ app.post('/package-types/by-id', (req, res) => {
 // --- Packages ---
 app.get('/packages', (req, res) => {
   let packages = loaders.packages();
-  if (req.query.studentId) packages = packages.filter(p => p.studentId === req.query.studentId);
-  if (req.query.packageTypeId) packages = packages.filter(p => p.packageTypeId === req.query.packageTypeId);
-  if (req.query.isActive) packages = packages.filter(p => String(p.isActive).toLowerCase() === String(req.query.isActive).toLowerCase());
   res.json(packages);
 });
 app.post('/packages/by-id', (req, res) => {
@@ -445,8 +442,6 @@ app.post('/certs/by-id', (req, res) => {
 // --- User Certs ---
 app.get('/user-certs', (req, res) => {
   let userCerts = loaders.userCerts();
-  if (req.query.userId) userCerts = userCerts.filter(u => u.userId === req.query.userId);
-  if (req.query.certId) userCerts = userCerts.filter(u => u.certId === req.query.certId);
   res.json(userCerts);
 });
 app.post('/user-certs/by-id', (req, res) => {

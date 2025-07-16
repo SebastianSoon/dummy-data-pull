@@ -99,7 +99,7 @@ BRANCHES.forEach(branch => {
   users.push({
     id: `u${userId++}`,
     fullName: faker.person.fullName(),
-    username: faker.internet.userName(),
+    username: faker.internet.username(),
     contact: faker.phone.number('01#########'),
     email: faker.internet.email(),
     password: faker.internet.password(),
@@ -116,7 +116,7 @@ BRANCHES.forEach(branch => {
   users.push({
     id: `u${userId++}`,
     fullName: faker.person.fullName(),
-    username: faker.internet.userName(),
+    username: faker.internet.username(),
     contact: faker.phone.number('01#########'),
     email: faker.internet.email(),
     password: faker.internet.password(),
@@ -365,10 +365,16 @@ students.forEach(student => {
 // ...existing code...
 let skillProgressId = 1;
 const studentSkillProgress = [];
-// Identify the underperforming coach and their students
-const underperformingCoach = users.find(u => u.role === 'coach');
-const underperformingClassIds = swimClasses.filter(c => c.userId === underperformingCoach.id).map(c => c.id);
+// Identify two underperforming coaches and one good performing coach
+const coachUsers = users.filter(u => u.role === 'coach');
+const underperformingCoaches = coachUsers.slice(0,2);
+const goodCoach = coachUsers[coachUsers.length-1];
+const underperformingCoachIds = underperformingCoaches.map(c => c.id);
+const goodCoachId = goodCoach.id;
+const underperformingClassIds = swimClasses.filter(c => underperformingCoachIds.includes(c.userId)).map(c => c.id);
+const goodCoachClassIds = swimClasses.filter(c => c.userId === goodCoachId).map(c => c.id);
 const underperformingStudentIds = enrollments.filter(e => underperformingClassIds.includes(e.classId)).map(e => e.studentId);
+const goodCoachStudentIds = enrollments.filter(e => goodCoachClassIds.includes(e.classId)).map(e => e.studentId);
 
 students.forEach(student => {
   // Find all levels up to and including current
@@ -378,6 +384,10 @@ students.forEach(student => {
   let minSkills = 1, maxSkills = 4;
   if (underperformingStudentIds.includes(student.id)) {
     minSkills = 1; maxSkills = 2; // fewer skills achieved
+  }
+  // If student is taught by good coach, increase skill progress
+  if (goodCoachStudentIds.includes(student.id)) {
+    minSkills = 3; maxSkills = 4; // more skills achieved
   }
   eligibleLevels.forEach((levelId, idx) => {
     const levelSkills = skills.filter(s => s.levelId === levelId);
@@ -507,10 +517,40 @@ swimClassSessions.forEach(session => {
     const coach = users.find(u => u.id === session.userId);
     const headCoaches = users.filter(u => u.role === 'head_coach' && u.id !== coach.id);
     if (headCoaches.length === 0) return; // skip if no head coach
-    
+
     const assessor = randomFrom(headCoaches);
     const level = randomFrom(levels);
     const coachLevel = randomFrom(coachLevels);
+    let result = Math.random() < 0.85;
+    // If underperforming coach, most evaluations fail
+    if (underperformingCoachIds.includes(coach.id)) {
+      result = Math.random() < 0.2; // 80% fail
+    }
+    // If good coach, most evaluations pass
+    if (coach.id === goodCoachId) {
+      result = Math.random() < 0.95; // 95% pass
+    }
+    // Separate positive and negative evaluation comments
+    const positiveComments = [
+      'Coach demonstrated excellent communication with students.',
+      'Lesson plan was well structured and clear.',
+      'Students showed good progress under coach guidance.',
+      'Coach provided helpful feedback to students.',
+      'Coach adapted well to student needs.',
+      'Safety protocols were followed throughout the session.',
+      'Coach showed strong leadership skills.',
+      'Coach maintained positive energy in class.'
+    ];
+    const negativeComments = [
+      'Coach needs to improve time management during sessions.',
+      'Coach struggled to maintain class discipline.',
+      'Lesson objectives were not fully met.',
+      'Coach should work on engaging quieter students.',
+      'Coach was late to the session.',
+      'Coach needs to improve technical explanations.',
+      'Coach did not complete the planned activities.'
+    ];
+    const comment = result ? randomFrom(positiveComments) : randomFrom(negativeComments);
     evaluations.push({
       id: `ev${evaluationId++}`,
       coachId: coach.id,
@@ -519,13 +559,13 @@ swimClassSessions.forEach(session => {
       time: `${faker.number.int({min:8,max:20})}:00`,
       levelId: level.id,
       numberOfStudents: faker.number.int({min:2,max:10}),
-      comments: faker.lorem.sentence(),
+      comments: comment,
       lessonPlanClear: Math.random() < 0.8,
       createdAt: faker.date.past().toISOString(),
       updatedAt: faker.date.recent().toISOString(),
       swimClassSessionId: session.id,
       coachLevelId: coachLevel.id,
-      result: Math.random() < 0.85
+      result
     });
   }
 });
@@ -551,6 +591,12 @@ const writers = [
   { file: 'user_certs.csv', header: Object.keys(userCerts[0]), data: userCerts },
   { file: 'evaluations.csv', header: Object.keys(evaluations[0]), data: evaluations },
 ];
+
+// Print names of special coaches
+console.log('Underperforming Coaches:');
+underperformingCoaches.forEach(c => console.log(`- ${c.fullName} (id: ${c.id})`));
+console.log('Good Performing Coach:');
+console.log(`- ${goodCoach.fullName} (id: ${goodCoach.id})`);
 
 (async () => {
   for (const w of writers) {

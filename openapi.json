@@ -786,13 +786,8 @@
       "get": {
         "operationId": "listPackages",
         "summary": "Get all packages",
-        "description": "Returns a list of all packages. Optional query parameters: studentId, packageTypeId, isActive.",
+        "description": "Returns a list of all packages.",
         "tags": ["Packages"],
-        "parameters": [
-          { "in": "query", "name": "studentId", "schema": { "type": "string" } },
-          { "in": "query", "name": "packageTypeId", "schema": { "type": "string" } },
-          { "in": "query", "name": "isActive", "schema": { "type": "boolean" } }
-        ],
         "responses": { "200": { "description": "List of packages" } }
       }
     },
@@ -902,12 +897,8 @@
       "get": {
         "operationId": "listUserCerts",
         "summary": "Get all user certs",
-        "description": "Returns a list of all user certs. Optional query parameters: userId, certId.",
+        "description": "Returns a list of all user certs",
         "tags": ["User Certs"],
-        "parameters": [
-          { "in": "query", "name": "userId", "schema": { "type": "string" } },
-          { "in": "query", "name": "certId", "schema": { "type": "string" } }
-        ],
         "responses": { "200": { "description": "List of user certs" } }
       }
     },
