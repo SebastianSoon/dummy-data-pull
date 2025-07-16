@@ -13,10 +13,23 @@
       "get": {
         "operationId": "listBranches",
         "summary": "Get all branches",
-        "description": "Returns a list of all branches.\n- No parameters required.\n- Response: Array of branch objects.\n- Example: [ { id: 'b1', name: 'Main Branch', ... }, ... ]",
+        "description": "Returns a list of all branches.\n- No parameters required.\n- Response: Object with total and data array.\n- Example: { total: 3, data: [ { id: 'b1', name: 'Main Branch', ... }, ... ] }",
         "tags": ["Branches"],
         "responses": {
-          "200": { "description": "List of branches" }
+          "200": {
+            "description": "List of branches",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": { "type": "integer" },
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Branch" } }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -50,7 +63,7 @@
       "get": {
         "operationId": "listUsers",
         "summary": "Get all users (staff)",
-        "description": "Returns a list of all users (staff).\n- Optional query parameters:\n  - role (string): Filter by user role.\n  - branchId (string): Filter by branch.\n- Response: Array of user objects.\n- Example: GET /users?role=coach&branchId=b1",
+        "description": "Returns a list of all users (staff).\n- Optional query parameters:\n  - role (string): Filter by user role.\n  - branchId (string): Filter by branch.\n- Response: Object with total and data array.\n- Example: { total: 10, data: [ ... ] }",
         "tags": ["Users"],
         "parameters": [
           {
@@ -65,7 +78,20 @@
           }
         ],
         "responses": {
-          "200": { "description": "List of users" }
+          "200": {
+            "description": "List of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": { "type": "integer" },
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/User" } }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -99,7 +125,7 @@
       "get": {
         "operationId": "listStudents",
         "summary": "Get all students",
-        "description": "Returns a list of all students.\n- Optional query parameters:\n  - levelId (string): Filter by level.\n  - branchId (string): Filter by branch.\n  - status (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).\n- Response: Array of student objects.\n- Example: GET /students?levelId=l1&status=NORMAL",
+        "description": "Returns a list of all students.\n- Optional query parameters:\n  - levelId (string): Filter by level.\n  - branchId (string): Filter by branch.\n  - status (string): Filter by student status (TRIAL, NORMAL, ONHOLD, TERMINATED).\n- Response: Object with total and data array.\n- Example: { total: 100, data: [ ... ] }",
         "tags": ["Students"],
         "parameters": [
           {
@@ -119,7 +145,20 @@
           }
         ],
         "responses": {
-          "200": { "description": "List of students" }
+          "200": {
+            "description": "List of students",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": { "type": "integer" },
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Student" } }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -228,10 +267,23 @@
       "get": {
         "operationId": "listLevels",
         "summary": "Get all levels",
-        "description": "Returns a list of all levels.\n- No parameters required.\n- Response: Array of level objects.\n- Example: [ { id: 'l1', name: 'Beginner', ... }, ... ]",
+        "description": "Returns a list of all levels.\n- No parameters required.\n- Response: Object with total and data array.\n- Example: { total: 10, data: [ ... ] }",
         "tags": ["Levels"],
         "responses": {
-          "200": { "description": "List of levels" }
+          "200": {
+            "description": "List of levels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": { "type": "integer" },
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Level" } }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

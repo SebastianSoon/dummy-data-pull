@@ -53,7 +53,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // --- Branches ---
 app.get('/branches', (req, res) => {
-  res.json(loaders.branches());
+  const data = loaders.branches();
+  res.json({ total: data.length, data });
 });
 
 // --- POST endpoints for ID-based queries ---
@@ -71,10 +72,11 @@ app.get('/users', (req, res) => {
   let users = loaders.users();
   if (req.query.role) users = users.filter(u => u.role === req.query.role);
   if (req.query.branchId) users = users.filter(u => u.branchId === req.query.branchId);
-  res.json(users.map(u => {
+  const data = users.map(u => {
     const branch = loaders.branches().find(b => b.id === u.branchId);
     return { ...u, branchName: branch ? branch.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 
 app.post('/users/by-id', (req, res) => {
@@ -94,11 +96,12 @@ app.get('/students', (req, res) => {
   if (req.query.levelId) students = students.filter(s => s.levelId === req.query.levelId);
   if (req.query.branchId) students = students.filter(s => s.branchId === req.query.branchId);
   if (req.query.status) students = students.filter(s => s.status === req.query.status);
-  res.json(students.map(s => {
+  const data = students.map(s => {
     const branch = loaders.branches().find(b => b.id === s.branchId);
     const level = loaders.levels().find(l => l.id === s.levelId);
     return { ...s, branchName: branch ? branch.name : null, levelName: level ? level.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 
 app.post('/students/by-id', (req, res) => {
@@ -131,7 +134,8 @@ app.post('/students/attendances-by-student', (req, res) => {
 
 // --- Levels & Skills ---
 app.get('/levels', (req, res) => {
-  res.json(loaders.levels());
+  const data = loaders.levels();
+  res.json({ total: data.length, data });
 });
 
 app.post('/levels/by-id', (req, res) => {
@@ -148,15 +152,17 @@ app.post('/levels/skills-by-level', (req, res) => {
 app.get('/skills', (req, res) => {
   let skills = loaders.skills();
   if (req.query.levelId) skills = skills.filter(s => s.levelId === req.query.levelId);
-  res.json(skills.map(skill => {
+  const data = skills.map(skill => {
     const level = loaders.levels().find(l => l.id === skill.levelId);
     return { ...skill, levelName: level ? level.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 
 // --- Class Types ---
 app.get('/class-types', (req, res) => {
-  res.json(loaders.classTypes());
+  const data = loaders.classTypes();
+  res.json({ total: data.length, data });
 });
 
 app.post('/class-types/by-id', (req, res) => {
@@ -186,7 +192,7 @@ app.get('/swim-classes', (req, res) => {
     }
     classes = classes.filter(c => cts.includes(c.classTypeId));
   }
-  res.json(classes.map(c => {
+  const data = classes.map(c => {
     const classType = loaders.classTypes().find(ct => ct.id === c.classTypeId);
     const branch = loaders.branches().find(b => b.id === c.branchId);
     const user = loaders.users().find(u => u.id === c.userId);
@@ -196,7 +202,8 @@ app.get('/swim-classes', (req, res) => {
       branchName: branch ? branch.name : null,
       userName: user ? user.name : null
     };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 
 app.post('/swim-classes/by-id', (req, res) => {
@@ -240,10 +247,11 @@ app.get('/swim-class-sessions', (req, res) => {
   if (req.query.swimClassId) sessions = sessions.filter(s => s.swimClassId === req.query.swimClassId);
   if (req.query.dateFrom) sessions = sessions.filter(s => new Date(s.date) >= new Date(req.query.dateFrom));
   if (req.query.dateTo) sessions = sessions.filter(s => new Date(s.date) <= new Date(req.query.dateTo));
-  res.json(sessions.map(s => {
+  const data = sessions.map(s => {
     const swimClass = loaders.swimClasses().find(c => c.id === s.swimClassId);
     return { ...s, swimClassName: swimClass ? swimClass.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 
 app.post('/swim-class-sessions/by-id', (req, res) => {
@@ -275,11 +283,12 @@ app.get('/enrollments', (req, res) => {
   if (req.query.studentId) enrollments = enrollments.filter(e => e.studentId === req.query.studentId);
   if (req.query.classId) enrollments = enrollments.filter(e => e.classId === req.query.classId);
   if (req.query.active) enrollments = enrollments.filter(e => !e.endAt && !parseBool(e.isDeleted));
-  res.json(enrollments.map(e => {
+  const data = enrollments.map(e => {
     const student = loaders.students().find(s => s.id === e.studentId);
     const swimClass = loaders.swimClasses().find(c => c.id === e.classId);
     return { ...e, studentName: student ? student.name : null, swimClassName: swimClass ? swimClass.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 app.post('/enrollments/by-id', (req, res) => {
   const { enrollmentId } = req.body;
@@ -300,11 +309,12 @@ app.get('/assessments', (req, res) => {
   if (req.query.studentId) assessments = assessments.filter(a => a.studentId === req.query.studentId);
   if (req.query.levelId) assessments = assessments.filter(a => a.levelId === req.query.levelId);
   if (req.query.status) assessments = assessments.filter(a => a.status === req.query.status);
-  res.json(assessments.map(a => {
+  const data = assessments.map(a => {
     const student = loaders.students().find(s => s.id === a.studentId);
     const level = loaders.levels().find(l => l.id === a.levelId);
     return { ...a, studentName: student ? student.name : null, levelName: level ? level.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 app.post('/assessments/by-id', (req, res) => {
   const { assessmentId } = req.body;
@@ -325,11 +335,12 @@ app.get('/attendances', (req, res) => {
   if (req.query.studentId) attendances = attendances.filter(a => a.studentId === req.query.studentId);
   if (req.query.swimClassSessionId) attendances = attendances.filter(a => a.swimClassSessionId === req.query.swimClassSessionId);
   if (req.query.confirmed) attendances = attendances.filter(a => parseBool(a.confirmed) === parseBool(req.query.confirmed));
-  res.json(attendances.map(a => {
+  const data = attendances.map(a => {
     const student = loaders.students().find(s => s.id === a.studentId);
     const swimClassSession = loaders.swimClassSessions().find(s => s.id === a.swimClassSessionId);
     return { ...a, studentName: student ? student.name : null, swimClassSessionName: swimClassSession ? swimClassSession.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 app.post('/attendances/by-id', (req, res) => {
   const { attendanceId } = req.body;
@@ -349,11 +360,12 @@ app.get('/student-skill-progress', (req, res) => {
   let progress = loaders.studentSkillProgress();
   if (req.query.studentId) progress = progress.filter(p => p.studentId === req.query.studentId);
   if (req.query.skillId) progress = progress.filter(p => p.skillId === req.query.skillId);
-  res.json(progress.map(p => {
+  const data = progress.map(p => {
     const student = loaders.students().find(s => s.id === p.studentId);
     const skill = loaders.skills().find(s => s.id === p.skillId);
     return { ...p, studentName: student ? student.fullName : null, skillName: skill ? skill.name : null };
-  }));
+  });
+  res.json({ total: data.length, data });
 });
 
 app.post('/student-skill-progress/by-id', (req, res) => {
@@ -391,7 +403,8 @@ app.listen(PORT, () => {
 
 // --- Package Types ---
 app.get('/package-types', (req, res) => {
-  res.json(loaders.packageTypes());
+  const data = loaders.packageTypes();
+  res.json({ total: data.length, data });
 });
 app.post('/package-types/by-id', (req, res) => {
   const { packageTypeId } = req.body;
@@ -422,7 +435,7 @@ app.get('/packages', (req, res) => {
       return match;
     });
   }
-  res.json(packages);
+  res.json({ total: packages.length, data: packages });
 });
 app.post('/packages/by-id', (req, res) => {
   const { packageId } = req.body;
@@ -438,7 +451,8 @@ app.post('/students/packages-by-student', (req, res) => {
 
 // --- Coach Levels ---
 app.get('/coach-levels', (req, res) => {
-  res.json(loaders.coachLevels());
+  const data = loaders.coachLevels();
+  res.json({ total: data.length, data });
 });
 app.post('/coach-levels/by-id', (req, res) => {
   const { coachLevelId } = req.body;
@@ -449,7 +463,8 @@ app.post('/coach-levels/by-id', (req, res) => {
 
 // --- Certs ---
 app.get('/certs', (req, res) => {
-  res.json(loaders.certs());
+  const data = loaders.certs();
+  res.json({ total: data.length, data });
 });
 app.post('/certs/by-id', (req, res) => {
   const { certId } = req.body;
@@ -460,8 +475,8 @@ app.post('/certs/by-id', (req, res) => {
 
 // --- User Certs ---
 app.get('/user-certs', (req, res) => {
-  let userCerts = loaders.userCerts();
-  res.json(userCerts);
+  let data = loaders.userCerts();
+  res.json({ total: data.length, data });
 });
 app.post('/user-certs/by-id', (req, res) => {
   const { userCertId } = req.body;
@@ -476,7 +491,7 @@ app.get('/evaluations', (req, res) => {
   if (req.query.coachId) evals = evals.filter(e => e.coachId === req.query.coachId);
   if (req.query.assessorId) evals = evals.filter(e => e.assessorId === req.query.assessorId);
   if (req.query.swimClassSessionId) evals = evals.filter(e => e.swimClassSessionId === req.query.swimClassSessionId);
-  res.json(evals);
+  res.json({ total: evals.length, data: evals });
 });
 app.post('/evaluations/by-id', (req, res) => {
   const { evaluationId } = req.body;
