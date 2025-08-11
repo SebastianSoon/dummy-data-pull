@@ -502,3 +502,68 @@ app.post('/evaluations/by-id', (req, res) => {
   if (!ev) return res.status(404).json({ error: 'Not found' });
   res.json({ ...ev });
 });
+
+// Mortgage
+const DATA_PATH = path.join(__dirname, 'mortgages.json');
+
+function loadMortgages() {
+  return JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
+}
+
+// Supported filter fields
+const FILTER_FIELDS = [
+  'lenders', 'ratesType', 'qualifyingLoanAmount', 'fundingRequired', 'scbPriorityClientsOnly',
+  'firstYr', 'secondYr', 'thirdYr', 'fourthYr', 'fifthYr', 'thereafter', 'lockInPeriod',
+  'prepaymentPenaltyWithinLockInPeriod', 'tdsrRateForCalculation', 'legalOrCashRebateSubsidy',
+  'valuationSubsidy', 'freeConversionBenefit', 'remarks1', 'remarks2', 'remarks3'
+];
+
+// GET /mortgages?field=value&...
+app.get('/mortgages', (req, res) => {
+  let mortgages = loadMortgages();
+  // Remove records that only have remark3 and no other fields
+  mortgages = mortgages.filter(m => {
+    const keys = Object.keys(m);
+    return keys.length > 1 || (keys.length === 1 && keys[0] !== 'remark3');
+  });
+
+  // Apply comprehensive filters
+  FILTER_FIELDS.forEach(field => {
+    if (req.query[field] !== undefined) {
+      const param = req.query[field];
+      mortgages = mortgages.filter(m => {
+        // Handle missing field
+        if (m[field] === undefined) return false;
+
+        // Numeric filtering for qualifyingLoanAmount
+        if (field === 'qualifyingLoanAmount') {
+          // Support range: ?qualifyingLoanAmountMin=xxx&qualifyingLoanAmountMax=yyy
+          let val = m[field];
+          if (typeof val === 'string') val = val.replace(/[^\d.]/g, '');
+          val = Number(val);
+          if (req.query.qualifyingLoanAmountMin && val < Number(req.query.qualifyingLoanAmountMin)) return false;
+          if (req.query.qualifyingLoanAmountMax && val > Number(req.query.qualifyingLoanAmountMax)) return false;
+          // If direct param, match exactly
+          if (param && param !== '') return val == Number(param);
+          return true;
+        }
+
+        // Boolean filtering for sCBPriorityClientsOnly
+        if (field === 'sCBPriorityClientsOnly') {
+          let boolVal = String(m[field]).toLowerCase();
+          let paramVal = String(param).toLowerCase();
+          return boolVal === paramVal;
+        }
+
+        // Partial string match for other fields
+        if (typeof m[field] === 'string') {
+          return m[field].toLowerCase().includes(param.toLowerCase());
+        }
+
+        // Fallback to exact match
+        return m[field] == param;
+      });
+    }
+  });
+  res.json(mortgages);
+});
